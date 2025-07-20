@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Site</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 70px;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #0074D9;
+            padding: 10px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+        .logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(0,116,217,0.13), rgba(255,255,255,0.08));
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffd700;
+            background: linear-gradient(90deg, #ffd700, #0074D9);
+        }
+
+        .main-content-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+        .offers-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .carousel-btn {
+            background: transparent;
+            border: none;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .carousel-btn svg {
+            width: 40px;
+            height: 40px;
+        }
+        .offers-container {
+            display: flex;
+            overflow: hidden;
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+        }
+        .offer-card {
+            background: linear-gradient(135deg, #e0ecff, #f8fbff);
+            border-radius: 30px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            padding: 20px;
+            min-width: 100%;
+            transition: transform 0.5s, opacity 0.5s;
+            opacity: 0;
+            position: absolute;
+        }
+        .offer-card.active {
+            position: relative;
+            opacity: 1;
+        }
+        .offer-card h2 {
+            color: #0074D9;
+            font-size: 2em;
+        }
+        .offer-card h4 {
+            font-size: 1.2em;
+            color: #444;
+        }
+        .stars {
+            color: #ffd700;
+            font-size: 1.5em;
+        }
+        .offer-card p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 20px;
+            }
+            .nav-links a {
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+            .offers-container {
+                width: 100%;
+            }
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+            .carousel-btn svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">MyShop</a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Product</a>
+            <a href="#">Information</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+
+    <div class="main-content-left">
+        <div class="offers-carousel">
+            <button class="carousel-btn left" aria-label="Previous Offer">
+                <svg viewBox="0 0 36 36">
+                    <polyline points="24,8 12,18 24,28" fill="none" stroke="#888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="offers-container">
+                <div class="offer-card active">
+                    <h2>Smartphone X1</h2>
+                    <h4>By: TechNova</h4>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                    <p>Powerful smartphone with long battery life and stunning display.</p>
+                </div>
+                <div class="offer-card">
+                    <h2>Wireless Headphones Pro</h2>
+                    <h4>By: SoundMax</h4>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>Experience true wireless freedom and crystal-clear sound quality.</p>
+                </div>
+                <div class="offer-card">
+                    <h2>Eco-Friendly Water Bottle</h2>
+                    <h4>By: GreenLife</h4>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                    <p>Reusable, BPA-free, and keeps your drinks cold for hours.</p>
+                </div>
+            </div>
+            <button class="carousel-btn right" aria-label="Next Offer">
+                <svg viewBox="0 0 36 36">
+                    <polyline points="12,8 24,18 12,28" fill="none" stroke="#888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.offer-card');
+        const leftBtn = document.querySelector('.carousel-btn.left');
+        const rightBtn = document.querySelector('.carousel-btn.right');
+        let current = 0;
+
+        function showCard(idx) {
+            cards[current].classList.remove('active');
+            current = (idx + cards.length) % cards.length;
+            cards[current].classList.add('active');
+        }
+
+        leftBtn.addEventListener('click', () => showCard(current - 1));
+        rightBtn.addEventListener('click', () => showCard(current + 1));
+
+        setInterval(() => showCard(current + 1), 5000);
+    </script>
+</body>
+</html>
