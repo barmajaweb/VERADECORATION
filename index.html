@@ -1,223 +1,381 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My E-commerce Site</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding-top: 70px;
-        }
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #0074D9;
-            padding: 10px 40px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            flex-wrap: wrap;
-        }
-        .logo {
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 10px;
-            background: linear-gradient(90deg, rgba(0,116,217,0.13), rgba(255,255,255,0.08));
-            transition: 0.3s;
-        }
-        .nav-links a:hover {
-            color: #ffd700;
-            background: linear-gradient(90deg, #ffd700, #0074D9);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vira Décaodie</title>
+  <style>
+    /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  border: 5px solid #C9A349; 
+  padding: 20px;
+  background-color: white; 
+  box-sizing: border-box;
+  margin: 0;
+}
 
-        .main-content-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            padding: 20px;
-        }
-        .offers-carousel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            width: 100%;
-            margin-top: 20px;
-        }
-        .carousel-btn {
-            background: transparent;
-            border: none;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        .carousel-btn svg {
-            width: 40px;
-            height: 40px;
-        }
-        .offers-container {
-            display: flex;
-            overflow: hidden;
-            width: 90%;
-            max-width: 1000px;
-            position: relative;
-        }
-        .offer-card {
-            background: linear-gradient(135deg, #e0ecff, #f8fbff);
-            border-radius: 30px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            padding: 20px;
-            min-width: 100%;
-            transition: transform 0.5s, opacity 0.5s;
-            opacity: 0;
-            position: absolute;
-        }
-        .offer-card.active {
-            position: relative;
-            opacity: 1;
-        }
-        .offer-card h2 {
-            color: #0074D9;
-            font-size: 2em;
-        }
-        .offer-card h4 {
-            font-size: 1.2em;
-            color: #444;
-        }
-        .stars {
-            color: #ffd700;
-            font-size: 1.5em;
-        }
-        .offer-card p {
-            font-size: 1em;
-            line-height: 1.5;
-        }
+/* Logo Animation */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 20px;
-            }
-            .nav-links a {
-                font-size: 16px;
-            }
-        }
-        @media (max-width: 480px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .logo {
-                font-size: 20px;
-            }
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-            }
-            .offers-container {
-                width: 100%;
-            }
-            .carousel-btn {
-                width: 40px;
-                height: 40px;
-            }
-            .carousel-btn svg {
-                width: 24px;
-                height: 24px;
-            }
-        }
-    </style>
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid #C9A349; 
+  border-right: 5px solid #C9A349;
+   border-left: 5px solid #C9A349; 
+   height: 80px;
+}
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c2b6c;
+  cursor: pointer;
+  animation: logoEntrance 0.8s ease-out forwards;
+  transition: transform 0.4s ease, color 0.3s ease;
+
+}
+.logo img {
+  width: 150px;
+  height: auto;
+  transition: transform 0.7s ease;
+}
+.logo:hover img {
+  transform: scale(1.1);
+}
+.logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+  color: #b99b6b;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  text-decoration: none;
+  color: #014537;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: bolder;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #b99b6b;
+  transition: width 0.3s ease;
+}
+nav a:hover {
+  color: #b99b6b;
+}
+nav a:hover::after {
+  width: 100%;
+}
+.nav-icons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.nav-icons input {
+  padding: 10px 25px;
+  border: 3px solid #b99b6b;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  width: 42vh;
+  height: 40px;
+
+}
+.nav-icons input::placeholder {
+  color: #b99b6b;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-icons input:focus {
+  outline: none;
+  border-color: #b99b6b;
+  box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
+}
+.btn-connexion {
+  background-color: #014537;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-connexion:hover {
+  background-color: #a48858;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(img/grey.jpg);
+  background-size: cover;
+  padding: 6rem 2rem 3rem;
+  margin-top: 55px;
+  left: 0;
+  right: 0;
+  height: 65vh;
+}
+.headline {
+      text-align: center;
+      font-weight: bold;
+      color: #004d40;
+      position: absolute;
+      margin-top: -140px;
+      margin-left: -20px;
+    }
+
+    .headline span {
+      display: block;
+      text-transform: uppercase;
+      font-size: 32px;
+      text-decoration: underline;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      
+
+
+    }
+
+    .headline span:nth-child(1) {
+      animation-delay: 0.3s;
+      transform: translateX(-10px);
+    }
+
+    .headline span:nth-child(2) {
+      animation-delay: 0.6s;
+      transform: translateX(0px);
+    }
+
+    .headline span:nth-child(3) {
+      animation-delay: 0.9s;
+      transform: translateX(10px);
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero-text {
+      margin-top: 90px;
+  }
+.hero-buttons button {
+  padding: 0.7rem 1.2rem;
+  margin-left: 13rem;
+  border: 5px solid #C9A349;
+  cursor: pointer;
+  border-radius: 18px;
+  width: 130px;
+  font-weight: bolder;
+  margin-top: 90px;
+  background-color:#004d40;
+  color:#C9A349 ;
+  font-size: 19px;
+  transition: 0.7s;
+}
+.hero-buttons button:hover {
+  transform: scale(1.05);
+}
+.hero-img img {
+  width: 1000px;
+  height: 550px;
+  margin-bottom: 50px;
+  
+}
+.triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 120px;
+  margin-top: 90px;
+  margin-left: 10px;
+}
+
+/* Products */
+.products {
+  padding: 2rem;
+}
+.products h2 {
+  margin-bottom: 1rem;
+  font-size: 1.9rem;
+  margin-left: 550px;
+  color: #014537;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  cursor: pointer;
+
+}
+.product-list {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.product-card {
+  width: 200px;
+  margin-left: 6px;
+}
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  height: 200px;
+  cursor: pointer;
+}
+.product-card h4 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  margin-left: 5px;
+  color: #004d40;
+}
+.product-card p {
+  color: #888;
+  font-size: 0.9rem;
+  margin-left: 10vh;
+}
+
+/* Footer */
+.footer {
+  background-color: #014537;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#" class="logo">MyShop</a>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Product</a>
-            <a href="#">Information</a>
-            <a href="#">Contact</a>
-            <a href="#">Login</a>
-        </div>
+  <header class="navbar">
+    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">MEUBLES</a></li>
+        <li><a href="#">DÉCORATION</a></li>
+        <li><a href="#">PACK</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
     </nav>
-
-    <div class="main-content-left">
-        <div class="offers-carousel">
-            <button class="carousel-btn left" aria-label="Previous Offer">
-                <svg viewBox="0 0 36 36">
-                    <polyline points="24,8 12,18 24,28" fill="none" stroke="#888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <div class="offers-container">
-                <div class="offer-card active">
-                    <h2>Smartphone X1</h2>
-                    <h4>By: TechNova</h4>
-                    <div class="stars">⭐⭐⭐⭐☆</div>
-                    <p>Powerful smartphone with long battery life and stunning display.</p>
-                </div>
-                <div class="offer-card">
-                    <h2>Wireless Headphones Pro</h2>
-                    <h4>By: SoundMax</h4>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>Experience true wireless freedom and crystal-clear sound quality.</p>
-                </div>
-                <div class="offer-card">
-                    <h2>Eco-Friendly Water Bottle</h2>
-                    <h4>By: GreenLife</h4>
-                    <div class="stars">⭐⭐⭐⭐☆</div>
-                    <p>Reusable, BPA-free, and keeps your drinks cold for hours.</p>
-                </div>
-            </div>
-            <button class="carousel-btn right" aria-label="Next Offer">
-                <svg viewBox="0 0 36 36">
-                    <polyline points="12,8 24,18 12,28" fill="none" stroke="#888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-        </div>
+    <div class="nav-icons">
+      <input type="text" placeholder="Chercher..." />
+      <button class="btn-connexion">Connexion</button>
     </div>
+  </header>
 
-    <script>
-        const cards = document.querySelectorAll('.offer-card');
-        const leftBtn = document.querySelector('.carousel-btn.left');
-        const rightBtn = document.querySelector('.carousel-btn.right');
-        let current = 0;
+  <section class="hero">
+    <img class="triangle" src="img/triangle.png" alt="">
+    <div class="hero-text">
+      <h1 class="headline">
+      <span>Avec Vera Decoration,</span><br>
+      <span>un seul geste change tout…</span><br>
+      <span>Découvrez la beauté des détails</span>
+      </h1>
+      <div class="hero-buttons">
+        <button class="gold">More</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="img/principale.png" alt="Salon luxueux" />
+    </div>
+  </section>
 
-        function showCard(idx) {
-            cards[current].classList.remove('active');
-            current = (idx + cards.length) % cards.length;
-            cards[current].classList.add('active');
-        }
+  <section class="products">
+    <h2>Nouveaux Article</h2>
+    <div class="product-list">
+      <div class="product-card">
+        <img src="img/img1.jpeg" alt="Salon" />
+        <h4>Nouveau ensemble chic</h4>
+        <p>GQ.1430</p>
+      </div>
+      <div class="product-card">
+        <img src="img/img2.jpeg" alt="Buffet" />
+        <h4>Meubles & armoires</h4>
+        <p>G$ 2030</p>
+      </div>
+      <div class="product-card">
+        <img src="img/img3.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        <p>€74.500</p>
+      </div>
+      <div class="product-card">
+        <img src="img/img4.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        <p>€74.500</p>
+      </div>
+      <div class="product-card">
+        <img src="img/img5.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        <p>€74.500</p>
+      </div>
+      <div class="product-card">
+        <img src="img/img6.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        <p>€74.500</p>
+      </div>
+    </div>
+  </section>
 
-        leftBtn.addEventListener('click', () => showCard(current - 1));
-        rightBtn.addEventListener('click', () => showCard(current + 1));
+  <footer class="footer">
+    <p>&copy; 2025 VIRA Décaodie - Tous droits réservés</p>
+  </footer>
 
-        setInterval(() => showCard(current + 1), 5000);
-    </script>
+  <script>
+    // Scroll effect for navbar
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    document.body.classList.add("scrolled");
+  } else {
+    document.body.classList.remove("scrolled");
+  }
+});
+
+  </script>
 </body>
 </html>
+
