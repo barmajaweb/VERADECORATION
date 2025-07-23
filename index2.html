@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vira Decoration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f8f4ed;
+       border: 5px solid #C9A349;
+       background-image: url('img/grey.jpg');
+    }
+    
+/* Logo Animation */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid #C9A349; 
+  border-right: 5px solid #C9A349;
+   border-left: 5px solid #C9A349; 
+   height: 80px;
+}
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c2b6c;
+  cursor: pointer;
+  animation: logoEntrance 0.8s ease-out forwards;
+  transition: transform 0.4s ease, color 0.3s ease;
+
+}
+.logo img {
+  width: 150px;
+  height: auto;
+  transition: transform 0.7s ease;
+}
+.logo:hover img {
+  transform: scale(1.1);
+}
+.logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+  color: #b99b6b;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  text-decoration: none;
+  color: #014537;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: bolder;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #b99b6b;
+  transition: width 0.3s ease;
+}
+nav a:hover {
+  color: #b99b6b;
+}
+nav a:hover::after {
+  width: 100%;
+}
+.nav-icons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.nav-icons input {
+  padding: 10px 25px;
+  border: 3px solid #b99b6b;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  width: 42vh;
+  height: 40px;
+
+}
+.nav-icons input::placeholder {
+  color: #b99b6b;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-icons input:focus {
+  outline: none;
+  border-color: #b99b6b;
+  box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
+}
+.btn-connexion {
+  background-color: #014537;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-connexion:hover {
+  background-color: #a48858;
+}
+
+/* شاشة التحميل */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* صورة التحميل */
+#preloader img {
+  width: 850px; 
+  animation: shrinkFadeOut 3s ease-in-out forwards;
+  border-radius: 18px;
+}
+
+/* أنيميشن التصغير مع الاختفاء */
+@keyframes shrinkFadeOut {
+  0% {
+    transform: scale(1.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* بعد الأنيميشن، نخفي شاشة التحميل */
+#preloader.hidden {
+  display: none;
+}
+
+    .categories-grid .card:nth-child(1) {
+  background-image: url('img/ourimg.png');
+  background-size: cover;
+  background-position: center;
+
+  }
+  .categories-grid .card:nth-child(2) {
+  background-image: url('img/img6.jpeg');
+  background-size: cover;
+  background-position: center;
+  
+  }
+  .categories-grid .card:nth-child(3) {
+  background-image: url('img/ourimg.png');
+  background-size: cover;
+  background-position: center;
+  
+  }
+  .categories-grid .card:nth-child(4) {
+  background-image: url('img/img6.jpeg');
+  background-size: cover;
+  background-position: center;
+  
+  }
+  .categories-grid .card:nth-child(5) {
+  background-image: url('img/ourimg.png');
+  background-size: cover;
+  background-position: center;
+  
+  }
+  .categories-grid .card:nth-child(6) {
+  background-image: url('img/img6.jpeg');
+  background-size: cover;
+  background-position: center;
+  
+  }
+  .categories-grid .card:nth-child(7) {
+  background-image: url('img/ourimg.png');
+  background-size: cover;
+  background-position: center;
+  
+  }
+
+    .categories-section {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 10vh;
+    }
+    .triangle-left {
+      position: absolute;
+      margin-top: -50px;
+      left: 0;
+      width: 130px;
+    }
+    .triangle-right {
+      position: absolute;
+      margin-top: -60px;
+      right: 0;
+      margin-right: 18px;
+      width: 130px;
+      transform: rotate(120deg);
+    }
+    .or-right {
+      position: absolute;
+      margin-top: -75px;
+      right: 0;
+      width: 200px;
+      margin-right: 34vh;
+      
+    }
+    .or-left{
+      position: absolute;
+      margin-top: -75px;
+      left: 0;
+      width: 200px;
+      margin-left: 40vh;
+      
+    }
+          
+
+    .categories-section h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #004d40;
+      font-weight: bolder;
+      text-transform: uppercase;
+      font-style: italic;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) ;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .categories-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 450px;
+      height: 400px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-content {
+      padding: 1rem;
+      margin-top: 45vh;
+      background-image: url(img/grey.jpg);
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 20%;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #014537;
+      font-weight: bolder;
+      text-transform: uppercase;
+      margin-top: -15px;
+
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0.5rem 0;
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.2rem;
+    }
+
+    .card-buttons button {
+      background-color: #e2c58b;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-left: 23vh;
+    }
+
+    .card-buttons button:hover {
+      background-color: #c4a45c;
+    }
+    .footer {
+  background-color: #014537;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+  </style>
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="preloader">
+    <img src="img/3sec.png" alt="Loading">
+  </div>
+
+  <!-- رأس الموقع -->
+   <header class="navbar">
+    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">MEUBLES</a></li>
+        <li><a href="#">DÉCORATION</a></li>
+        <li><a href="#">PACK</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <input type="text" placeholder="Chercher..." />
+      <button class="btn-connexion">Connexion</button>
+    </div>
+  </header>
+
+  <!-- قسم الفئات -->
+  <section class="categories-section">
+    <img class="triangle-left" src="img/triangle.png" alt="">
+    <img class="triangle-right" src="img/triangle.png" alt="">
+    <img class="or-left" src="img/or.png" alt="">
+    <img class="or-right" src="img/or.png" alt="">
+    <h1>Categories</h1>
+    <div class="categories-grid">
+      
+      <!-- الفئة 1 -->
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Canapé</div>
+          <div class="card-buttons">
+            <button>Détails</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- الفئة 2 -->
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Lustre</div>
+          
+          <div class="card-buttons">
+            
+            <button>Détails</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- الفئة 3 -->
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Living Room</div>
+          
+          <div class="card-buttons">
+          
+            <button>Détails</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- الفئة 4 -->
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Bedroom</div>
+          
+          <div class="card-buttons">
+           
+            <button>Détails</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- الفئة 5 -->
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Dining Room</div>
+         
+          <div class="card-buttons">
+           
+            <button>Détails</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- الفئة 6 -->
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Office</div>
+         
+          <div class="card-buttons">
+            
+            <button>Détails</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- الفئة 7 -->
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Bathroom</div>
+          <div class="card-buttons">
+            
+            <button>Détails</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <footer class="footer">
+    <p>&copy; 2025 VIRA Décoration - Tous droits réservés</p>
+  </footer>
+
+  <!-- JavaScript لإخفاء شاشة التحميل -->
+  <script>
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        document.getElementById("preloader").style.display = "none";
+      }, 3000); // بعد 3 ثواني
+    });
+  </script>
+
+</body>
+</html>
