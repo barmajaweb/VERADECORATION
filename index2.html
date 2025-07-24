@@ -17,6 +17,8 @@
       background-color: #f8f4ed;
        border: 5px solid #C9A349;
        background-image: url('img/grey.jpg');
+      background-size: cover;
+      background-position: center;
     }
     
 /* Logo Animation */
@@ -155,66 +157,72 @@ nav a:hover::after {
 
 /* صورة التحميل */
 #preloader img {
-  width: 850px; 
-  animation: shrinkFadeOut 3s ease-in-out forwards;
-  border-radius: 18px;
+  width: 1500px;
+  height: 800px;
+  margin-top: 40px;
+  animation: stayThenSlide 3s ease-in-out forwards;
 }
 
-/* أنيميشن التصغير مع الاختفاء */
-@keyframes shrinkFadeOut {
+@keyframes stayThenSlide {
   0% {
-    transform: scale(1.8);
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1);
     opacity: 1;
   }
   100% {
-    transform: scale(0.4);
+    transform: translateX(100vw) scale(0.9);
     opacity: 0;
   }
 }
 
-/* بعد الأنيميشن، نخفي شاشة التحميل */
+#preloader.hidden {
+  display: none;
+}
 #preloader.hidden {
   display: none;
 }
 
     .categories-grid .card:nth-child(1) {
-  background-image: url('img/ourimg.png');
+  background-image: url('img/salon.png');
   background-size: cover;
   background-position: center;
 
   }
   .categories-grid .card:nth-child(2) {
-  background-image: url('img/img6.jpeg');
+  background-image: url('img/cuisine.jpeg');
   background-size: cover;
   background-position: center;
   
   }
   .categories-grid .card:nth-child(3) {
-  background-image: url('img/ourimg.png');
+  background-image: url('img/chambre.jpeg');
   background-size: cover;
   background-position: center;
   
   }
   .categories-grid .card:nth-child(4) {
-  background-image: url('img/img6.jpeg');
+  background-image: url('img/salle-bain.jpeg');
   background-size: cover;
   background-position: center;
   
   }
   .categories-grid .card:nth-child(5) {
-  background-image: url('img/ourimg.png');
+  background-image: url('img/salle-manger.jpeg');
   background-size: cover;
   background-position: center;
   
   }
   .categories-grid .card:nth-child(6) {
-  background-image: url('img/img6.jpeg');
+  background-image: url('img/chambre-enfant.jpeg');
   background-size: cover;
   background-position: center;
   
   }
   .categories-grid .card:nth-child(7) {
-  background-image: url('img/ourimg.png');
+  background-image: url('img/bureau.jpeg');
   background-size: cover;
   background-position: center;
   
@@ -225,49 +233,36 @@ nav a:hover::after {
       padding: 2rem;
       margin-top: 10vh;
     }
-    .triangle-left {
-      position: absolute;
-      margin-top: -50px;
-      left: 0;
-      width: 130px;
-    }
-    .triangle-right {
-      position: absolute;
-      margin-top: -60px;
-      right: 0;
-      margin-right: 18px;
-      width: 130px;
-      transform: rotate(120deg);
-    }
     .or-right {
       position: absolute;
       margin-top: -75px;
       right: 0;
-      width: 200px;
-      margin-right: 34vh;
+      width: 600px;
+      height: 200px;
+      margin-right: 5vh;
       
     }
     .or-left{
       position: absolute;
       margin-top: -75px;
       left: 0;
-      width: 200px;
-      margin-left: 40vh;
+      width: 600px;
+      height: 200px;
+      margin-left: 5vh;
+      transform: rotate(180deg);
       
     }
           
 
-    .categories-section h1 {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #004d40;
-      font-weight: bolder;
-      text-transform: uppercase;
-      font-style: italic;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) ;
-      text-decoration: underline;
-      cursor: pointer;
+    .categories-section    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      font-weight: 600;
+      color: #014537;
+      letter-spacing: 2px;
+      text-transform: none;
+      line-height: 1.2;
+      margin-top: -1rem;
     }
 
     .categories-grid {
@@ -276,6 +271,7 @@ nav a:hover::after {
       gap: 2rem;
       justify-content: center;
       padding: 1rem;
+      margin-top: 3rem;
     }
 
     .card {
@@ -283,8 +279,8 @@ nav a:hover::after {
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      width: 450px;
-      height: 400px;
+      width: 600px;
+      height: 450px;
       transition: transform 0.3s ease;
       cursor: pointer;
     }
@@ -295,34 +291,42 @@ nav a:hover::after {
 
     .card-content {
       padding: 1rem;
-      margin-top: 45vh;
+      margin-top: 50vh;
       background-image: url(img/grey.jpg);
       background-size: cover;
       background-position: center;
       width: 100%;
       height: 20%;
+      
     }
 
     .card-title {
-      font-size: 1.3rem;
-      font-weight: bold;
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 600;
       color: #014537;
-      font-weight: bolder;
-      text-transform: uppercase;
-      margin-top: -15px;
+      letter-spacing: 2px;
+      text-transform: none;
+      line-height: 1.2;
+      margin-left: -55vh;
 
     }
-
-    .card-desc {
-      font-size: 0.9rem;
-      color: #555;
-      margin: 0.5rem 0;
+    .categories-grid .card:nth-child(4) .card-title {
+      margin-left: -50vh;
     }
 
+    .categories-grid .card:nth-child(5) .card-title {
+      margin-left: -45vh;
+    }
+    .categories-grid .card:nth-child(6) .card-title {
+      margin-left: -40vh;
+    }
+     
     .card-buttons {
-      display: flex;
-      justify-content: space-between;
       margin-top: 0.2rem;
+      margin-top: -18px;
+      
+      
     }
 
     .card-buttons button {
@@ -330,11 +334,13 @@ nav a:hover::after {
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 20px;
-      font-size: 0.85rem;
       color: white;
       cursor: pointer;
-      transition: background 0.3s ease;
-      margin-left: 23vh;
+      transition:  0.3s ease;
+      margin-left: 55vh;
+      height: 35px;
+      width: 100px;
+      font-weight: bold;
     }
 
     .card-buttons button:hover {
@@ -375,20 +381,18 @@ nav a:hover::after {
   </header>
 
   <!-- قسم الفئات -->
-  <section class="categories-section">
-    <img class="triangle-left" src="img/triangle.png" alt="">
-    <img class="triangle-right" src="img/triangle.png" alt="">
+    <section class="categories-section">
     <img class="or-left" src="img/or.png" alt="">
     <img class="or-right" src="img/or.png" alt="">
-    <h1>Categories</h1>
+    <h1>Catégories</h1>
     <div class="categories-grid">
       
       <!-- الفئة 1 -->
       <div class="card">
         <div class="card-content">
-          <div class="card-title">Canapé</div>
+          <div class="card-title">Salon</div>
           <div class="card-buttons">
-            <button>Détails</button>
+            <button>Voir</button>
           </div>
         </div>
       </div>
@@ -396,11 +400,10 @@ nav a:hover::after {
       <!-- الفئة 2 -->
       <div class="card">
         <div class="card-content">
-          <div class="card-title">Lustre</div>
+          <div class="card-title">Cuisine</div>
           
           <div class="card-buttons">
-            
-            <button>Détails</button>
+            <button>Voir</button>
           </div>
         </div>
       </div>
@@ -408,11 +411,10 @@ nav a:hover::after {
       <!-- الفئة 3 -->
       <div class="card">
         <div class="card-content">
-          <div class="card-title">Living Room</div>
+          <div class="card-title">Chambre</div>
           
           <div class="card-buttons">
-          
-            <button>Détails</button>
+            <button>Voir</button>
           </div>
         </div>
       </div>
@@ -420,11 +422,10 @@ nav a:hover::after {
       <!-- الفئة 4 -->
       <div class="card">
         <div class="card-content">
-          <div class="card-title">Bedroom</div>
+          <div class="card-title">Salle  de bain</div>
           
           <div class="card-buttons">
-           
-            <button>Détails</button>
+            <button>Voir</button>
           </div>
         </div>
       </div>
@@ -432,11 +433,11 @@ nav a:hover::after {
       <!-- الفئة 5 -->
       <div class="card">
         <div class="card-content">
-          <div class="card-title">Dining Room</div>
-         
+          <div class="card-title">Salle à manger</div>
+
           <div class="card-buttons">
            
-            <button>Détails</button>
+            <button>Voir</button>
           </div>
         </div>
       </div>
@@ -444,11 +445,11 @@ nav a:hover::after {
       <!-- الفئة 6 -->
       <div class="card">
         <div class="card-content">
-          <div class="card-title">Office</div>
+          <div class="card-title">Chambre d'enfants</div>
          
           <div class="card-buttons">
-            
-            <button>Détails</button>
+
+            <button>Voir</button>
           </div>
         </div>
       </div>
@@ -456,10 +457,10 @@ nav a:hover::after {
       <!-- الفئة 7 -->
       <div class="card">
         <div class="card-content">
-          <div class="card-title">Bathroom</div>
+          <div class="card-title">Bureau</div>
           <div class="card-buttons">
             
-            <button>Détails</button>
+            <button>Voir</button>
           </div>
         </div>
       </div>
