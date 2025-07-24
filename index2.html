@@ -140,94 +140,6 @@ nav a:hover::after {
 .btn-connexion:hover {
   background-color: #a48858;
 }
-
-/* شاشة التحميل */
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* صورة التحميل */
-#preloader img {
-  width: 1500px;
-  height: 800px;
-  margin-top: 40px;
-  animation: stayThenSlide 3s ease-in-out forwards;
-}
-
-@keyframes stayThenSlide {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  60% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100vw) scale(0.9);
-    opacity: 0;
-  }
-}
-
-#preloader.hidden {
-  display: none;
-}
-#preloader.hidden {
-  display: none;
-}
-
-    .categories-grid .card:nth-child(1) {
-  background-image: url('img/salon.png');
-  background-size: cover;
-  background-position: center;
-
-  }
-  .categories-grid .card:nth-child(2) {
-  background-image: url('img/cuisine.jpeg');
-  background-size: cover;
-  background-position: center;
-  
-  }
-  .categories-grid .card:nth-child(3) {
-  background-image: url('img/chambre.jpeg');
-  background-size: cover;
-  background-position: center;
-  
-  }
-  .categories-grid .card:nth-child(4) {
-  background-image: url('img/salle-bain.jpeg');
-  background-size: cover;
-  background-position: center;
-  
-  }
-  .categories-grid .card:nth-child(5) {
-  background-image: url('img/salle-manger.jpeg');
-  background-size: cover;
-  background-position: center;
-  
-  }
-  .categories-grid .card:nth-child(6) {
-  background-image: url('img/chambre-enfant.jpeg');
-  background-size: cover;
-  background-position: center;
-  
-  }
-  .categories-grid .card:nth-child(7) {
-  background-image: url('img/bureau.jpeg');
-  background-size: cover;
-  background-position: center;
-  
-  }
-
     .categories-section {
       text-align: center;
       padding: 2rem;
@@ -239,7 +151,7 @@ nav a:hover::after {
       right: 0;
       width: 600px;
       height: 200px;
-      margin-right: 5vh;
+      margin-right: -1vh;
       
     }
     .or-left{
@@ -248,7 +160,7 @@ nav a:hover::after {
       left: 0;
       width: 600px;
       height: 200px;
-      margin-left: 5vh;
+      margin-right: -1vh;
       transform: rotate(180deg);
       
     }
@@ -280,7 +192,7 @@ nav a:hover::after {
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       width: 600px;
-      height: 450px;
+      height: 540px;
       transition: transform 0.3s ease;
       cursor: pointer;
     }
@@ -288,15 +200,26 @@ nav a:hover::after {
     .card:hover {
       transform: translateY(-5px);
     }
+    .card-img {
+      width: 100%;
+      height: 460px;
+      
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-position: center;
+
+    }
 
     .card-content {
       padding: 1rem;
-      margin-top: 50vh;
       background-image: url(img/grey.jpg);
       background-size: cover;
       background-position: center;
       width: 100%;
-      height: 20%;
+      height: 80px;
       
     }
 
@@ -330,7 +253,7 @@ nav a:hover::after {
     }
 
     .card-buttons button {
-      background-color: #e2c58b;
+      background-color:  #c4a45c ;
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 20px;
@@ -341,10 +264,12 @@ nav a:hover::after {
       height: 35px;
       width: 100px;
       font-weight: bold;
+      transition: 0.7s ease;
     }
 
     .card-buttons button:hover {
-      background-color: #c4a45c;
+      background-color: #e2c58b;
+      transform: scale(1.1);
     }
     .footer {
   background-color: #014537;
@@ -356,11 +281,6 @@ nav a:hover::after {
   </style>
 </head>
 <body>
-
-  <!-- شاشة التحميل -->
-  <div id="preloader">
-    <img src="img/3sec.png" alt="Loading">
-  </div>
 
   <!-- رأس الموقع -->
    <header class="navbar">
@@ -389,6 +309,7 @@ nav a:hover::after {
       
       <!-- الفئة 1 -->
       <div class="card">
+        <div class="card-img"><img src="img/salon.jpeg" alt=""></div>
         <div class="card-content">
           <div class="card-title">Salon</div>
           <div class="card-buttons">
@@ -399,6 +320,7 @@ nav a:hover::after {
 
       <!-- الفئة 2 -->
       <div class="card">
+        <div class="card-img"><img src="img/cuisine.jpeg" alt=""></div>
         <div class="card-content">
           <div class="card-title">Cuisine</div>
           
@@ -410,6 +332,7 @@ nav a:hover::after {
 
       <!-- الفئة 3 -->
       <div class="card">
+        <div class="card-img"><img src="img/chambre.jpeg" alt=""></div>
         <div class="card-content">
           <div class="card-title">Chambre</div>
           
@@ -421,6 +344,7 @@ nav a:hover::after {
 
       <!-- الفئة 4 -->
       <div class="card">
+        <div class="card-img"><img src="img/salle-bain.jpeg" alt=""></div>
         <div class="card-content">
           <div class="card-title">Salle  de bain</div>
           
@@ -432,6 +356,7 @@ nav a:hover::after {
 
       <!-- الفئة 5 -->
       <div class="card">
+        <div class="card-img"><img src="img/sallemanger.jpeg" alt=""></div>
         <div class="card-content">
           <div class="card-title">Salle à manger</div>
 
@@ -444,6 +369,7 @@ nav a:hover::after {
 
       <!-- الفئة 6 -->
       <div class="card">
+        <div class="card-img"><img src="img/chambreenfant.jpeg" alt=""></div>
         <div class="card-content">
           <div class="card-title">Chambre d'enfants</div>
          
@@ -456,6 +382,7 @@ nav a:hover::after {
 
       <!-- الفئة 7 -->
       <div class="card">
+        <div class="card-img"><img src="img/bureau.jpeg" alt=""></div>
         <div class="card-content">
           <div class="card-title">Bureau</div>
           <div class="card-buttons">
@@ -470,15 +397,6 @@ nav a:hover::after {
   <footer class="footer">
     <p>&copy; 2025 VIRA Décoration - Tous droits réservés</p>
   </footer>
-
-  <!-- JavaScript لإخفاء شاشة التحميل -->
-  <script>
-    window.addEventListener("load", function() {
-      setTimeout(function() {
-        document.getElementById("preloader").style.display = "none";
-      }, 3000); // بعد 3 ثواني
-    });
-  </script>
 
 </body>
 </html>
