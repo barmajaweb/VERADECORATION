@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vira Decoration</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f8f4ed;
+       border: 5px solid #C9A349;
+       background-image: url('img/grey.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  /* Logo Animation */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid #C9A349; 
+  border-right: 5px solid #C9A349;
+   border-left: 5px solid #C9A349; 
+   height: 80px;
+}
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c2b6c;
+  cursor: pointer;
+  animation: logoEntrance 0.8s ease-out forwards;
+  transition: transform 0.4s ease, color 0.3s ease;
+
+}
+.logo img {
+  width: 150px;
+  height: auto;
+  transition: transform 0.7s ease;
+}
+.logo:hover img {
+  transform: scale(1.1);
+}
+.logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+  color: #b99b6b;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  text-decoration: none;
+  color: #014537;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: bolder;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #b99b6b;
+  transition: width 0.3s ease;
+}
+nav a:hover {
+  color: #b99b6b;
+}
+nav a:hover::after {
+  width: 100%;
+}
+.nav-icons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.nav-icons input {
+  padding: 10px 25px;
+  border: 3px solid #b99b6b;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  width: 42vh;
+  height: 40px;
+
+}
+.nav-icons input::placeholder {
+  color: #b99b6b;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-icons input:focus {
+  outline: none;
+  border-color: #b99b6b;
+  box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
+}
+.btn-connexion {
+  background-color: #014537;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-connexion:hover {
+  background-color: #a48858;
+}
+.top {
+   margin-top: 15vh;
+}
+
+.container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      margin-top: 3vh;
+    }
+    
+    
+    
+    .Espase {
+      font-family: 'Playfair Display', serif;
+      font-size: 58px;
+      font-weight: 600;
+      color: #014537;
+      letter-spacing: 2px;
+      text-transform: none;
+      line-height: 1.2;
+      margin-top: -1rem;
+      margin-left: 90vh;
+      cursor: pointer;
+    
+    }
+    .or-left {
+      position: absolute;
+      margin-top: -70px;
+      left: 0;
+      width: 600px;
+      height: 200px;
+      margin-right: -1vh;
+      transform: rotate(180deg);
+      
+    }
+     .or-right {
+      position: absolute;
+      margin-top: -70px;
+      right: 0;
+      width: 600px;
+      height: 200px;
+      margin-right: -1vh;
+      
+    }
+    .card {
+      width: 630px;
+      margin: 20px;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.6);
+      background-color: white;
+      transition: transform 0.7s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img.banner {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    .content {
+      padding: 20px;
+    }
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: serif;
+    }
+    .description {
+       font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #014537;
+      letter-spacing: 2px;
+      text-transform: none;
+      line-height: 1.2;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .section {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .section .box {
+      flex: 1;
+      background-color: #eee;
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      transition: 0.5s;
+    }
+    .section .box:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .section .box img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+    }
+    .section .box .label {
+      padding: 10px;
+      background-color: #c2a060;
+      color: white;
+      font-weight: bold;
+    }
+    .green {
+      background-color: #1d3d37;
+      color: white;
+    }
+    .des2 {
+      color: white;
+    }
+    .green .label {
+      background-color: #4a635e;
+    }
+    .footer {
+  background-color: #014537;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 3vh;
+}
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index2.html">MEUBLES</a></li>
+        <li><a href="index3.html">DÉCORATION</a></li>
+        <li><a href="index4.html">MAGASINS</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <input type="text" placeholder="Chercher..." />
+      <button class="btn-connexion">Connexion</button>
+    </div>
+  </header>
+  <div class="top">
+     <img class="or-left" src="img/or.png" alt="">
+    <img class="or-right" src="img/or.png" alt="">
+    <h1 class="Espase">Espaces</h1>
+
+  </div>
+  <div class="container">
+ 
+
+    <!-- First Card -->
+    <div class="card">
+      <img src="img/inter.jpeg" class="banner" alt="Interior Image">
+      <div class="content">
+        <div class="title">Interieur</div>
+        <div class="description">Minimalist comfort escape your environment with elegance.</div>
+        <div class="section">
+          <div class="box">
+            <div class="label">Tous</div>
+            <img src="img/tous-int.jpeg" alt="Interior">
+          </div>
+          <div class="box">
+            <div class="label">Swing chair</div>
+            <img src="img/swing-chair.jpeg" alt="Exterior">
+          </div>
+          <div class="box">
+            <div class="label">Tapis</div>
+            <img src="img/tapis.jpeg" alt="Interior2">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Card -->
+    <div class="card green">
+      <img src="img/ext.jpeg" class="banner" alt="Green Banner">
+      <div class="content">
+        <div class="title">Exterieur</div>
+        <div class="description des2">Explore space, grace & luxury in every experience & ambiance.</div>
+        <div class="section">
+          <div class="box">
+            <div class="label">Tous</div>
+            <img src="img/tous-ext.jpeg" alt="Interior Green">
+          </div>
+          <div class="box">
+            <div class="label">Pots de fleurs</div>
+            <img src="img/pots de fleurs.jpeg" alt="Design">
+          </div>
+          <div class="box">
+            <div class="label">Lanterne de jardin</div>
+            <img src="img/jardin.jpeg" alt="Exterior">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer class="footer">
+    <p>&copy; 2025 VIRA Décoration - Tous droits réservés</p>
+  </footer>
+</body>
+</html>
