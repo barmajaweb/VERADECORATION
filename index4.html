@@ -16,7 +16,6 @@ body {
   background-image: url(img/grey.jpg);
   background-size: cover;
   background-position: center;
-  box-sizing: border-box;
   margin: 0;
 }
 @keyframes logoEntrance {
@@ -43,20 +42,10 @@ body {
   padding: 1rem 2rem;
   background-color: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-top: 5px solid #C9A349; 
   border-right: 5px solid #C9A349;
-   border-left: 5px solid #C9A349; 
-   height: 80px;
-}
-.logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #1c2b6c;
-  cursor: pointer;
-  animation: logoEntrance 0.8s ease-out forwards;
-  transition: transform 0.4s ease, color 0.3s ease;
-
+  border-left: 5px solid #C9A349; 
+  height: 80px;
 }
 .logo img {
   width: 150px;
@@ -65,10 +54,6 @@ body {
 }
 .logo:hover img {
   transform: scale(1.1);
-}
-.logo:hover {
-  transform: scale(1.1) rotate(-2deg);
-  color: #b99b6b;
 }
 nav ul {
   list-style: none;
@@ -82,7 +67,6 @@ nav a {
   transition: color 0.3s ease;
   font-weight: bolder;
   font-family: 'Poppins', sans-serif;
-  margin-left: 10px;
 }
 nav a::after {
   content: '';
@@ -109,21 +93,12 @@ nav a:hover::after {
   padding: 10px 25px;
   border: 3px solid #b99b6b;
   border-radius: 18px;
-  transition: all 0.3s ease;
   width: 42vh;
   height: 40px;
-
 }
 .nav-icons input::placeholder {
   color: #b99b6b;
   font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-}
-
-.nav-icons input:focus {
-  outline: none;
-  border-color: #b99b6b;
-  box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
 }
 .btn-connexion {
   background-color: #014537;
@@ -132,85 +107,95 @@ nav a:hover::after {
   padding: 0.6rem 1.1rem;
   border-radius: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 .btn-connexion:hover {
   background-color: #a48858;
 }
 
-
-    .top {
+.top {
    margin-top: 15vh;
 }
-    
-    
-    
-    .Espase {
-      font-family: 'Playfair Display', serif;
-      font-size: 54px;
-      font-weight: 600;
-      color: #014537;
-      letter-spacing: 2px;
-      text-transform: none;
-      line-height: 1.2;
-      margin-top: -1rem;
-      margin-left: 90vh;
-      cursor: pointer;
-    
-    }
-    .or-left {
-      position: absolute;
-      margin-top: -70px;
-      left: 0;
-      width: 600px;
-      height: 200px;
-      margin-right: -1vh;
-      transform: rotate(180deg);
-      
-    }
-     .or-right {
-      position: absolute;
-      margin-top: -70px;
-      right: 0;
-      width: 600px;
-      height: 200px;
-      margin-right: -1vh;
-      
+.Espase {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 600;
+  color: #014537;
+  letter-spacing: 2px;
+  margin-left: 85vh;
+}
+.or-left {
+  position: absolute;
+  margin-top: -70px;
+  left: 0;
+  width: 600px;
+  height: 200px;
+  transform: rotate(180deg);
+}
+.or-right {
+  position: absolute;
+  margin-top: -70px;
+  right: 0;
+  width: 600px;
+  height: 200px;
+}
+
+/* ✅ Select ville */
+#cityFilter {
+  padding:10px; 
+  font-size:16px; 
+  border:2px solid #014537; 
+  border-radius:10px;
+  color:#014537;
+  font-weight:bold;
+  margin-top: 40px;
+  position: relative;   /* أضف هذا */
+  z-index: 1000;        /* وأضف هذا */
+  background-color: white;
+  margin-left: 10vh;
+}
+
+/* ✅ Animation Fade */
+.magasin {
+  background-color: #fff;
+  border: 15px solid #014537;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 640px;
+  height: 590px;
+  cursor: pointer;
+  background-image: url('img/grey.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  
+}
+ .magasin:hover {
+      transform: translateY(-10px);
     }
 
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      margin-top: 10vh;
-    }
+.magasin.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
-    .magasin {
-      background-color: #fff;
-      border: 15px solid #014537;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      width: 640px;
-      height: 590px;
-      cursor: pointer;
-      background-image: url('img/grey.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .magasin:hover {
-      transform: translateY(-5px);
-    }
-
-    .images-row {
-      display: flex;
-      height: 490px;
-    }
-
-    .left-img,
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 10vh;
+}
+.images-row {
+  display: flex;
+  height: 490px;
+}
+ .left-img,
     .right-img {
       background-color: #c5bbab;
       flex: 0.8;
@@ -262,90 +247,72 @@ nav a:hover::after {
       background-size: 130% 139%;
       z-index: 2;
     }
-
-   
-    .badge {
-      position: absolute;
-      top: 80px;
-      left: 50px;
-      background-color:#afa696 ;
-      color: #ffffff;
-      font-weight: bold;
-      padding: 5px 10px;
-      border-radius: 8px;
-      font-size: 19px;
-      z-index: 3;
-      cursor: pointer;
-    }
-
-    .article-name {
-      position: absolute;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.85);
-      color: #70500a;
-      font-weight: bold;
-      padding: 5px 10px;
-      border-radius: 8px;
-      font-size: 16px;
-      z-index: 3;
-      cursor: pointer;
-    }
-
-    .divider {
-      width: 15px;
-      background-color: #014537;
-    }
-
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background-image: url('img/grey.jpg');
-      background-size: cover;
-      background-position: center;
-      font-size: 15px;
-      
-    }
-
-    .info-text {
-      font-family: 'Playfair Display', serif;
-      font-weight: bolder;
-      color: #014537;
-    }
-
-    .info-text span {
-      display: block;
-      font-weight: bolder;
-      color: #222;
-       font-family: 'Playfair Display', serif;
-      
-      color: #014537;
-    }
-
-    .btn {
-      padding: 8px 16px;
-      background: linear-gradient(to right, #C9A349, #b38e3b);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: linear-gradient(to right, #b38e3b, #a27c32);
-    }
-    .footer {
+.badge {
+  position: absolute;
+  top: 80px;
+  left: 50px;
+  background-color:#afa696 ;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 19px;
+  z-index: 3;
+}
+.article-name {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  color: #70500a;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 3;
+}
+.divider {
+  width: 15px;
+  background-color: #014537;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-image: url('img/grey.jpg');
+  background-size: cover;
+  font-size: 15px;
+}
+.info-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: bolder;
+  color: #014537;
+}
+.info-text span {
+  display: block;
+  font-weight: bolder;
+  color: #014537;
+}
+.btn {
+  padding: 8px 16px;
+  background: linear-gradient(to right, #C9A349, #b38e3b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn:hover {
+  background: linear-gradient(to right, #b38e3b, #a27c32);
+}
+.footer {
   background-color: #014537;
   color: #fff;
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
-  margin-bottom: 3vh;
 }
   </style>
 </head>
@@ -371,13 +338,24 @@ nav a:hover::after {
      <img class="or-left" src="img/or.png" alt="">
     <img class="or-right" src="img/or.png" alt="">
     <h1 class="Espase">Magasins</h1>
-
   </div>
+  <div >
+      <select id="cityFilter">
+        <option value="all">Toutes les villes</option>
+        <option value="Casablanca">Casablanca</option>
+        <option value="Rabat">Rabat</option>
+        <option value="Marrakech">Marrakech</option>
+        <option value="Tanger">Tanger</option>
+        <option value="Fes">Fes</option>
+        <option value="Agadir">Agadir</option>
+        <option value="Oujda">Oujda</option>
+        <option value="Tétouan">Tétouan</option>
+      </select>
+    </div>
 
   <div class="grid">
-
     <!-- Magasin 1 -->
-    <div class="magasin">
+    <div class="magasin" data-city="Casablanca">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -397,9 +375,89 @@ nav a:hover::after {
         <button class="btn">Voir plus</button>
       </div>
     </div>
+     <div class="magasin" data-city="Fes">
+      <div class="images-row">
+        <div class="left-img">
+          <span class="badge">Derrière article</span>
+          <span class="article-name">OLO BINA</span>
+          <img src="img/chair.png" alt="magasin">
+        </div>
+        <div class="divider"></div>
+        <div class="right-img">
+          <img src="img/magasin.png" alt="produit">
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-text">
+          <span>Magasin Fes</span>
+          123 Bd Zerktouni · <br> Num: +212 522 123456
+        </div>
+        <button class="btn">Voir plus</button>
+      </div>
+    </div>
+     <div class="magasin" data-city="Tétouan">
+      <div class="images-row">
+        <div class="left-img">
+          <span class="badge">Derrière article</span>
+          <span class="article-name">OLO BINA</span>
+          <img src="img/chair.png" alt="magasin">
+        </div>
+        <div class="divider"></div>
+        <div class="right-img">
+          <img src="img/magasin.png" alt="produit">
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-text">
+          <span>Magasin Tétouan</span>
+          123 Bd Zerktouni · <br> Num: +212 522 123456
+        </div>
+        <button class="btn">Voir plus</button>
+      </div>
+    </div>
+     <div class="magasin" data-city="Agadir">
+      <div class="images-row">
+        <div class="left-img">
+          <span class="badge">Derrière article</span>
+          <span class="article-name">OLO BINA</span>
+          <img src="img/chair.png" alt="magasin">
+        </div>
+        <div class="divider"></div>
+        <div class="right-img">
+          <img src="img/magasin.png" alt="produit">
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-text">
+          <span>Magasin Agadir</span>
+          123 Bd Zerktouni · <br> Num: +212 522 123456
+        </div>
+        <button class="btn">Voir plus</button>
+      </div>
+    </div>
+     <div class="magasin" data-city="Oujda">
+      <div class="images-row">
+        <div class="left-img">
+          <span class="badge">Derrière article</span>
+          <span class="article-name">OLO BINA</span>
+          <img src="img/chair.png" alt="magasin">
+        </div>
+        <div class="divider"></div>
+        <div class="right-img">
+          <img src="img/magasin.png" alt="produit">
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-text">
+          <span>Magasin Oujda</span>
+          123 Bd Zerktouni · <br> Num: +212 522 123456
+        </div>
+        <button class="btn">Voir plus</button>
+      </div>
+    </div>
 
     <!-- Magasin 2 -->
-    <div class="magasin">
+    <div class="magasin" data-city="Rabat">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -421,7 +479,7 @@ nav a:hover::after {
     </div>
 
     <!-- Magasin 3 -->
-    <div class="magasin">
+    <div class="magasin" data-city="Marrakech">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -443,7 +501,7 @@ nav a:hover::after {
     </div>
 
     <!-- Magasin 4 -->
-    <div class="magasin">
+    <div class="magasin" data-city="Tanger">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -463,11 +521,31 @@ nav a:hover::after {
         <button class="btn">Voir plus</button>
       </div>
     </div>
-
   </div>
   
    <footer class="footer">
     <p>&copy; 2025 VIRA Décoration - Tous droits réservés</p>
   </footer>
+
+  <!-- ✅ JavaScript لتصفية المدن -->
+  <script>
+    const cityFilter = document.getElementById('cityFilter');
+    const magasins = document.querySelectorAll('.magasin');
+
+    cityFilter.addEventListener('change', function() {
+      const selectedCity = this.value;
+
+      magasins.forEach(magasin => {
+        const city = magasin.getAttribute('data-city');
+
+        if (selectedCity === 'all' || city === selectedCity) {
+          magasin.classList.remove('hidden');
+        } else {
+          magasin.classList.add('hidden');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+
