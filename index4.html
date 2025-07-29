@@ -3,320 +3,350 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vira Decoration</title>
+  <title>Nos Magasins</title>
   <style>
    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  border: 5px solid #C9A349; 
-  padding: 20px;
-  background-image: url(img/grey.jpg);
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-}
-@keyframes logoEntrance {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(-20px);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+  body {
+    border: 5px solid #C9A349; 
+    padding: 20px;
+    background-image: url(img/grey.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
   }
-}
+  @keyframes logoEntrance {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
 
-/* Navbar */
-.navbar {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #C9A349; 
+    border-right: 5px solid #C9A349;
+    border-left: 5px solid #C9A349; 
+    height: 80px;
+  }
+  .logo img {
+    width: 150px;
+    height: auto;
+    transition: transform 0.7s ease;
+  }
+  .logo:hover img {
+    transform: scale(1.1);
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  nav a {
+    text-decoration: none;
+    color: #014537;
+    position: relative;
+    transition: color 0.3s ease;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: #b99b6b;
+    transition: width 0.3s ease;
+  }
+  nav a:hover {
+    color: #b99b6b;
+  }
+  nav a:hover::after {
+    width: 100%;
+  }
+  .nav-icons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .nav-icons input {
+    padding: 10px 25px;
+    border: 3px solid #b99b6b;
+    border-radius: 18px;
+    width: 42vh;
+    height: 40px;
+  }
+  .nav-icons input::placeholder {
+    color: #b99b6b;
+    font-weight: bold;
+  }
+  .btn-connexion {
+    background-color: #014537;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.1rem;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  .btn-connexion:hover {
+    background-color: #a48858;
+  }
+
+  .top {
+     margin-top: 15vh;
+  }
+  .Espase {
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 600;
+    color: #014537;
+    letter-spacing: 2px;
+    margin-left: 85vh;
+  }
+  .or-left {
+    position: absolute;
+    margin-top: -70px;
+    left: 0;
+    width: 600px;
+    height: 200px;
+    transform: rotate(180deg);
+  }
+  .or-right {
+    position: absolute;
+    margin-top: -70px;
+    right: 0;
+    width: 600px;
+    height: 200px;
+  }
+
+  #cityFilter {
+    padding:10px; 
+    font-size:16px; 
+    border:2px solid #014537; 
+    border-radius:10px;
+    color:#014537;
+    font-weight:bold;
+    background-color: white;
+    margin-top: 40px;
+    margin-left: 150vh;
+    position: relative;
+  }
+
+  /* ✅ القائمة المثبتة */
+  /* ✅ قائمة المدينة المثبتة */
+#stickyCityFilter {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border-top: 5px solid #C9A349; 
-  border-right: 5px solid #C9A349;
-  border-left: 5px solid #C9A349; 
-  height: 80px;
-}
-.logo img {
-  width: 150px;
-  height: auto;
-  transition: transform 0.7s ease;
-}
-.logo:hover img {
-  transform: scale(1.1);
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-nav a {
-  text-decoration: none;
-  color: #014537;
-  position: relative;
-  transition: color 0.3s ease;
-  font-weight: bolder;
-  font-family: 'Poppins', sans-serif;
-}
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -4px;
-  background-color: #b99b6b;
-  transition: width 0.3s ease;
-}
-nav a:hover {
-  color: #b99b6b;
-}
-nav a:hover::after {
-  width: 100%;
-}
-.nav-icons {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-.nav-icons input {
-  padding: 10px 25px;
-  border: 3px solid #b99b6b;
-  border-radius: 18px;
-  width: 42vh;
-  height: 40px;
-}
-.nav-icons input::placeholder {
-  color: #b99b6b;
-  font-weight: bold;
-}
-.btn-connexion {
-  background-color: #014537;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.1rem;
-  border-radius: 15px;
-  cursor: pointer;
-}
-.btn-connexion:hover {
-  background-color: #a48858;
-}
-
-.top {
-   margin-top: 15vh;
-}
-.Espase {
-  font-family: 'Playfair Display', serif;
-  font-size: 54px;
-  font-weight: 600;
-  color: #014537;
-  letter-spacing: 2px;
-  margin-left: 85vh;
-}
-.or-left {
-  position: absolute;
-  margin-top: -70px;
-  left: 0;
-  width: 600px;
-  height: 200px;
-  transform: rotate(180deg);
-}
-.or-right {
-  position: absolute;
-  margin-top: -70px;
-  right: 0;
-  width: 600px;
-  height: 200px;
-}
-
-/* ✅ Select ville */
-#cityFilter {
-  padding:10px; 
-  font-size:16px; 
-  border:2px solid #014537; 
-  border-radius:10px;
-  color:#014537;
-  font-weight:bold;
-  margin-top: 40px;
-  position: relative; 
-  background-color: white;
-  margin-left: 150vh;
-}
-
-/* ✅ Animation Fade */
-.magasin {
-  background-color: #fff;
-  border: 15px solid #014537;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  width: 640px;
-  height: 590px;
-  cursor: pointer;
-  background-image: url('img/grey.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 1;
-  transition: 0.3s ease-in-out;
-  
-}
- .magasin:hover {
-      transform: translateY(-10px);
-    }
-
-.magasin.hidden {
-  opacity: 0;
-  transform: scale(0.95);
-  height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  margin-top: 10vh;
-}
-.images-row {
-  display: flex;
-  height: 490px;
-}
- .left-img,
-    .right-img {
-      background-color: #c5bbab;
-      flex: 0.8;
-      position: relative;
-      overflow: hidden;
-      height: 490px;
-    }
-
-    .right-img {
-      flex: 1.2;
-    }
-
-    .right-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      cursor: pointer;
-      
-    }
-    
-
-    .left-img img {
-      width: 95%;
-      height: 60%;
-      object-fit: cover;
-      margin-top: 18vh;
-      margin-left: 1vh;
-      transition: 0.5s;
-      cursor: pointer;
-    }
-    .left-img img:hover {
-      transform: scale(1.05);
-      
-    }
-
-    .left-img::after,
-    .right-img::after {
-      content: "";
-      position: absolute;
-      top: -1%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background-image: url('img/cadre.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 130% 139%;
-      z-index: 2;
-    }
-.badge {
-  position: absolute;
   top: 80px;
-  left: 50px;
-  background-color:#afa696 ;
-  color: #fff;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 19px;
-  z-index: 3;
-}
-.article-name {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.85);
-  color: #70500a;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 16px;
-  z-index: 3;
-}
-.divider {
-  width: 15px;
-  background-color: #014537;
-}
-.info-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  left: 0;
+  width: 100%;
+  background-color: white;
   padding: 15px 20px;
-  background-image: url('img/grey.jpg');
-  background-size: cover;
-  font-size: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  justify-content: flex-end;
+  border-left: 5px solid #C9A349;
+  border-left: 5px solid #C9A349;
+
+  /* ✅ التحول الأنيق */
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
 }
-.info-text {
-  font-family: 'Playfair Display', serif;
-  font-weight: bolder;
-  color: #014537;
+
+/* ✅ عند إظهاره */
+#stickyCityFilter.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
-.info-text span {
-  display: block;
-  font-weight: bolder;
-  color: #014537;
-}
-.btn {
-  padding: 8px 16px;
-  background: linear-gradient(to right, #C9A349, #b38e3b);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.btn:hover {
-  background: linear-gradient(to right, #b38e3b, #a27c32);
-}
-.footer {
-  background-color: #014537;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
+
+  #stickyCityFilter select {
+    padding:10px; 
+    font-size:16px; 
+    border:2px solid #014537; 
+    border-radius:10px;
+    color:#014537;
+    font-weight:bold;
+    background-color: white;
+    margin-left: 150vh;
+  }
+
+  .magasin {
+    background-color: #fff;
+    border: 15px solid #014537;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 640px;
+    height: 590px;
+    cursor: pointer;
+    background-image: url('img/grey.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+  }
+  .magasin:hover {
+    transform: translateY(-10px);
+  }
+
+  .magasin.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 10vh;
+  }
+  .images-row {
+    display: flex;
+    height: 490px;
+  }
+  .left-img, .right-img {
+    background-color: #c5bbab;
+    flex: 0.8;
+    position: relative;
+    overflow: hidden;
+    height: 490px;
+  }
+  .right-img {
+    flex: 1.2;
+  }
+  .right-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+  .left-img img {
+    width: 95%;
+    height: 60%;
+    object-fit: cover;
+    margin-top: 18vh;
+    margin-left: 1vh;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  .left-img img:hover {
+    transform: scale(1.05);
+  }
+
+  .left-img::after,
+  .right-img::after {
+    content: "";
+    position: absolute;
+    top: -1%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url('img/cadre.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 130% 139%;
+    z-index: 2;
+  }
+
+  .badge {
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    background-color:#afa696 ;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 19px;
+    z-index: 3;
+  }
+  .article-name {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    color: #70500a;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    z-index: 3;
+  }
+  .divider {
+    width: 15px;
+    background-color: #014537;
+  }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-image: url('img/grey.jpg');
+    background-size: cover;
+    font-size: 15px;
+  }
+  .info-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+    color: #014537;
+  }
+  .info-text span {
+    display: block;
+    font-weight: bolder;
+    color: #014537;
+  }
+  .btn {
+    padding: 8px 16px;
+    background: linear-gradient(to right, #C9A349, #b38e3b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: linear-gradient(to right, #b38e3b, #a27c32);
+  }
+  .footer {
+    background-color: #014537;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
   </style>
 </head>
 <body>
-    <header class="navbar">
+  <header class="navbar">
     <div class="logo"><img src="img/logo.png" alt=""></div>
     <nav>
       <ul>
@@ -333,24 +363,39 @@ nav a:hover::after {
     </div>
   </header>
 
-   <div class="top">
-     <img class="or-left" src="img/or.png" alt="">
+  <div class="top">
+    <img class="or-left" src="img/or.png" alt="">
     <img class="or-right" src="img/or.png" alt="">
     <h1 class="Espase">Magasins</h1>
   </div>
-  <div >
-      <select id="cityFilter">
-        <option value="all">Toutes les villes</option>
-        <option value="Casablanca">Casablanca</option>
-        <option value="Rabat">Rabat</option>
-        <option value="Marrakech">Marrakech</option>
-        <option value="Tanger">Tanger</option>
-        <option value="Fes">Fes</option>
-        <option value="Agadir">Agadir</option>
-        <option value="Oujda">Oujda</option>
-        <option value="Tétouan">Tétouan</option>
-      </select>
-    </div>
+
+  <div>
+    <select id="cityFilter">
+      <option value="all">Toutes les villes</option>
+      <option value="Casablanca">Casablanca</option>
+      <option value="Rabat">Rabat</option>
+      <option value="Marrakech">Marrakech</option>
+      <option value="Tanger">Tanger</option>
+      <option value="Fes">Fes</option>
+      <option value="Agadir">Agadir</option>
+      <option value="Oujda">Oujda</option>
+      <option value="Tétouan">Tétouan</option>
+    </select>
+  </div>
+
+  <div id="stickyCityFilter">
+    <select id="stickySelect">
+      <option value="all">Toutes les villes</option>
+      <option value="Casablanca">Casablanca</option>
+      <option value="Rabat">Rabat</option>
+      <option value="Marrakech">Marrakech</option>
+      <option value="Tanger">Tanger</option>
+      <option value="Fes">Fes</option>
+      <option value="Agadir">Agadir</option>
+      <option value="Oujda">Oujda</option>
+      <option value="Tétouan">Tétouan</option>
+    </select>
+  </div>
 
   <div class="grid">
     <!-- Magasin 1 -->
@@ -521,30 +566,59 @@ nav a:hover::after {
       </div>
     </div>
   </div>
-  
-   <footer class="footer">
+
+  <footer class="footer">
     <p>&copy; 2025 VIRA Décoration - Tous droits réservés</p>
   </footer>
 
-  <!-- ✅ JavaScript لتصفية المدن -->
   <script>
-    const cityFilter = document.getElementById('cityFilter');
-    const magasins = document.querySelectorAll('.magasin');
+  const cityFilter = document.getElementById('cityFilter');
+  const stickyFilter = document.getElementById('stickySelect');
+  const magasins = document.querySelectorAll('.magasin');
+  const stickyBar = document.getElementById('stickyCityFilter');
 
-    cityFilter.addEventListener('change', function() {
-      const selectedCity = this.value;
-
-      magasins.forEach(magasin => {
-        const city = magasin.getAttribute('data-city');
-
-        if (selectedCity === 'all' || city === selectedCity) {
-          magasin.classList.remove('hidden');
-        } else {
-          magasin.classList.add('hidden');
-        }
-      });
+  // ✅ تصفية حسب المدينة
+  function filterByCity(value) {
+    magasins.forEach(magasin => {
+      const city = magasin.getAttribute('data-city');
+      if (value === 'all' || city === value) {
+        magasin.classList.remove('hidden');
+      } else {
+        magasin.classList.add('hidden');
+      }
     });
-  </script>
+    cityFilter.value = value;
+    stickyFilter.value = value;
+  }
+
+  cityFilter.addEventListener('change', () => {
+    filterByCity(cityFilter.value);
+  });
+
+  stickyFilter.addEventListener('change', () => {
+    filterByCity(stickyFilter.value);
+  });
+
+  // ✅ إظهار / إخفاء عند التمرير
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+
+    if (scrollTop < lastScrollTop && scrollTop > 200) {
+      // المستخدم يصعد
+      stickyBar.classList.add('show');
+    } else {
+      // المستخدم ينزل أو في الأعلى
+      stickyBar.classList.remove('show');
+    }
+
+    lastScrollTop = scrollTop;
+  });
+</script>
+
+
 </body>
 </html>
+
 
