@@ -304,15 +304,15 @@ nav a:hover::after {
         <div class="title">Interieur</div>
         <div class="description">Minimalist comfort escape your environment with elegance.</div>
         <div class="section">
-          <div class="box">
+          <div onclick="openPage(1)" class="box">
             <div class="label">Tous</div>
             <img src="img/tous-int.jpeg" alt="Interior">
           </div>
-          <div class="box">
+          <div onclick="openPage(2)" class="box">
             <div class="label">Swing chair</div>
             <img src="img/chair.jpeg" alt="Exterior">
           </div>
-          <div class="box">
+          <div onclick="openPage(3)" class="box">
             <div class="label">Tapis</div>
             <img src="img/tapis.jpeg" alt="Interior2">
           </div>
@@ -327,15 +327,15 @@ nav a:hover::after {
         <div class="title">Exterieur</div>
         <div class="description des2">Explore space, grace & luxury in every experience & ambiance.</div>
         <div class="section">
-          <div class="box">
+          <div onclick="openPage(4)" class="box">
             <div class="label">Tous</div>
             <img src="img/tous-ext.jpeg" alt="Interior Green">
           </div>
-          <div class="box">
+          <div onclick="openPage(5)" class="box">
             <div class="label">Pots de fleurs</div>
             <img src="img/fleur.jpeg" alt="Design">
           </div>
-          <div class="box">
+          <div onclick="openPage(6)" class="box">
             <div class="label">Lanterne de jardin</div>
             <img src="img/lamp.jpeg" alt="Exterior">
           </div>
@@ -348,4 +348,21 @@ nav a:hover::after {
     <p>&copy; 2025 VIRA Décoration - Tous droits réservés</p>
   </footer>
 </body>
+  <script>
+    function openPage(x) {
+    if (x == 1) {
+      window.location.href = "index6-4.html";
+    } else if (x == 2) {
+      window.location.href = "index6-5.html";
+    } else if (x == 3) {
+      window.location.href = "index6-2.html";
+    } else if (x == 4) {
+     window.location.href = "index6-3.html";
+    } else if (x == 5) {
+     window.location.href = "index6-1.html";
+    } else if (x == 6) {
+     window.location.href = "index6-6.html";
+    }
+  }
+  </script>
 </html>
