@@ -235,7 +235,7 @@ nav a:hover::after {
   margin: 5vh auto;
   padding: 20px;
   background-color:white;
-  
+  margin-top: 10vh;
   border-radius: 15px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   font-family: 'Poppins', sans-serif;
@@ -267,6 +267,7 @@ nav a:hover::after {
   gap: 20px;
   transition: all 0.5s ease;
   justify-content: center;
+  margin-top: 10vh;
 }
 
 .card {
@@ -423,35 +424,7 @@ nav a:hover::after {
       <button class="btn-connexion">Connexion</button>
     </div>
   </header>
-
-<div class="carousel">
-  <div class="slides" id="slides">
-    <div class="slide">
-      <img src="img/all-salon.jpeg" alt="Image 1">
-      <a href="#" class="button-overlay">Découvrir Plus</a>
-    </div>
-    <div class="slide">
-      <img src="img/sallon2.png" alt="Image 2">
-      <a href="#" class="button-overlay">Voir le Produit</a>
-    </div>
-    <div class="slide">
-      <img src="img/all-salon.jpeg" alt="Image 3">
-      <a href="#" class="button-overlay">En savoir plus</a>
-    </div>
-  </div>
-  <button class="arrow left" onclick="prevSlide()">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#014537" class="size-6" style="transform: rotate(180deg);">
-      <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
-    </svg>
-  </button>
-  <button class="arrow right" onclick="nextSlide()">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#014537" class="size-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
-    </svg>
-  </button>
-</div>
-
-<div class="filters">
+  <div class="filters">
   <h2>Filtrer les produits</h2>
   <label for="city">Ville :</label>
   <select id="city">
@@ -490,6 +463,35 @@ nav a:hover::after {
     <option value="5000">Plus de 3000 DH</option>
   </select>
 </div>
+
+<div class="carousel">
+  <div class="slides" id="slides">
+    <div class="slide">
+      <img src="img/all-salon.jpeg" alt="Image 1">
+      <a href="#" class="button-overlay">Découvrir Plus</a>
+    </div>
+    <div class="slide">
+      <img src="img/sallon2.png" alt="Image 2">
+      <a href="#" class="button-overlay">Voir le Produit</a>
+    </div>
+    <div class="slide">
+      <img src="img/all-salon.jpeg" alt="Image 3">
+      <a href="#" class="button-overlay">En savoir plus</a>
+    </div>
+  </div>
+  <button class="arrow left" onclick="prevSlide()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#014537" class="size-6" style="transform: rotate(180deg);">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+  <button class="arrow right" onclick="nextSlide()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#014537" class="size-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+</div>
+
+
 <div class="filteres">
   <h2>Filtrer les produits</h2>
   <label for="city">Ville :</label>
