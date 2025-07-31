@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vira Decoration</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  border: 5px solid #C9A349; 
+  padding: 20px;
+  background-image: url('img/grey.jpg'); 
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Logo Animation */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid #C9A349; 
+  border-right: 5px solid #C9A349;
+   border-left: 5px solid #C9A349; 
+   height: 80px;
+}
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c2b6c;
+  cursor: pointer;
+  animation: logoEntrance 0.8s ease-out forwards;
+  transition: transform 0.4s ease, color 0.3s ease;
+
+}
+.logo img {
+  width: 150px;
+  height: auto;
+  transition: transform 0.7s ease;
+}
+.logo:hover img {
+  transform: scale(1.1);
+}
+.logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+  color: #b99b6b;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  text-decoration: none;
+  color: #014537;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: bolder;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #b99b6b;
+  transition: width 0.3s ease;
+}
+nav a:hover {
+  color: #b99b6b;
+}
+nav a:hover::after {
+  width: 100%;
+}
+.nav-icons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.nav-icons input {
+  padding: 10px 25px;
+  border: 3px solid #b99b6b;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  width: 42vh;
+  height: 40px;
+
+}
+.nav-icons input::placeholder {
+  color: #b99b6b;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-icons input:focus {
+  outline: none;
+  border-color: #b99b6b;
+  box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
+}
+.btn-connexion {
+  background-color: #014537;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-connexion:hover {
+  background-color: #a48858;
+}
+    .carousel {
+      position: relative;
+      width: 90%;
+      height: 90vh;
+      overflow: hidden;
+      cursor: pointer;
+      margin-left: 10vh;
+      margin-top: 10vh;
+      border-radius: 15px;
+    }
+
+    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+   .size-6 {
+  width: 70px;
+  height: 70px;
+  stroke:  #C9A349; 
+  pointer-events: none; 
+}
+
+.arrow {
+  background-color: #014537;
+  opacity: 0.5;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  color:  #014537;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+.arrow:hover {
+  transform: translateY(-50%) scale(1.07);
+}
+
+.button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #014537;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.slide:hover .button-overlay,
+.button-overlay:hover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.filters {
+  width: 90%;
+  margin: 5vh auto;
+  padding: 20px;
+  background-color:white;
+  margin-top: 10vh;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  padding-left: 15vh;
+}
+.filters h2 {
+  color: #014537;
+  margin-bottom: 20px;
+}
+.filters label {
+  font-weight: bolder;
+  margin-right: 10px;
+  color: #014537;
+  font-size: 20px;
+}
+.filters select, .filters input[type="checkbox"] {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 3px solid #014537;
+  color: #014537;
+  font-weight: bolder;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: all 0.5s ease;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: calc(33.33% - 20px);
+  height: 400px;
+  overflow: hidden;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 1;
+  transform: scale(1);
+  display: flex;
+  cursor: pointer;
+  border: 2.8px solid #b99b6b;
+}
+
+.card.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+   
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+        
+    }
+    .imgg {
+      width: 70%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .card-body {
+      padding: 15px;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background-image: url('img/grey.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-body h3 {
+      margin: 0;
+      color: #014537;
+      font-size: 22px;
+    }
+
+    .card-body .location {
+      color: #014537;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+
+    .card-body .vendeur {
+      color: #014537;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+
+    .card-body .price-btn-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 40px;
+    }
+
+    .card-body .price {
+      color: #C9A349;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .card-body button {
+      background-color: #014537;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 80px;
+      height: 35px;
+      margin-top: 25px;
+    }
+
+    .card-body button:hover {
+      background-color: #a48858;
+    }
+ .filteres {
+  width: 100%;
+  margin: 5vh auto;
+  padding: 20px;
+  background-color: white;
+  opacity: 0;
+  border-left: 5px solid #C9A349;
+  border-right: 5px solid #C9A349;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  padding-left: 40px; /* استبدال 15vh بـ قيمة مناسبة */
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-top: 10.9vh;
+  padding-left: 15vh;
+}
+.filteres.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.filteres h2 {
+  color: #014537;
+  margin-bottom: 20px;
+}
+.filteres label {
+  font-weight: bolder;
+  margin-right: 10px;
+  color: #014537;
+  font-size: 20px;
+}
+.filteres select, .filteres input[type="checkbox"] {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 3px solid #014537;
+  color: #014537;
+  font-weight: bolder;
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index2.html">MEUBLES</a></li>
+        <li><a href="index3.html">DÉCORATION</a></li>
+        <li><a href="index4.html">MAGASINS</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <input type="text" placeholder="Chercher..." />
+      <button class="btn-connexion">Connexion</button>
+    </div>
+  </header>
+  <div class="filters">
+  <h2>Filtrer les produits</h2>
+  <label for="city">Ville :</label>
+  <select id="city">
+    <option value="">Tous les villes</option>
+    <option value="Casablanca">Casablanca</option>
+    <option value="Rabat">Rabat</option>
+    <option value="Marrakech">Marrakech</option>
+    <option value="Fès">Fès</option>
+    <option value="Tanger">Tanger</option>
+  </select>
+
+  <label for="style">Style :</label>
+  <select id="style">
+    <option value="">Tous les styles</option>
+    <option value="Marocain traditionnel">Marocain traditionnel</option>
+    <option value="Moderne">Moderne</option>
+    <option value="Boho chic">Boho chic</option>
+    <option value="Rustique">Rustique</option>
+  </select>
+
+  <label for="price">Prix Max :</label>
+  <select id="price">
+    <option value="">Tous les prix</option>
+    <option value="500">Moins de 500 DH</option>
+    <option value="1000">500 DH - 1000 DH</option>
+    <option value="3000">1000 DH - 3000 DH</option>
+    <option value="5000">Plus de 3000 DH</option>
+  </select>
+</div>
+
+
+
+
+<div class="filteres">
+  <h2>Filtrer les produits</h2>
+  <label for="city">Ville :</label>
+  <select id="citey">
+    <option value="">Tous les villes</option>
+    <option value="Casablanca">Casablanca</option>
+    <option value="Rabat">Rabat</option>
+    <option value="Marrakech">Marrakech</option>
+    <option value="Fès">Fès</option>
+    <option value="Tanger">Tanger</option>
+  </select>
+
+  <label for="style">Style :</label>
+  <select id="styles">
+    <option value="">Tous les styles</option>
+    <option value="Marocain traditionnel">Marocain traditionnel</option>
+    <option value="Moderne">Moderne</option>
+    <option value="Boho chic">Boho chic</option>
+    <option value="Rustique">Rustique</option>
+  </select>
+
+
+  <label for="price">Prix Max :</label>
+  <select id="prices">
+    <option value="">Tous les prix</option>
+    <option value="500">Moins de 500 DH</option>
+    <option value="1000">500 DH - 1000 DH</option>
+    <option value="3000">1000 DH - 3000 DH</option>
+    <option value="5000">Plus de 3000 DH</option>
+  </select>
+</div>
+
+<div class="cards-container" id="cards-container">
+    <div class="card" data-city="Casablanca" data-price="3000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
+      <div class="card-body">
+        <div>
+        <h3>Salon Élégant</h3>
+        <p class="location">Casablanca</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">3000 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Tanger" data-price="3000" data-style="Marocain traditionnel" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+        <div>
+        <h3>Salon Élégant</h3>
+        <p class="location">Tanger</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">3000 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Marrakech" data-price="500" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Marrakech</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">500 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Casablanca" data-price="1000" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
+     
+      <div class="card-body">
+       <div>
+         <h3>Salon Élégant</h3>
+        <p class="location">Casablanca</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+       </div>
+        <div class="price-btn-row">
+          <span class="price">1000 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+       <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Tanger" data-price="1300" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Tanger</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p></div>
+        <div class="price-btn-row">
+          <span class="price">1300 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Marrakech" data-price="600" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Marrakech</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">600 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+     <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Casablanca" data-price="700" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+      <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Casablanca</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+      </div>
+        <div class="price-btn-row">
+          <span class="price">700 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Fès" data-price="4000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Fès</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">4000 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Casablanca" data-price="3000" data-style="Marocain traditionnel" data-color="Beige" data-category="Salon Marocain">
+     
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Casablanca</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">3000 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Fès" data-price="5000" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Fès</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">5000 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Rabat" data-price="10000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+      <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Rabat</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+      </div>
+        <div class="price-btn-row">
+          <span class="price">10000 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+        <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Rabat" data-price="18000" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
+      
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Rabat</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">18000 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    <div class="card" data-city="Rabat" data-price="1500" data-style="Rustique" data-color="Vert" data-category="Tapis">
+      
+      <div class="card-body">
+        <div>
+          <h3>Tapis Rustique</h3>
+        <p class="location">Rabat</p>
+        <p class="vendeur">Vendu par : Artisan Rabat</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">1500 DH</span>
+          <button>Voir</button>
+        </div>
+      </div>
+      <div class="imgg"><img src="img/chair.jpeg" alt="Produit 1"></div>
+    </div>
+    
+  </div>
+ <script>
+ function syncFilters(changedId) {
+  const mapGroup1ToGroup2 = {
+    city: "citey",
+    style: "styles",
+    price: "prices"
+  };
+
+  const mapGroup2ToGroup1 = {
+    citey: "city",
+    styles: "style",
+    prices: "price"
+  };
+
+  if (mapGroup1ToGroup2[changedId]) {
+    const val = document.getElementById(changedId).value;
+    document.getElementById(mapGroup1ToGroup2[changedId]).value = val;
+  } else if (mapGroup2ToGroup1[changedId]) {
+    const val = document.getElementById(changedId).value;
+    document.getElementById(mapGroup2ToGroup1[changedId]).value = val;
+  }
+}
+
+function filterCards() {
+  const city = document.getElementById("city").value;
+  const style = document.getElementById("style").value;
+  const price = document.getElementById("price").value;
+
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const cardCity = card.dataset.city || "";
+    const cardStyle = card.dataset.style || "";
+    const cardPrice = parseInt(card.dataset.price) || 0;
+
+    const matchCity = city === "" || city === cardCity;
+    const matchStyle = style === "" || style === cardStyle;
+
+    let matchPrice = true;
+    if (price === "500") {
+      matchPrice = cardPrice <= 500;
+    } else if (price === "1000") {
+      matchPrice = cardPrice > 500 && cardPrice <= 1000;
+    } else if (price === "3000") {
+      matchPrice = cardPrice > 1000 && cardPrice <= 3000;
+    } else if (price === "5000") {
+      matchPrice = cardPrice > 3000;
+    }
+
+    if (matchCity && matchStyle  && matchPrice) {
+      card.classList.remove("hidden");
+    } else {
+      card.classList.add("hidden");
+    }
+  });
+}
+
+function setupFilterEvents() {
+  const allFilterIds = [
+    "city", "style", "price",
+    "citey", "styles", "prices"
+  ];
+
+  allFilterIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("change", () => {
+        syncFilters(id);
+        filterCards();
+      });
+    }
+  });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  setupFilterEvents();
+  filterCards();
+});
+const stickyBar = document.querySelector('.filteres');
+let lastScrollTop = 200;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+
+    if (scrollTop < lastScrollTop && scrollTop > 300) {
+      
+      stickyBar.classList.add('show');
+    } else {
+      
+      stickyBar.classList.remove('show');
+    }
+
+    lastScrollTop = scrollTop;
+  });
+
+</script>
+</body>
+</html>
