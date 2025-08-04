@@ -140,75 +140,46 @@ nav a:hover::after {
   background-color: #a48858;
 }
 
-    .product-page {
+   .container {
       display: flex;
       flex-direction: row;
-      padding: 40px;
-       background-image: url(img/grey.jpg); 
-      background-size: cover;
-      background-position: center;
-      margin-top: 10vh;
+      gap: 40px;
+      margin-top: 15vh;
+      width: 100%;
+      margin-left: 5%;
     }
-
-    .left {
-      width: 70%;
-      position: relative;
+    .left-column {
+      width: 55%;
+      position: relative; 
     }
-
+    .right-column {
+      width: 45%;
+      padding-top: 25px;
+    }
+    .right-column h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bolder;
+      margin-left: 50px;
+    }
     .main-image {
       width: 100%;
       height: 500px;
-      position: relative;
-      text-align: center;
-    }
-
-    .main-image img {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      opacity: 1;
       object-fit: cover;
-
-
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: opacity 0.3s ease;
+      opacity: 1;
     }
-
-    .main-image.fade-out img {
-      opacity: 0;
-      transform: scale(0.98);
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 30px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-      padding: 10px;
-      cursor: pointer;
-      user-select: none;
-      border-radius: 50%;
-    }
-
-    .arrow.left {
-      left: 10px;
-      width: 40px;
-    }
-
-    .arrow.right {
-      right: 10px;
-    }
-
     .thumbnails {
       display: flex;
       justify-content: center;
       gap: 10px;
       margin-top: 15px;
     }
-
     .thumbnails img {
-      width: 80px;
+       width: 80px;
       height: 60px;
       object-fit: cover;
       border: 2px solid transparent;
@@ -216,42 +187,85 @@ nav a:hover::after {
       border-radius: 5px;
       transition: transform 0.3s;
     }
-
     .thumbnails img:hover {
       transform: scale(1.05);
     }
-
-    .thumbnails img.active {
+    .thumbnails img.selected {
+      border-color: #000;
+    }
+    .color-picker, .size-picker {
+      margin-top: 20px;
+    }
+    .color-picker img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 15%;
+      margin-right: 10px;
+      border: 2px solid transparent;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .color-picker img:hover {
+      transform: scale(1.05);
+    }
+    .color-picker img.selected {
       border-color: black;
     }
-
-    .details {
-      width: 50%;
-      padding-left: 30px;
-      padding-top: 40px;
-      background-color: rgba(255, 255, 255, 0.4);
-      height: 500px;
+    .size-picker button {
+      padding: 8px 16px;
+      margin-right: 10px;
+      background-color: white;
+      border: 1px solid #000;
+      border-radius: 20px;
+      cursor: pointer;
     }
-
-    .details .nom-produit {
-      font-size: 26px;
-      margin-bottom: 10px;
+    .size-picker button.selected {
+      background-color: black;
+      color: white;
+    }
+    #prevArrow, #nextArrow {
+      position: absolute;
+      top: 22%;
+      font-size: 30px;
+      color: black;
+      cursor: pointer;
+      user-select: none;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 5px 10px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+    #prevArrow:hover, #nextArrow:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+    #prevArrow {
+      left: 10px;
+    }
+    #nextArrow {
+      right: 10px;
+    }
+    .nom-magasin {
+      margin-top: 45px;
+    }
+    .nom-magasin span {
+      font-size: 25px;
+      color: #014537;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bolder;
-      margin-left: 50px;
     }
-
     .price {
       font-size: 25px;
       color: #014537;
       margin-bottom: 20px;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bolder;
-      margin-top: 20px;
+      margin-top: 25px;
     }
-
-    .options label {
-      display: block;
+    strong {
       margin-top: 15px;
       margin-bottom: 5px;
       font-family: 'Times New Roman', Times, serif;
@@ -259,16 +273,12 @@ nav a:hover::after {
       color: #014537;
       font-size: 20px;
     }
-
-    .options select {
-      width: 25%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border-radius: 15px;
-      font-family: 'Times New Roman', Times, serif;
+    #selectedColorLabel, #selectedSizeLabel {
+      font-weight: bold;
+      color: black;
       font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
     }
-
     .actions {
       margin-top: 20px;
     }
@@ -286,30 +296,6 @@ nav a:hover::after {
       margin-top: 20px;
       margin-left: 30px;
       font-weight: bold;
-    }
-
-    @media (max-width: 768px) {
-      .product-page {
-        flex-direction: column;
-      }
-
-      .left, .details {
-        width: 100%;
-      }
-
-      .details {
-        padding-left: 0;
-        margin-top: 20px;
-      }
-    }
-    .nom-magasin {
-      margin-top: 40px;
-    }
-    .nom-magasin span {
-      font-size: 20px;
-      color: #014537;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bolder;
     }
     .product-store-info {
   background-color: #fffefb;
@@ -330,6 +316,7 @@ nav a:hover::after {
 .product-store-info p {
   margin: 6px 0;
   font-size: 15px;
+  font-weight: bold;
 }
 
 .product-store-info a {
@@ -361,19 +348,12 @@ nav a:hover::after {
     </div>
   </header>
 
-  <main class="product-page">
-    <div class="left">
-      <div class="main-image" id="mainContainer">
-        <span class="arrow left" onclick="prevImage()">❮</span>
-        <img id="mainPreview" src="img/chambre.jpeg" alt="Canapé principal" />
-        <span class="arrow right" onclick="nextImage()">❯</span>
-      </div>
-      <div class="thumbnails">
-        <img src="img/chambre.jpeg" class="thumb active" onclick="setImage(0)">
-        <img src="img/chair.jpeg" class="thumb" onclick="setImage(1)">
-        <img src="img/salon.jpeg" class="thumb" onclick="setImage(2)">
-        <img src="img/lamp.jpeg" class="thumb" onclick="setImage(3)">
-      </div>
+  <div class="container">
+    <div class="left-column">
+      <img id="mainImage" class="main-image" src="img/bureau.jpeg" alt="Image principale" />
+      <span id="prevArrow">&#10094;</span>
+      <span id="nextArrow">&#10095;</span>
+      <div class="thumbnails" id="thumbnails"></div>
       <div class="product-store-info">
   <h3> Produit : Fauteuil Royal</h3>
   <p><strong>Description :</strong> Fauteuil de luxe avec finition dorée, idéal pour salons marocains modernes.</p>
@@ -389,77 +369,139 @@ nav a:hover::after {
   <p><strong>Email :</strong> art.style@gmail.com</p>
   <p><strong>Facebook :</strong> <a href="https://facebook.com/artstyle.ma" target="_blank">@artstyle.ma</a></p>
 </div>
-
-
     </div>
 
-    <div class="details">
-      <h2 class="nom-produit">Canapé 2 places élégant</h2>
-      <h2 class="nom-magasin"><span>Nom du magasin:</span> xyz Mobilier , casablanca</h2>
+    <div class="right-column">
+      <h2>Canapé Moderne</h2>
+      <h1 class="nom-magasin"><span> Magasin:</span> xyz Mobilier , casablanca</h1>
+      <p class="price">À partir de 1000 DH</p>
+      <p><strong>Couleur:</strong> <span id="selectedColorLabel">Gris</span></p>
+      <div class="color-picker">
+        <img src="img/gris1canape.png" onclick="selectColor('Gris')" class="selected" alt="Gris" />
+        <img src="img/beig1canape.jpeg" onclick="selectColor('Beige')" alt="Beige" />
+        <img src="img/bleu1canape.png" onclick="selectColor('Bleu')" alt="Bleu" />
+      </div>
 
-      <p class="price">À partir de <strong>1000 DH</strong></p>
-
-      <div class="options">
-        <label>Couleur :</label>
-        <select>
-          <option>Gris</option>
-          <option>Bleu</option>
-        </select>
-
-        <label>Taille :</label>
-        <select>
-          <option>Canapé simple</option>
-          <option>Causeuse</option>
-        </select>
+      <p style="margin-top: 2vh;"><strong>Taille:</strong> <span id="selectedSizeLabel">Canapé simple</span></p>
+      <div class="size-picker">
+        <button onclick="selectSize('Canapé simple')" class="selected">Canapé simple</button>
+        <button onclick="selectSize('Causeuse')">Causeuse</button>
+        <button onclick="selectSize('Grand canapé')">Grand canapé</button>
       </div>
       <div class="actions">
         <h1>Livraison:</h1>
-        <p>Livraison gratuite dans tout le Maroc.</p>
+        <p>.............................................................</p>
     </div>
-  </main>
+    </div>
+  </div>
+<script>
+    const images = {
+      'Gris': {
+        'Canapé simple': ['img/gris1canape.png', 'img/gris2canape.png', 'img/gris3canape.png'],
+        'Causeuse': ['img/gris1canape.png', 'img/gris2canape.png', 'img/gris3canape.png'],
+        'Grand canapé': ['img/gris1canape.png', 'img/gris2canape.png', 'img/gris3canape.png']
+      },
+      'Beige': {
+        'Canapé simple': ['img/beig1canape.jpeg', 'img/beig2canape.jpeg', 'img/beig3canape.jpeg'],
+        'Causeuse': ['img/beig1canape.jpeg', 'img/beig2canape.jpeg', 'img/beig3canape.jpeg'],
+        'Grand canapé': ['img/beig1canape.jpeg', 'img/beig2canape.jpeg', 'img/beig3canape.jpeg']
+      },
+      'Bleu': {
+        'Canapé simple': ['img/bleu1canape.png', 'img/bleu2canape.png', 'img/bleu3canape.png'],
+        'Causeuse': ['img/bleu1canape.png', 'img/bleu2canape.png', 'img/bleu3canape.png'],
+        'Grand canapé': ['img/bleu1canape.png', 'img/bleu2canape.png', 'img/bleu3canape.png']
+      }
+    };
 
-  <script>
-    const images = [
-      "img/chambre.jpeg",
-      "img/chair.jpeg",
-      "img/salon.jpeg",
-      "img/lamp.jpeg"
-    ];
-
+    let selectedColor = 'Gris';
+    let selectedSize = 'Canapé simple';
     let currentIndex = 0;
-    const mainImage = document.getElementById("mainPreview");
-    const mainContainer = document.getElementById("mainContainer");
-    const thumbs = document.querySelectorAll(".thumb");
 
-    function updateImage() {
-      
-      mainContainer.classList.add("fade-out");
+    const mainImage = document.getElementById('mainImage');
+    const thumbnails = document.getElementById('thumbnails');
+    const colorImages = document.querySelectorAll('.color-picker img');
+    const sizeButtons = document.querySelectorAll('.size-picker button');
+    const prevArrow = document.getElementById('prevArrow');
+    const nextArrow = document.getElementById('nextArrow');
 
+    function updateGallery() {
+      const currentImages = images[selectedColor][selectedSize];
+      currentIndex = 0;
+
+      mainImage.style.opacity = 0;
       setTimeout(() => {
-        mainImage.src = images[currentIndex];
-        thumbs.forEach((img, i) => {
-          img.classList.toggle("active", i === currentIndex);
-        });
+        mainImage.src = currentImages[currentIndex];
+        mainImage.style.opacity = 1;
+      }, 300);
 
-        mainContainer.classList.remove("fade-out");
-      }, 250);
+      thumbnails.innerHTML = '';
+      currentImages.forEach((imgSrc, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = imgSrc;
+        thumb.classList.add('thumbnail');
+        if (index === 0) thumb.classList.add('selected');
+        thumb.onclick = () => {
+          currentIndex = index;
+          updateMainImage();
+          updateSelectedThumbnail();
+        };
+        thumbnails.appendChild(thumb);
+      });
+
+      document.getElementById('selectedColorLabel').innerText = selectedColor;
+      document.getElementById('selectedSizeLabel').innerText = selectedSize;
+
+      
+      colorImages.forEach(img => img.classList.remove('selected'));
+      [...colorImages].find(img => img.alt === selectedColor)?.classList.add('selected');
+
+      
+      sizeButtons.forEach(btn => btn.classList.remove('selected'));
+      [...sizeButtons].find(btn => btn.innerText === selectedSize)?.classList.add('selected');
     }
 
-    function setImage(index) {
-      currentIndex = index;
-      updateImage();
+    function updateMainImage() {
+      const currentImages = images[selectedColor][selectedSize];
+      mainImage.style.opacity = 0;
+      setTimeout(() => {
+        mainImage.src = currentImages[currentIndex];
+        mainImage.style.opacity = 1;
+      }, 300);
     }
 
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateImage();
+    function updateSelectedThumbnail() {
+      const thumbs = thumbnails.querySelectorAll('img');
+      thumbs.forEach(t => t.classList.remove('selected'));
+      if(thumbs[currentIndex]) thumbs[currentIndex].classList.add('selected');
     }
 
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateImage();
+    function selectColor(color) {
+      selectedColor = color;
+      updateGallery();
     }
+
+    function selectSize(size) {
+      selectedSize = size;
+      updateGallery();
+    }
+
+    prevArrow.addEventListener('click', () => {
+      const currentImages = images[selectedColor][selectedSize];
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      updateMainImage();
+      updateSelectedThumbnail();
+    });
+
+    nextArrow.addEventListener('click', () => {
+      const currentImages = images[selectedColor][selectedSize];
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      updateMainImage();
+      updateSelectedThumbnail();
+    });
+
+    updateGallery();
   </script>
 </body>
 </html>
+
 
