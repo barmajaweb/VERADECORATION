@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vira Decoration</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  border: 5px solid #C9A349; 
+  padding: 20px;
+  background-image: url('img/grey.jpg'); 
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Logo Animation */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid #C9A349; 
+  border-right: 5px solid #C9A349;
+   border-left: 5px solid #C9A349; 
+   height: 80px;
+}
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c2b6c;
+  cursor: pointer;
+  animation: logoEntrance 0.8s ease-out forwards;
+  transition: transform 0.4s ease, color 0.3s ease;
+
+}
+.logo img {
+  width: 150px;
+  height: auto;
+  transition: transform 0.7s ease;
+}
+.logo:hover img {
+  transform: scale(1.1);
+}
+.logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+  color: #b99b6b;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  text-decoration: none;
+  color: #014537;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: bolder;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #b99b6b;
+  transition: width 0.3s ease;
+}
+nav a:hover {
+  color: #b99b6b;
+}
+nav a:hover::after {
+  width: 100%;
+}
+.nav-icons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.nav-icons input {
+  padding: 10px 25px;
+  border: 3px solid #b99b6b;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  width: 42vh;
+  height: 40px;
+
+}
+.nav-icons input::placeholder {
+  color: #b99b6b;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-icons input:focus {
+  outline: none;
+  border-color: #b99b6b;
+  box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
+}
+.btn-connexion {
+  background-color: #014537;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-connexion:hover {
+  background-color: #a48858;
+}
+    .carousel {
+      position: relative;
+      width: 70%;
+      height: 80vh;
+      overflow: hidden;
+      cursor: pointer;
+      margin-left: 10vh;
+      margin-top: 8vh;
+      border-radius: 15px;
+    }
+
+    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+   .size-6 {
+  width: 70px;
+  height: 70px;
+  stroke:  #C9A349; 
+  pointer-events: none; 
+}
+
+.arrow {
+  background-color: #014537;
+  opacity: 0.5;
+  width: 8%;
+  height: 10%;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  color:  #014537;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+.arrow:hover {
+  transform: translateY(-50%) scale(1.07);
+}
+
+.button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #014537;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.slide:hover .button-overlay,
+.button-overlay:hover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.filters {
+  width: 100%;
+  margin: 5vh auto;
+  padding: 20px;
+  background:transparent ;
+  margin-top: 10vh;
+  
+  
+  font-family: 'Poppins', sans-serif;
+  padding-left: 8vh;
+  
+}
+.filters h2 {
+  color: #014537;
+  margin-bottom: 20px;
+}
+.filters label {
+  font-weight: bolder;
+  margin-right: 10px;
+  color: #014537;
+  font-size: 20px;
+}
+.filters select, .filters input[type="checkbox"] {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 3px solid #014537;
+  color: #014537;
+  font-weight: bolder;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: all 0.5s ease;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: calc(33.33% - 20px);
+  overflow: hidden;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 1;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+.card.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+   
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card-body h3 {
+      margin: 0;
+      color: #014537;
+      font-size: 18px;
+    }
+
+    .card-body .location {
+      color: #014537;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .card-body .vendeur {
+      color: #014537;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .card-body .price-btn-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .card-body .price {
+      color: #C9A349;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .card-body button {
+      background-color: #014537;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .card-body button:hover {
+      background-color: #a48858;
+    }
+ .filteres {
+  width: 100%;
+  margin: 5vh auto;
+  padding: 20px;
+  background-color: white;
+  opacity: 0;
+  border-left: 5px solid #C9A349;
+  border-right: 5px solid #C9A349;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  padding-left: 40px; /* استبدال 15vh بـ قيمة مناسبة */
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-top: 10.9vh;
+  padding-left: 15vh;
+}
+.filteres.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.filteres h2 {
+  color: #014537;
+  margin-bottom: 20px;
+}
+.filteres label {
+  font-weight: bolder;
+  margin-right: 10px;
+  color: #014537;
+  font-size: 20px;
+}
+.filteres select, .filteres input[type="checkbox"] {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 3px solid #014537;
+  color: #014537;
+  font-weight: bolder;
+}
+.all {
+  width: 100%;
+  margin: 5vh auto;
+  padding: 20px;
+  
+  display: flex;
+  flex-direction: row;
+  
+}
+.product-store-info {
+  background-color: #fffefb;
+  padding: 20px;
+  border-left: 5px solid #D4AF37;
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  line-height: 1.6;
+  margin-top: 60px;
+  margin-left: 5vh;
+  width: 30%;
+}
+
+.product-store-info h3 {
+  color: #b6862b;
+  margin-top: 10px;
+  margin-left: 6vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 125%;
+}
+
+.product-store-info p {
+  margin: 6px 0;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.product-store-info a {
+  color: #b6862b;
+  text-decoration: none;
+}
+
+.product-store-info a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index2.html">MEUBLES</a></li>
+        <li><a href="index3.html">DÉCORATION</a></li>
+        <li><a href="index4.html">MAGASINS</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <input type="text" placeholder="Chercher..." />
+      <button class="btn-connexion">Connexion</button>
+    </div>
+  </header>
+   <div class="all">
+    <div class="carousel">
+  <div class="slides" id="slides">
+    <div class="slide">
+      <img src="img/sallon2.png" alt="Image 1">
+    </div>
+    <div class="slide">
+      <img src="img/sallon2.png" alt="Image 2">
+      <a href="#" class="button-overlay">Voir le Produit</a>
+    </div>
+    <div class="slide">
+      <img src="img/all-salon.jpeg" alt="Image 3">
+      <a href="#" class="button-overlay">En savoir plus</a>
+    </div>
+  </div>
+  <button class="arrow left" onclick="prevSlide()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#014537" class="size-6" style="transform: rotate(180deg);">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+  <button class="arrow right" onclick="nextSlide()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#014537" class="size-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+</div>
+  <div class="product-store-info">
+
+  <h3> Magasin : Art & Style</h3>
+  <p><strong>Adresse :</strong> 45 Avenue Hassan II, Rabat, Maroc</p>
+  <p><strong>Téléphone :</strong> +212678901234</p>
+  <p><strong>WhatsApp :</strong> <a href="https://wa.me/212678901234" target="_blank">Envoyer un message</a></p>
+  <p><strong>Email :</strong> art.style@gmail.com</p>
+  <p><strong>Facebook :</strong> <a href="https://facebook.com/artstyle.ma" target="_blank">@artstyle.ma</a></p>
+  <p><strong>Description:</strong> <br> Magasin spécialisé dans le mobilier et la décoration d'intérieur, offrant une large gamme de produits de qualité.</p>
+  <p><strong>Livraison :</strong> <br>.........................................................................<br>.........................................................................<br>.........................................................................</p>
+</div>
+</div>
+
+
+
+
+
+<div class="cards-container" id="cards-container">
+    <div onclick="openPage()" class="card" data-city="Casablanca" data-price="3000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+        <h3>Salon Élégant</h3>
+        <p class="location">Casablanca</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">3000 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Tanger" data-price="3000" data-style="Marocain traditionnel" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+        <h3>Salon Élégant</h3>
+        <p class="location">Tanger</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">3000 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Marrakech" data-price="500" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Marrakech</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">500 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Casablanca" data-price="1000" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+       <div>
+         <h3>Salon Élégant</h3>
+        <p class="location">Casablanca</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+       </div>
+        <div class="price-btn-row">
+          <span class="price">1000 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Tanger" data-price="1300" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Tanger</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p></div>
+        <div class="price-btn-row">
+          <span class="price">1300 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Marrakech" data-price="600" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Marrakech</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">600 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Casablanca" data-price="700" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+      <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Casablanca</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+      </div>
+        <div class="price-btn-row">
+          <span class="price">700 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Fès" data-price="4000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Fès</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">4000 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Casablanca" data-price="3000" data-style="Marocain traditionnel" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Casablanca</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">3000 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Fès" data-price="5000" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Fès</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">5000 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Rabat" data-price="10000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+      <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Rabat</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+      </div>
+        <div class="price-btn-row">
+          <span class="price">10000 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Rabat" data-price="18000" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
+      <img src="img/all-salon.jpeg" alt="Produit 1">
+      <div class="card-body">
+        <div>
+          <h3>Salon Élégant</h3>
+        <p class="location">Rabat</p>
+        <p class="vendeur">Vendu par : Maison Luxe</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">18000 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    <div onclick="openPage()" class="card" data-city="Rabat" data-price="1500" data-style="Rustique" data-color="Vert" data-category="Tapis">
+      <img src="img/sallon2.png" alt="Produit 2">
+      <div class="card-body">
+        <div>
+          <h3>Tapis Rustique</h3>
+        <p class="location">Rabat</p>
+        <p class="vendeur">Vendu par : Artisan Rabat</p>
+        </div>
+        <div class="price-btn-row">
+          <span class="price">1500 DH</span>
+          <button onclick="openPage()">Voir</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <script>
+  function openPage() {
+    window.location.href = "index7.html";
+  }
+</script>
+ <script>
+ const slides = document.getElementById('slides');
+  const totalSlides = slides ? slides.children.length : 0;
+  let currentIndex = 0;
+
+  function goToSlide(index) {
+    currentIndex = index;
+    if (slides) slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    goToSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    goToSlide(currentIndex);
+  }
+
+  if (slides) {
+    setInterval(nextSlide, 10000);
+    goToSlide(0);
+  }
+
+</script>
+</body>
+</html>
