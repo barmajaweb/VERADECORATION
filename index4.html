@@ -399,7 +399,7 @@
 
   <div class="grid">
     <!-- Magasin 1 -->
-    <div class="magasin" data-city="Casablanca">
+    <div onclick="openPage()" class="magasin" data-city="Casablanca">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -416,10 +416,10 @@
           <span>Magasin Casablanca</span>
           123 Bd Zerktouni · <br> Num: +212 522 123456
         </div>
-        <button class="btn">Voir plus</button>
+        <button onclick="openPage()" class="btn">Voir plus</button>
       </div>
     </div>
-     <div class="magasin" data-city="Fes">
+     <div onclick="openPage()" class="magasin" data-city="Fes">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -456,10 +456,10 @@
           <span>Magasin Tétouan</span>
           123 Bd Zerktouni · <br> Num: +212 522 123456
         </div>
-        <button class="btn">Voir plus</button>
+        <button onclick="openPage()" class="btn">Voir plus</button>
       </div>
     </div>
-     <div class="magasin" data-city="Agadir">
+     <div onclick="openPage()" class="magasin" data-city="Agadir">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -476,10 +476,10 @@
           <span>Magasin Agadir</span>
           123 Bd Zerktouni · <br> Num: +212 522 123456
         </div>
-        <button class="btn">Voir plus</button>
+        <button onclick="openPage()" class="btn">Voir plus</button>
       </div>
     </div>
-     <div class="magasin" data-city="Oujda">
+     <div onclick="openPage()" class="magasin" data-city="Oujda">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -496,12 +496,12 @@
           <span>Magasin Oujda</span>
           123 Bd Zerktouni · <br> Num: +212 522 123456
         </div>
-        <button class="btn">Voir plus</button>
+        <button onclick="openPage()" class="btn">Voir plus</button>
       </div>
     </div>
 
     <!-- Magasin 2 -->
-    <div class="magasin" data-city="Rabat">
+    <div onclick="openPage()" class="magasin" data-city="Rabat">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -518,12 +518,12 @@
           <span>Magasin Rabat</span>
           Av. Mohammed V · <br> Num: +212 537 654321
         </div>
-        <button class="btn">Voir plus</button>
+        <button onclick="openPage()" class="btn">Voir plus</button>
       </div>
     </div>
 
     <!-- Magasin 3 -->
-    <div class="magasin" data-city="Marrakech">
+    <div onclick="openPage()" class="magasin" data-city="Marrakech">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -540,12 +540,12 @@
           <span>Magasin Marrakech</span>
           Quartier Gueliz ·<br> Num: +212 524 998877
         </div>
-        <button class="btn">Voir plus</button>
+        <button onclick="openPage()" class="btn">Voir plus</button>
       </div>
     </div>
 
     <!-- Magasin 4 -->
-    <div class="magasin" data-city="Tanger">
+    <div onclick="openPage()" class="magasin" data-city="Tanger">
       <div class="images-row">
         <div class="left-img">
           <span class="badge">Derrière article</span>
@@ -562,7 +562,7 @@
           <span>Magasin Tanger</span>
           Rue de Fès · <br>Num: +212 539 112233
         </div>
-        <button class="btn">Voir plus</button>
+        <button onclick="openPage()" class="btn">Voir plus</button>
       </div>
     </div>
   </div>
@@ -570,6 +570,11 @@
   <footer class="footer">
     <p>&copy; 2025 VIRA Décoration - Tous droits réservés</p>
   </footer>
+  <script>
+  function openPage() {
+    window.location.href = "index8.html";
+  }
+</script>
 
   <script>
   const cityFilter = document.getElementById('cityFilter');
@@ -620,5 +625,6 @@
 
 </body>
 </html>
+
 
 
