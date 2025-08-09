@@ -277,18 +277,18 @@ nav a:hover::after {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: calc(33.33% - 20px);
   overflow: hidden;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+ 
   opacity: 1;
-  transform: scale(1);
+  transition: 0.5s;
   cursor: pointer;
 }
 
 .card.hidden {
   opacity: 0;
-  transform: scale(0.9);
+  
   pointer-events: none;
   position: absolute;
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  
 }
 
 
@@ -446,15 +446,6 @@ nav a:hover::after {
     <option value="Rustique">Rustique</option>
   </select>
 
-  <label for="category">Catégorie :</label>
-  <select id="category">
-    <option value="">Tous les catégories</option>
-    <option value="Salon Marocain">Salon Marocain</option>
-    <option value="Tapis">Tapis</option>
-    <option value="Rideaux">Rideaux</option>
-    <option value="Cadres">Cadres</option>
-  </select>
-
   <label for="price">Prix Max :</label>
   <select id="price">
     <option value="">Tous les prix</option>
@@ -514,14 +505,7 @@ nav a:hover::after {
     <option value="Rustique">Rustique</option>
   </select>
 
-  <label for="category">Catégorie :</label>
-  <select id="categorys">
-    <option value="">Tous les catégories</option>
-    <option value="Salon Marocain">Salon Marocain</option>
-    <option value="Tapis">Tapis</option>
-    <option value="Rideaux">Rideaux</option>
-    <option value="Cadres">Cadres</option>
-  </select>
+
 
   <label for="price">Prix Max :</label>
   <select id="prices">
@@ -715,9 +699,38 @@ nav a:hover::after {
         </div>
       </div>
     </div>
-    
   </div>
+
   <script>
+    document.querySelectorAll('.filters select').forEach(select => {
+    select.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            
+            this.blur();
+            
+            window.scrollBy({
+                top: (event.key === 'ArrowDown' ? 50 : -50), 
+                behavior: 'smooth'
+            });
+            event.preventDefault();
+        }
+    });
+});
+    document.querySelectorAll('.filteres select').forEach(select => {
+    select.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            
+            this.blur();
+            
+            window.scrollBy({
+                top: (event.key === 'ArrowDown' ? 50 : -50), 
+                behavior: 'smooth'
+            });
+            event.preventDefault();
+        }
+    });
+});
+
   function openPage() {
     window.location.href = "index7.html";
   }
@@ -751,14 +764,12 @@ nav a:hover::after {
   const mapGroup1ToGroup2 = {
     city: "citey",
     style: "styles",
-    category: "categorys",
     price: "prices"
   };
 
   const mapGroup2ToGroup1 = {
     citey: "city",
     styles: "style",
-    categorys: "category",
     prices: "price"
   };
 
@@ -774,7 +785,6 @@ nav a:hover::after {
 function filterCards() {
   const city = document.getElementById("city").value;
   const style = document.getElementById("style").value;
-  const category = document.getElementById("category").value;
   const price = document.getElementById("price").value;
 
   const cards = document.querySelectorAll(".card");
@@ -782,12 +792,10 @@ function filterCards() {
   cards.forEach(card => {
     const cardCity = card.dataset.city || "";
     const cardStyle = card.dataset.style || "";
-    const cardCategory = card.dataset.category || "";
     const cardPrice = parseInt(card.dataset.price) || 0;
 
     const matchCity = city === "" || city === cardCity;
     const matchStyle = style === "" || style === cardStyle;
-    const matchCategory = category === "" || category === cardCategory;
 
     let matchPrice = true;
     if (price === "500") {
@@ -800,7 +808,7 @@ function filterCards() {
       matchPrice = cardPrice > 3000;
     }
 
-    if (matchCity && matchStyle && matchCategory && matchPrice) {
+    if (matchCity && matchStyle && matchPrice) {
       card.classList.remove("hidden");
     } else {
       card.classList.add("hidden");
@@ -810,8 +818,8 @@ function filterCards() {
 
 function setupFilterEvents() {
   const allFilterIds = [
-    "city", "style", "category", "price",
-    "citey", "styles", "categorys", "prices"
+    "city", "style",  "price",
+    "citey", "styles",  "prices"
   ];
 
   allFilterIds.forEach(id => {
@@ -849,6 +857,7 @@ let lastScrollTop = 200;
 </script>
 </body>
 </html>
+
 
 
 
