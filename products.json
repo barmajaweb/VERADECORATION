@@ -1,0 +1,30 @@
+ [
+  {"id":1,"type":"furniture","city":"Casablanca","price":"3000","style":"Moderne","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":2,"type":"furniture","city":"Tanger","price":"3000","style":"Marocain traditionnel","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":3,"type":"furniture","city":"Marrakech","price":"500","style":"Boho chic","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":4,"type":"furniture","city":"Casablanca","price":"1000","style":"Rustique","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":5,"type":"furniture","city":"Tanger","price":"1300","style":"Moderne","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":6,"type":"furniture","city":"Marrakech","price":"600","style":"Rustique","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":7,"type":"furniture","city":"Casablanca","price":"700","style":"Boho chic","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":8,"type":"furniture","city":"Fès","price":"4000","style":"Moderne","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":9,"type":"furniture","city":"Casablanca","price":"3000","style":"Marocain traditionnel","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":10,"type":"furniture","city":"Fès","price":"5000","style":"Rustique","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":11,"type":"furniture","city":"Rabat","price":"10000","style":"Moderne","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":12,"type":"furniture","city":"Rabat","price":"18000","style":"Boho chic","color":"Beige","category":"Salon Marocain","imgSrc":"img/all-salon.jpeg","name":"Salon Élégant","vendeur":"Maison Luxe"},
+  {"id":13,"type":"furniture","city":"Rabat","price":"1500","style":"Rustique","color":"Vert","category":"Tapis","imgSrc":"img/all-salon.jpeg","name":"Tapis Rustique","vendeur":"Artisan Rabat"},
+  
+  {"id":14,"type":"decor","city":"Casablanca","price":"3000","style":"Moderne","color":"Bleu","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Canapé Royal","vendeur":"Le Monde Deco"},
+  {"id":15,"type":"decor","city":"Tanger","price":"2800","style":"Marocain traditionnel","color":"Gris","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Fauteuil Majestueux","vendeur":"Artisan Prestige"},
+  {"id":16,"type":"decor","city":"Marrakech","price":"550","style":"Boho chic","color":"Blanc cassé","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Chaise Bohème","vendeur":"Casa Chic"},
+  {"id":17,"type":"decor","city":"Casablanca","price":"1100","style":"Rustique","color":"Vert olive","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Table Rustique","vendeur":"Nature & Co"},
+  {"id":18,"type":"decor","city":"Tanger","price":"1250","style":"Moderne","color":"Noir","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Canapé Urbain","vendeur":"Design Elite"},
+  {"id":19,"type":"decor","city":"Marrakech","price":"650","style":"Rustique","color":"Beige clair","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Fauteuil Vintage","vendeur":"Boho Style"},
+  {"id":20,"type":"decor","city":"Casablanca","price":"750","style":"Boho chic","color":"Turquoise","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Pouf Coloré","vendeur":"Décor Passion"},
+  {"id":21,"type":"decor","city":"Fès","price":"4200","style":"Moderne","color":"Blanc","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Canapé Minimaliste","vendeur":"Style Pur"},
+  {"id":22,"type":"decor","city":"Casablanca","price":"3100","style":"Marocain traditionnel","color":"Marron","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Canapé Traditionnel","vendeur":"Luxe Maroc"},
+  {"id":23,"type":"decor","city":"Fès","price":"5100","style":"Rustique","color":"Gris foncé","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Table Bois","vendeur":"Artisan Fès"},
+  {"id":24,"type":"decor","city":"Rabat","price":"10200","style":"Moderne","color":"Rouge","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Canapé Contemporain","vendeur":"Design Rabat"},
+  {"id":25,"type":"decor","city":"Rabat","price":"18200","style":"Boho chic","color":"Violet","category":"Salon Marocain","imgSrc":"img/fleur.jpeg","name":"Chaise Lounge","vendeur":"Boho Rabat"},
+  {"id":26,"type":"decor","city":"Rabat","price":"1600","style":"Rustique","color":"Vert forêt","category":"Tapis","imgSrc":"img/fleur.jpeg","name":"Tapis Rustique","vendeur":"Artisan Rabat"}
+]
+
