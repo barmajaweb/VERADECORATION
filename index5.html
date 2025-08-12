@@ -3,7 +3,402 @@
 <head>
   <meta charset="UTF-8">
   <title>Vira Decoration</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    :root {
+            --primary: #004d40;
+            --secondary: #00695c;
+            --accent: #26a69a;
+            --bg-main: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-primary: #263238;
+            --text-secondary: #546e7a;
+            --radius: 16px;
+            --shadow: 0 10px 40px rgba(0, 77, 64, 0.15);
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+     .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 77, 64, 0.7);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1300;
+            padding: 20px;
+        }
+
+        .overlay.show {
+            display: flex;
+        }
+
+        /* Modal Container */
+        .contact-modal {
+            width: 100%;
+            max-width: 900px;
+            border-radius: var(--radius);
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 0;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transform: translateY(-30px) scale(0.9);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .overlay.show .contact-modal {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        /* Left Section - Contact Details */
+        .contact-left {
+            padding: 40px 35px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 500px;
+            position: relative;
+        }
+
+        /* Brand Section */
+        .brand {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .brand .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 24px;
+            box-shadow: 0 8px 25px rgba(0, 77, 64, 0.2);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .brand .info .title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .brand .info .subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Contact List */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 18px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f8fffe, #e8f5f4);
+            border: 1px solid rgba(0, 77, 64, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: slideInRight 0.6s ease forwards;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+        .contact-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 77, 64, 0.15);
+            border-color: var(--accent);
+        }
+
+        .contact-item i {
+            font-size: 20px;
+            color: var(--primary);
+            width: 32px;
+            text-align: center;
+        }
+
+        .contact-item .meta {
+            flex: 1;
+            text-align: right;
+        }
+
+        .contact-item .meta .label {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .contact-item .meta .value {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .contact-item .meta .value a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-item .meta .value a:hover {
+            color: var(--accent);
+        }
+
+        /* Action Buttons */
+        .contact-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 77, 64, 0.3);
+        }
+
+        .action-btn i {
+            font-size: 16px;
+        }
+
+        /* Close Button */
+        .close-x {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            margin-left: 80%;
+            background: rgba(10, 134, 41, 0.9);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .close-x:hover {
+            transform: rotate(90deg) scale(1.1);
+           background: rgba(26, 79, 39, 0.9);
+        }
+
+        /* Working Hours */
+        .working-hours {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 16px;
+            background: rgba(0, 77, 64, 0.05);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Right Section - QR Code */
+        .contact-right {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .qr-title {
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .qr-wrap {
+            background: white;
+            padding: 16px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            animation: qrPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes qrPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .qr-wrap canvas,
+        .qr-wrap img {
+            width: 160px;
+            height: 160px;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .qr-note {
+            font-size: 12px;
+            opacity: 0.9;
+            line-height: 1.4;
+            max-width: 280px;
+        }
+
+        /* Social Actions */
+        .social-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .contact-modal {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .contact-right {
+                order: -1;
+                padding: 30px 25px;
+            }
+
+            .contact-left {
+                padding: 30px 25px;
+                min-height: auto;
+            }
+
+            .contact-floating {
+                bottom: 20px;
+                left: 20px;
+                padding: 12px 16px;
+            }
+
+            .brand .logo {
+                width: 56px;
+                height: 56px;
+                font-size: 20px;
+            }
+
+            .brand .info .title {
+                font-size: 20px;
+            }
+
+            .qr-wrap canvas,
+            .qr-wrap img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                justify-content: center;
+            }
+
+            .social-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .social-btn {
+                justify-content: center;
+            }
+        }
+   #suggestions{position:absolute;margin-left: 70%;  left: 0; right:0;top:100%;background:#fff;border-top:none;max-height:320px;max-width:30%; overflow:auto;z-index:50;border-radius:6px 6px 6px 6px}
+.s-item{display:flex;gap:10px;padding:8px;align-items:center;cursor:pointer;border-bottom:1px solid #eee}
+    .s-item img{width:54px;height:40px;object-fit:cover;border-radius:4px}
+    .s-meta{flex:1;text-align:right}
+    .s-name{font-weight:bold}
     * {
   margin: 0;
   padding: 0;
@@ -410,7 +805,110 @@ nav a:hover::after {
   </style>
 </head>
 <body>
-  <header class="navbar">
+  <div class="overlay" id="contactOverlay" aria-hidden="true">
+        <div class="contact-modal" role="dialog" aria-modal="true" id="contactDialog">
+            <div class="contact-left">
+                <button class="close-x" id="closeContact" aria-label="إغلاق النافذة">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div>
+                    <!-- Brand Section -->
+                    <div class="brand">
+                        <div class="logo"><img src="img/logo.png" alt=""></div>
+                        <div class="info">
+                            <div class="title">Vira Decoration</div>
+                            <div class="subtitle"></div>
+                        </div>
+                    </div>
+
+                    <!-- Contact List -->
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div class="meta">
+                                <div class="label">Tel</div>
+                                <div class="value">
+                                    <a href="tel:+966501234567">+212 6 02 15 66 53</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div class="meta">
+                                <div class="label">Email</div>
+                                <div class="value">
+                                    <a href="mailto:Vira-Decoration@gmail.com">Vira-Decoration@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div class="meta">
+                                <div class="label">Address</div>
+                                <div class="value"></div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div class="meta">
+                                <div class="label">Whatsapp</div>
+                                <div class="value">
+                                    <a href="https://wa.me/212602156653">+212602156653</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="contact-actions">
+                        <a class="action-btn" href="https://wa.me/212602156653" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i>Whatsapp
+                        </a>
+                        <a class="action-btn" href="tel:+212602156653">
+                            <i class="fa-solid fa-phone"></i>Contactez-nous
+                        </a>
+                        <a class="action-btn" href="Vira-Decoration@gmail.com">
+                            <i class="fa-solid fa-envelope"></i>Envoyer un email
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Working Hours -->
+                <div class="working-hours">
+                    <i class="fa-solid fa-clock"></i>
+                     Horaires d'ouverture : Lundi - samedi :  (9h00 - 19h00)
+                </div>
+            </div>
+
+            <!-- QR Code Section -->
+            <div class="contact-right">
+                <div class="qr-section">
+                    <div class="qr-title">
+                        <i class="fa-solid fa-qrcode"></i>Scannez pour une communication rapide
+                    </div>
+                    <div class="qr-wrap" id="qrWrap">
+                        <canvas id="qrCanvas"></canvas>
+                    </div>
+                    <div class="qr-note">Scannez le code pour accéder directement  à notre Whatsapp 
+                    </div>
+                </div>
+
+                <div class="social-actions">
+                    <a class="social-btn" href="https://instagram.com/nelitedesign" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                    <button class="social-btn" id="copyPhone">
+                        <i class="fa-solid fa-copy"></i> Copier le numéro de téléphone
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+ <header class="navbar">
     <div class="logo"><img src="img/logo.png" alt=""></div>
     <nav>
       <ul>
@@ -418,12 +916,13 @@ nav a:hover::after {
         <li><a href="index2.html">MEUBLES</a></li>
         <li><a href="index3.html">DÉCORATION</a></li>
         <li><a href="index4.html">MAGASINS</a></li>
-        <li><a href="#">CONTACT</a></li>
+        <li id="openContact"><a href="#">CONTACT</a></li>
       </ul>
     </nav>
     <div class="nav-icons">
-      <input type="text" placeholder="Chercher..." />
-      <button class="btn-connexion">Connexion</button>
+      <input id="search-input" type="text" placeholder="Chercher..." />
+      <div id="suggestions"></div>
+      <button id="btn-search" class="btn-connexion">Connexion</button>
     </div>
   </header>
   <div class="filters">
@@ -518,189 +1017,89 @@ nav a:hover::after {
 </div>
 
 <div class="cards-container" id="cards-container">
-    <div onclick="openPage()" class="card" data-city="Casablanca" data-price="3000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-        <h3>Salon Élégant</h3>
-        <p class="location">Casablanca</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">3000 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Tanger" data-price="3000" data-style="Marocain traditionnel" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-        <h3>Salon Élégant</h3>
-        <p class="location">Tanger</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">3000 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Marrakech" data-price="500" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Marrakech</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">500 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Casablanca" data-price="1000" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-       <div>
-         <h3>Salon Élégant</h3>
-        <p class="location">Casablanca</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-       </div>
-        <div class="price-btn-row">
-          <span class="price">1000 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Tanger" data-price="1300" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Tanger</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p></div>
-        <div class="price-btn-row">
-          <span class="price">1300 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Marrakech" data-price="600" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Marrakech</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">600 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Casablanca" data-price="700" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-      <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Casablanca</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-      </div>
-        <div class="price-btn-row">
-          <span class="price">700 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Fès" data-price="4000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Fès</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">4000 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Casablanca" data-price="3000" data-style="Marocain traditionnel" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Casablanca</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">3000 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Fès" data-price="5000" data-style="Rustique" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Fès</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">5000 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Rabat" data-price="10000" data-style="Moderne" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-      <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Rabat</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-      </div>
-        <div class="price-btn-row">
-          <span class="price">10000 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Rabat" data-price="18000" data-style="Boho chic" data-color="Beige" data-category="Salon Marocain">
-      <img src="img/all-salon.jpeg" alt="Produit 1">
-      <div class="card-body">
-        <div>
-          <h3>Salon Élégant</h3>
-        <p class="location">Rabat</p>
-        <p class="vendeur">Vendu par : Maison Luxe</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">18000 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
-    <div onclick="openPage()" class="card" data-city="Rabat" data-price="1500" data-style="Rustique" data-color="Vert" data-category="Tapis">
-      <img src="img/sallon2.png" alt="Produit 2">
-      <div class="card-body">
-        <div>
-          <h3>Tapis Rustique</h3>
-        <p class="location">Rabat</p>
-        <p class="vendeur">Vendu par : Artisan Rabat</p>
-        </div>
-        <div class="price-btn-row">
-          <span class="price">1500 DH</span>
-          <button onclick="openPage()">Voir</button>
-        </div>
-      </div>
-    </div>
   </div>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  <script>
+    let products = [];
+    const input = document.getElementById('search-input');
+    const suggestions = document.getElementById('suggestions');
+    const btnSearch = document.getElementById('btn-search');
 
+    // جلب المنتجات من products.json
+    fetch('products.json')
+      .then(r => r.json())
+      .then(data => {
+        products = data;
+        // إعداد Fuse محليًا للاقتراحات
+        window.fuseIndex = new Fuse(products, {
+          keys: ['name','city','style','color','category','vendeur'],
+          threshold: 0.45,
+          includeScore: true
+        });
+      })
+      .catch(err => {
+        console.error('فشل تحميل products.json', err);
+      });
+
+    function renderSuggestions(results){
+      if(!results || results.length===0){
+        suggestions.innerHTML = '<div style="padding:10px;color:#666">لا توجد اقتراحات</div>';
+        return;
+      }
+      suggestions.innerHTML = results.slice(0,8).map(r => {
+        const item = r.item;
+        return `
+          <div class="s-item" data-q="${encodeURIComponent(item.name)}">
+            <img src="${item.imgSrc}" alt="${item.name}">
+            <div class="s-meta">
+              <div class="s-name">${item.name}</div>
+              <div style="font-size:13px;color:#666">${item.city} · ${item.type}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      // اضف event لكل اقتراح
+      document.querySelectorAll('.s-item').forEach(el=>{
+        el.addEventListener('click', ()=>{
+          const q = decodeURIComponent(el.dataset.q);
+          window.location.href = `search.html?query=${encodeURIComponent(q)}`;
+        });
+      });
+    }
+
+    input.addEventListener('input', ()=>{
+      const q = input.value.trim();
+      if(!q || !window.fuseIndex){ suggestions.innerHTML = ''; return; }
+      // اقتراحات باستخدام Fuse
+      const res = window.fuseIndex.search(q, {limit: 12});
+      renderSuggestions(res);
+    });
+
+    btnSearch.addEventListener('click', ()=>{
+      const q = input.value.trim();
+      if(!q){ alert('يرجى إدخال كلمة للبحث.'); input.focus(); return; }
+      window.location.href = `search.html?query=${encodeURIComponent(q)}`;
+    });
+
+    // إخفاء الاقتراحات عند النقر خارجها
+    document.addEventListener('click', (e)=>{
+      if(!e.target.closest('.nav-icons')) suggestions.innerHTML = '';
+    });
+
+    // دعم الضغط Enter
+    input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); btnSearch.click(); } });
+  </script>
+  <script>
+    // Scroll effect for navbar
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    document.body.classList.add("scrolled");
+  } else {
+    document.body.classList.remove("scrolled");
+  }
+});
+
+  </script>
   <script>
     document.querySelectorAll('.filters select').forEach(select => {
     select.addEventListener('keydown', function(event) {
@@ -730,6 +1129,48 @@ nav a:hover::after {
         }
     });
 });
+ const productes = [
+    {city: "Casablanca", price: "3000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Tanger", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Marrakech", price: "500", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Casablanca", price: "1000", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Tanger", price: "1300", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Marrakech", price: "600", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Casablanca", price: "700", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Fès", price: "4000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Casablanca", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Fès", price: "5000", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Rabat", price: "10000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Rabat", price: "18000", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Rabat", price: "1500", style: "Rustique", color: "Vert", category: "Tapis", imgSrc: "img/all-salon.jpeg", name: "Tapis Rustique", vendeur: "Artisan Rabat"},
+  ];
+   function createCardHTML(product) {
+    return `
+      <div onclick="openPage()" class="card" 
+           data-city="${product.city}" 
+           data-price="${product.price}" 
+           data-style="${product.style}" 
+           data-color="${product.color}" 
+           data-category="${product.category}">
+        <img src="${product.imgSrc}" alt="${product.name}">
+        <div class="card-body">
+          <div>
+            <h3>${product.name}</h3>
+            <p class="vendeur">Vendu par : ${product.vendeur}</p>
+            <p class="location">${product.city}</p>
+          </div>
+          <div class="price-btn-row">
+            <span class="price">${product.price} DH</span>
+            <button onclick="event.stopPropagation(); openPage();">Voir</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+ window.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('cards-container');
+    container.innerHTML = productes.map(createCardHTML).join('');
+  });
 
   function openPage() {
     window.location.href = "index7.html";
@@ -855,6 +1296,150 @@ let lastScrollTop = 200;
   });
 
 </script>
+<script>
+        (function() {
+            const openBtn = document.getElementById('openContact');
+            const overlay = document.getElementById('contactOverlay');
+            const modal = document.getElementById('contactDialog');
+            const closeBtn = document.getElementById('closeContact');
+            const qrCanvas = document.getElementById('qrCanvas');
+            const copyPhone = document.getElementById('copyPhone');
+
+            // الرابط الذي سيتم توليد QR له
+            const message = "Bonjour, je me permets de vous contacter pour vous poser une question si vous le permettez";
+            const encodedMessage = encodeURIComponent(message);
+            const QR_TARGET = `https://wa.me/212602156653?text=${encodedMessage}`;
+
+
+            let lastFocused = null;
+
+            // توليد QR Code
+            function generateQR() {
+                if (window.QRCode && qrCanvas) {
+                    QRCode.toCanvas(qrCanvas, QR_TARGET, {
+                        width: 160,
+                        height: 160,
+                        margin: 2,
+                        color: {
+                            dark: '#004d40',
+                            light: '#ffffff'
+                        }
+                    }, function(error) {
+                        if (error) {
+                            console.error('QR generation error:', error);
+                            // Fallback to API
+                            const img = document.createElement('img');
+                            img.src = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=004d40&bgcolor=ffffff&data=" + encodeURIComponent(QR_TARGET);
+                            img.style.width = '160px';
+                            img.style.height = '160px';
+                            img.style.borderRadius = '8px';
+                            const wrap = document.getElementById('qrWrap');
+                            wrap.replaceChild(img, qrCanvas);
+                        }
+                    });
+                } else {
+                    // Fallback to API
+                    const img = document.createElement('img');
+                    img.src = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=004d40&bgcolor=ffffff&data=" + encodeURIComponent(QR_TARGET);
+                    img.style.width = '160px';
+                    img.style.height = '160px';
+                    img.style.borderRadius = '8px';
+                    const wrap = document.getElementById('qrWrap');
+                    wrap.replaceChild(img, qrCanvas);
+                }
+            }
+
+            // Focus trap للوصولية
+            function trapFocus(e) {
+                const focusable = modal.querySelectorAll('a, button, input, textarea, [tabindex]:not([tabindex="-1"])');
+                if (!focusable.length) return;
+                
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                
+                if (e.key === 'Tab') {
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+                
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            }
+
+            // فتح النافذة
+            function openModal() {
+                lastFocused = document.activeElement;
+                overlay.classList.add('show');
+                overlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                generateQR();
+                
+                setTimeout(() => {
+                    const firstBtn = modal.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+                    if (firstBtn) firstBtn.focus();
+                    document.addEventListener('keydown', trapFocus);
+                }, 100);
+            }
+
+            // إغلاق النافذة
+            function closeModal() {
+                overlay.classList.remove('show');
+                overlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', trapFocus);
+                if (lastFocused) lastFocused.focus();
+            }
+
+            // Event listeners
+            openBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+
+            // إغلاق عند النقر خارج النافذة
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closeModal();
+            });
+
+            // نسخ رقم الهاتف
+            copyPhone.addEventListener('click', function(e) {
+                e.preventDefault();
+                const phone = "+212602156653";
+                
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(phone).then(() => {
+                        copyPhone.innerHTML = '<i class="fa-solid fa-check"></i> Copié avec succès';
+                        setTimeout(() => {
+                            copyPhone.innerHTML = '<i class="fa-solid fa-copy"></i> Copier le numéro de téléphone';
+                        }, 2000);
+                    }).catch(() => {
+                        alert('فشل النسخ، انسخ الرقم يدوياً: ' + phone);
+                    });
+                } else {
+                    // Fallback للمتصفحات القديمة
+                    const textArea = document.createElement('textarea');
+                    textArea.value = phone;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        copyPhone.innerHTML = '<i class="fa-solid fa-check"></i> Copié avec succès ';
+                        setTimeout(() => {
+                            copyPhone.innerHTML = '<i class="fa-solid fa-copy"></i> Copier le numéro de téléphone ';
+                        }, 2000);
+                    } catch (err) {
+                        alert('La copie a échoué, copiez le numéro manuellement : ' + phone);
+                    }
+                    document.body.removeChild(textArea);
+                }
+            });
+
+        })();
+    </script>
 </body>
 </html>
 
