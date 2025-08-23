@@ -6,6 +6,30 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+       #toggleBtn {
+  padding: 0.2rem 0.5rem;
+  margin-left: 5%;
+  border: 5px solid #C9A349;
+  cursor: pointer;
+  border-radius: 18px;
+  width: 20px;
+  font-weight: bolder;
+  margin-top: 10px;
+  background-color:#C9A349;
+  color:white ;
+  font-size: 10px;
+  transition: 0.7s;
+  padding-right: 3%;
+}
+#toggleBtn:hover {
+  transform: scale(1.05);
+}
+.plateforme span {
+  color:#C9A349 ;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
     :root {
             --primary: #004d40;
             --secondary: #00695c;
@@ -58,7 +82,7 @@
         }
 
         /* Left Section - Contact Details */
-        .contact-left {
+       .contact-left {
             padding: 40px 35px;
             background: white;
             display: flex;
@@ -66,6 +90,8 @@
             justify-content: space-between;
             min-height: 500px;
             position: relative;
+            max-height: 100vh; 
+            overflow-y: auto;
         }
 
         /* Brand Section */
@@ -895,6 +921,15 @@ nav a:hover::after {
                     <i class="fa-solid fa-clock"></i>
                      Horaires d'ouverture : Lundi - samedi :  (9h00 - 19h00)
                 </div>
+                <div class="plateforme">
+                <span>notre plateforme<button id="toggleBtn">+</button></span>
+                 <p id="message" style="display: none;color: #014537;">
+Notre plateforme est un espace en ligne qui regroupe et présente les dernières tendances et décorations disponibles dans les magasins de différentes villes marocaines, afin de faciliter la recherche et l’achat aussi bien pour les clients que pour les architectes d’intérieur.
+Nous ne vendons pas les produits : nous affichons uniquement ce qui est disponible en magasin, avec des informations utiles telles que la possibilité de livraison, les coordonnées et la localisation du magasin.
+Toutes les ventes et livraisons sont gérées directement par les magasins. Pour toute question ou problème lié au service ou à la livraison, veuillez contacter directement le magasin concerné.
+Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou constatez une différence de prix, nous vous invitons à nous en informer afin de préserver la crédibilité et d’améliorer continuellement notre service.</p>
+                </div>
+
             </div>
 
             <!-- QR Code Section -->
@@ -958,7 +993,31 @@ nav a:hover::after {
     <option value="Boho chic">Boho chic</option>
     <option value="Rustique">Rustique</option>
   </select>
-
+   <label for="category">Couleur :</label> 
+  <select id="color">
+    <option value="">Toutes les couleurs</option>
+    <option value="noir">Noir</option>
+<option value="orange">Orange</option>
+<option value="peche">Pêche</option>
+<option value="rose">Rose</option>
+<option value="rouge">Rouge</option>
+<option value="transparent">Transparent</option>
+<option value="turquoise">Turquoise</option>
+<option value="vert">Vert</option>
+<option value="violet">Violet</option>
+<option value="metallique">Métallique</option>
+<option value="miroir">Miroir</option>
+<option value="multicolore">Multicolore</option>
+<option value="creme">Crème</option>
+<option value="cuivre">Cuivre</option>
+<option value="dore">Doré</option>
+<option value="gris">Gris</option>
+<option value="gris_fonce">Gris foncé</option>
+<option value="gris_pale">Gris pâle</option>
+<option value="jaune">Jaune</option>
+<option value="lime">Lime</option>
+<option value="marron">Marron</option>
+  </select>
   <label for="price">Prix Max :</label>
   <select id="price">
     <option value="">Tous les prix</option>
@@ -993,7 +1052,31 @@ nav a:hover::after {
     <option value="Rustique">Rustique</option>
   </select>
 
-
+  <label for="category">Couleur :</label> 
+  <select id="colors">
+    <option value="">Toutes les couleurs</option>
+    <option value="noir">Noir</option>
+<option value="orange">Orange</option>
+<option value="peche">Pêche</option>
+<option value="rose">Rose</option>
+<option value="rouge">Rouge</option>
+<option value="transparent">Transparent</option>
+<option value="turquoise">Turquoise</option>
+<option value="vert">Vert</option>
+<option value="violet">Violet</option>
+<option value="metallique">Métallique</option>
+<option value="miroir">Miroir</option>
+<option value="multicolore">Multicolore</option>
+<option value="creme">Crème</option>
+<option value="cuivre">Cuivre</option>
+<option value="dore">Doré</option>
+<option value="gris">Gris</option>
+<option value="gris_fonce">Gris foncé</option>
+<option value="gris_pale">Gris pâle</option>
+<option value="jaune">Jaune</option>
+<option value="lime">Lime</option>
+<option value="marron">Marron</option>
+  </select>
   <label for="price">Prix Max :</label>
   <select id="prices">
     <option value="">Tous les prix</option>
@@ -1008,6 +1091,34 @@ nav a:hover::after {
   </div>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
   <script>
+     document.querySelectorAll('.filters select').forEach(select => {
+    select.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            
+            this.blur();
+            
+            window.scrollBy({
+                top: (event.key === 'ArrowDown' ? 50 : -50), 
+                behavior: 'smooth'
+            });
+            event.preventDefault();
+        }
+    });
+});
+    document.querySelectorAll('.filteres select').forEach(select => {
+    select.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            
+            this.blur();
+            
+            window.scrollBy({
+                top: (event.key === 'ArrowDown' ? 50 : -50), 
+                behavior: 'smooth'
+            });
+            event.preventDefault();
+        }
+    });
+});
     let products = [];
     const input = document.getElementById('search-input');
     const suggestions = document.getElementById('suggestions');
@@ -1098,7 +1209,7 @@ window.addEventListener("scroll", () => {
             const copyPhone = document.getElementById('copyPhone');
 
             // الرابط الذي سيتم توليد QR له
-            const message = "Bonjour, je me permets de vous contacter pour vous poser une question si vous le permettez";
+            const message = "Bonjour, je souhaiterais vous parler d'un problème que j'ai rencontré ou vous apporter un retour d'expérience pour le développement de la plateforme.";
             const encodedMessage = encodeURIComponent(message);
             const QR_TARGET = `https://wa.me/212602156653?text=${encodedMessage}`;
 
@@ -1233,6 +1344,18 @@ window.addEventListener("scroll", () => {
         })();
     </script>
  <script>
+    const toggleBtn = document.getElementById("toggleBtn");
+const message = document.getElementById("message");
+
+toggleBtn.addEventListener("click", () => {
+  if (message.style.display === "none") {
+    message.style.display = "block";
+    toggleBtn.textContent = "−"; // من + إلى −
+  } else {
+    message.style.display = "none";
+    toggleBtn.textContent = "+"; // من − إلى +
+  }
+});
   const productes = [
     {city: "Casablanca", price: "3000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/fleur.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
     {city: "Tanger", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Salon Marocain", imgSrc: "img/fleur.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
@@ -1275,16 +1398,18 @@ window.addEventListener("scroll", () => {
    function openPage() {
     window.location.href = "index7.html";
   }
- function syncFilters(changedId) {
+function syncFilters(changedId) {
   const mapGroup1ToGroup2 = {
     city: "citey",
     style: "styles",
+    color: "colors",
     price: "prices"
   };
 
   const mapGroup2ToGroup1 = {
     citey: "city",
     styles: "style",
+    colors: "color",
     prices: "price"
   };
 
@@ -1300,17 +1425,21 @@ window.addEventListener("scroll", () => {
 function filterCards() {
   const city = document.getElementById("city").value;
   const style = document.getElementById("style").value;
+  const color = document.getElementById("color").value;
   const price = document.getElementById("price").value;
 
+  // ناخدو جميع البطاقات سواء .card أو .cards
   const cards = document.querySelectorAll(".card");
 
   cards.forEach(card => {
     const cardCity = card.dataset.city || "";
     const cardStyle = card.dataset.style || "";
+    const cardColor = card.dataset.color || "";
     const cardPrice = parseInt(card.dataset.price) || 0;
 
-    const matchCity = city === "" || city === cardCity;
-    const matchStyle = style === "" || style === cardStyle;
+    const matchCity = city === "" || city === "all" || city === cardCity;
+    const matchStyle = style === "" || style === "all" || style === cardStyle;
+    const matchColor = color === "" || color === "all" || color === cardColor;
 
     let matchPrice = true;
     if (price === "500") {
@@ -1323,7 +1452,7 @@ function filterCards() {
       matchPrice = cardPrice > 3000;
     }
 
-    if (matchCity && matchStyle  && matchPrice) {
+    if (matchCity && matchStyle && matchColor && matchPrice) {
       card.classList.remove("hidden");
     } else {
       card.classList.add("hidden");
@@ -1331,10 +1460,11 @@ function filterCards() {
   });
 }
 
+
 function setupFilterEvents() {
   const allFilterIds = [
-    "city", "style", "price",
-    "citey", "styles", "prices"
+    "city", "style", "color", "price",
+    "citey", "styles", "colors", "prices"
   ];
 
   allFilterIds.forEach(id => {
@@ -1372,9 +1502,3 @@ let lastScrollTop = 200;
 </script>
 </body>
 </html>
-
-
-
-
-
-
