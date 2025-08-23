@@ -7,6 +7,30 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+       #toggleBtn {
+  padding: 0.2rem 0.5rem;
+  margin-left: 5%;
+  border: 5px solid #C9A349;
+  cursor: pointer;
+  border-radius: 18px;
+  width: 20px;
+  font-weight: bolder;
+  margin-top: 10px;
+  background-color:#C9A349;
+  color:white ;
+  font-size: 10px;
+  transition: 0.7s;
+  padding-right: 3%;
+}
+#toggleBtn:hover {
+  transform: scale(1.05);
+}
+.plateforme span {
+  color:#C9A349 ;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
     :root {
             --primary: #004d40;
             --secondary: #00695c;
@@ -59,7 +83,7 @@
         }
 
         /* Left Section - Contact Details */
-        .contact-left {
+       .contact-left {
             padding: 40px 35px;
             background: white;
             display: flex;
@@ -67,6 +91,8 @@
             justify-content: space-between;
             min-height: 500px;
             position: relative;
+            max-height: 100vh; 
+            overflow-y: auto;
         }
 
         /* Brand Section */
@@ -744,6 +770,15 @@ nav a:hover::after {
                     <i class="fa-solid fa-clock"></i>
                      Horaires d'ouverture : Lundi - samedi :  (9h00 - 19h00)
                 </div>
+                <div class="plateforme">
+                <span>notre plateforme<button id="toggleBtn">+</button></span>
+                 <p id="message" style="display: none;color: #014537;">
+Notre plateforme est un espace en ligne qui regroupe et présente les dernières tendances et décorations disponibles dans les magasins de différentes villes marocaines, afin de faciliter la recherche et l’achat aussi bien pour les clients que pour les architectes d’intérieur.
+Nous ne vendons pas les produits : nous affichons uniquement ce qui est disponible en magasin, avec des informations utiles telles que la possibilité de livraison, les coordonnées et la localisation du magasin.
+Toutes les ventes et livraisons sont gérées directement par les magasins. Pour toute question ou problème lié au service ou à la livraison, veuillez contacter directement le magasin concerné.
+Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou constatez une différence de prix, nous vous invitons à nous en informer afin de préserver la crédibilité et d’améliorer continuellement notre service.</p>
+                </div>
+
             </div>
 
             <!-- QR Code Section -->
@@ -848,6 +883,18 @@ nav a:hover::after {
   </footer>
 </body>
   <script>
+      const toggleBtn = document.getElementById("toggleBtn");
+const message = document.getElementById("message");
+
+toggleBtn.addEventListener("click", () => {
+  if (message.style.display === "none") {
+    message.style.display = "block";
+    toggleBtn.textContent = "−"; // من + إلى −
+  } else {
+    message.style.display = "none";
+    toggleBtn.textContent = "+"; // من − إلى +
+  }
+});
     function openPage(x) {
     if (x == 1) {
       window.location.href = "index6-4.html";
@@ -956,7 +1003,7 @@ window.addEventListener("scroll", () => {
             const copyPhone = document.getElementById('copyPhone');
 
             // الرابط الذي سيتم توليد QR له
-            const message = "Bonjour, je me permets de vous contacter pour vous poser une question si vous le permettez";
+            const message = "Bonjour, je souhaiterais vous parler d'un problème que j'ai rencontré ou vous apporter un retour d'expérience pour le développement de la plateforme.";
             const encodedMessage = encodeURIComponent(message);
             const QR_TARGET = `https://wa.me/212602156653?text=${encodedMessage}`;
 
@@ -1091,7 +1138,3 @@ window.addEventListener("scroll", () => {
         })();
     </script>
 </html>
-
-
-
-
