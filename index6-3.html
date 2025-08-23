@@ -6,6 +6,121 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+     #toggleBtn {
+  padding: 0.2rem 0.5rem;
+  margin-left: 5%;
+  border: 5px solid #C9A349;
+  cursor: pointer;
+  border-radius: 18px;
+  width: 20px;
+  font-weight: bolder;
+  margin-top: 10px;
+  background-color:#C9A349;
+  color:white ;
+  font-size: 10px;
+  transition: 0.7s;
+  padding-right: 3%;
+}
+#toggleBtn:hover {
+  transform: scale(1.05);
+}
+.plateforme span {
+  color:#C9A349 ;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+ .category-select {
+  margin-top: 15px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  
+  display: flex;
+  align-items: center;
+  margin-bottom: 23px;
+  
+ 
+}
+
+.select-box {
+  background: #f5f5f5;
+  border: 3px solid #014537;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 7px;
+  position: relative;
+  width: 100%;
+  font-weight: bolder;
+}
+
+.select-box .options {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: url(img/grey.jpg);
+  background-position: center;
+  background-size: cover;
+  border: 2px solid #014537;
+  width: 250px;
+  z-index: 10;
+  color: #014537;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+
+.select-box:hover .options {
+  display: block;
+}
+
+.options li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  border: 1px solid #014537;
+}
+
+.options li:hover {
+  background: #f0f0f0;
+}
+
+.sub-options {
+  border: 2px solid #014537;
+  border-radius: 10px;
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: url(img/grey.jpg);
+  background-position: center;
+  background-size: cover;
+  border: 1px solid #ccc;
+  min-width: 200px;
+}
+
+.options li:hover .sub-options {
+  display: block;
+}
+
+.sub-options li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.sub-options li:hover {
+  background: #fefefe;
+}
+
+
     :root {
             --primary: #004d40;
             --secondary: #00695c;
@@ -58,7 +173,7 @@
         }
 
         /* Left Section - Contact Details */
-        .contact-left {
+       .contact-left {
             padding: 40px 35px;
             background: white;
             display: flex;
@@ -66,6 +181,8 @@
             justify-content: space-between;
             min-height: 500px;
             position: relative;
+            max-height: 100vh; 
+            overflow-y: auto;
         }
 
         /* Brand Section */
@@ -626,13 +743,19 @@ nav a:hover::after {
 }
 
 .filters {
-  width: 90%;
-  margin: 5vh auto;
-  padding: 20px;
+  width: 100%;
   background:transparent;
   margin-top: 10vh;
   font-family: 'Poppins', sans-serif;
-  padding-left: 8vh;
+  display: flex;
+  gap: 20px; 
+  align-items: center;
+  justify-content: center;
+ 
+}
+.filters span:nth-child(2) {
+  display: inline-flex;
+  
 }
 .filters h2 {
   color: #014537;
@@ -700,7 +823,7 @@ nav a:hover::after {
       border-radius: 5px;
         
     }
-  .imgg {
+   .imgg {
       width: 95%;
       height: 100%;
       object-fit: cover;
@@ -789,6 +912,15 @@ nav a:hover::after {
   top: 0;
   margin-top: 10.9vh;
   padding-left: 15vh;
+   display: flex;
+  gap: 20px; 
+  align-items: center;
+  justify-content: center;
+}
+
+.filteres span:nth-child(2) {
+  display: inline-flex;
+  
 }
 .filteres.show {
   opacity: 1;
@@ -895,6 +1027,15 @@ nav a:hover::after {
                     <i class="fa-solid fa-clock"></i>
                      Horaires d'ouverture : Lundi - samedi :  (9h00 - 19h00)
                 </div>
+                <div class="plateforme">
+                <span>notre plateforme<button id="toggleBtn">+</button></span>
+                 <p id="message" style="display: none;color: #014537;">
+Notre plateforme est un espace en ligne qui regroupe et présente les dernières tendances et décorations disponibles dans les magasins de différentes villes marocaines, afin de faciliter la recherche et l’achat aussi bien pour les clients que pour les architectes d’intérieur.
+Nous ne vendons pas les produits : nous affichons uniquement ce qui est disponible en magasin, avec des informations utiles telles que la possibilité de livraison, les coordonnées et la localisation du magasin.
+Toutes les ventes et livraisons sont gérées directement par les magasins. Pour toute question ou problème lié au service ou à la livraison, veuillez contacter directement le magasin concerné.
+Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou constatez une différence de prix, nous vous invitons à nous en informer afin de préserver la crédibilité et d’améliorer continuellement notre service.</p>
+                </div>
+
             </div>
 
             <!-- QR Code Section -->
@@ -938,11 +1079,69 @@ nav a:hover::after {
       <button id="btn-search" class="btn-connexion">Connexion</button>
     </div>
   </header>
-  <div class="filters">
-  
-  <label for="city">Ville :</label>
+ <div class="filters">
+  <span class="category-select">
+  <label>Article </label>
+  <div class="select-box">
+    <div class="selected">Tous les articles</div>
+    <ul class="options">
+      <li data-main="articles">Tous les articles
+        <ul class="sub-options">
+          <li>Tous les articles</li>
+        </ul>
+      <li data-main="lumineuse">Décoration lumineuse extérieure
+        <ul class="sub-options">
+          <li>Guirlandes lumineuses solaires</li>
+          <li>Lanternes de jardin</li>
+          <li>Lampes solaires décoratives</li>
+          <li>Torches de jardin</li>
+        </ul>
+      </li>
+      <li data-main="vegetale">Décoration végétale extérieure
+        <ul class="sub-options">
+          <li>Pots de fleurs d’extérieur</li>
+          <li>Jardinières suspendues</li>
+          <li>Treillis décoratifs pour plantes grimpantes</li>
+          <li>Mini-serres décoratives</li>
+        </ul>
+      </li>
+      <li data-main="sol-textile">Décorations de sol & textile extérieur
+        <ul class="sub-options">
+          <li>Tapis d’extérieur</li>
+          <li>Coussins pour mobilier extérieur (décoratifs uniquement)</li>
+          <li>Paillassons décoratifs</li>
+        </ul>
+      </li>
+      <li data-main="sculpturale">Décoration sculpturale & artistique
+        <ul class="sub-options">
+          <li>Statues de jardin</li>
+          <li>Nains de jardin</li>
+          <li>Fontaines décoratives</li>
+          <li>Boules décoratives de jardin</li>
+        </ul>
+      </li>
+      <li data-main="suspendues">Décorations suspendues & mobiles
+        <ul class="sub-options">
+          <li>Cloches à vent</li>
+          <li>Carillons</li>
+          <li>Attrape-rêves d’extérieur</li>
+        </ul>
+      </li>
+      <li data-main="murale">Décoration murale extérieure
+        <ul class="sub-options">
+          <li>Décorations murales en métal/bois pour façade</li>
+          <li>Enseignes décoratives (“Bienvenue”, noms…)</li>
+          <li>Filets décoratifs pour balcon</li>
+          <li>Paravents décoratifs d’extérieur</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</span>
+ <span>
+  <label for="city">Ville </label>
   <select id="city">
-    <option value="">toutes les villes</option>
+    <option value="">Toutes les villes</option>
     <option value="Casablanca">Casablanca</option>
     <option value="Rabat">Rabat</option>
     <option value="Marrakech">Marrakech</option>
@@ -950,7 +1149,7 @@ nav a:hover::after {
     <option value="Tanger">Tanger</option>
   </select>
 
-  <label for="style">Style :</label>
+  <label for="style">Style </label>
   <select id="style">
     <option value="">Tous les styles</option>
     <option value="Marocain traditionnel">Marocain traditionnel</option>
@@ -959,7 +1158,33 @@ nav a:hover::after {
     <option value="Rustique">Rustique</option>
   </select>
 
-  <label for="price">Prix Max :</label>
+  <label for="color">Couleur </label>
+  <select id="color">
+    <option value="">Toutes les couleurs</option>
+    <option value="noir">Noir</option>
+<option value="orange">Orange</option>
+<option value="peche">Pêche</option>
+<option value="rose">Rose</option>
+<option value="rouge">Rouge</option>
+<option value="transparent">Transparent</option>
+<option value="turquoise">Turquoise</option>
+<option value="vert">Vert</option>
+<option value="violet">Violet</option>
+<option value="metallique">Métallique</option>
+<option value="miroir">Miroir</option>
+<option value="multicolore">Multicolore</option>
+<option value="creme">Crème</option>
+<option value="cuivre">Cuivre</option>
+<option value="dore">Doré</option>
+<option value="gris">Gris</option>
+<option value="gris_fonce">Gris foncé</option>
+<option value="gris_pale">Gris pâle</option>
+<option value="jaune">Jaune</option>
+<option value="lime">Lime</option>
+<option value="marron">Marron</option>
+  </select>
+
+  <label for="price">Prix Max </label>
   <select id="price">
     <option value="">Tous les prix</option>
     <option value="500">Moins de 500 DH</option>
@@ -967,16 +1192,78 @@ nav a:hover::after {
     <option value="3000">1000 DH - 3000 DH</option>
     <option value="5000">Plus de 3000 DH</option>
   </select>
+  
+ </span>
+  
 </div>
 
 
 
 
+
 <div class="filteres">
-  <h2>Filtrer </h2>
-  <label for="city">Ville :</label>
+  <span class="category-select">
+  <label>Article </label>
+  <div class="select-box">
+    <div class="selected">Tous les articles</div>
+    <ul class="options">
+      <li data-main="articles">Tous les articles
+        <ul class="sub-options">
+          <li>Tous les articles</li>
+        </ul>
+      <li data-main="lumineuse">Décoration lumineuse extérieure
+        <ul class="sub-options">
+          <li>Guirlandes lumineuses solaires</li>
+          <li>Lanternes de jardin</li>
+          <li>Lampes solaires décoratives</li>
+          <li>Torches de jardin</li>
+        </ul>
+      </li>
+      <li data-main="vegetale">Décoration végétale extérieure
+        <ul class="sub-options">
+          <li>Pots de fleurs d’extérieur</li>
+          <li>Jardinières suspendues</li>
+          <li>Treillis décoratifs pour plantes grimpantes</li>
+          <li>Mini-serres décoratives</li>
+        </ul>
+      </li>
+      <li data-main="sol-textile">Décorations de sol & textile extérieur
+        <ul class="sub-options">
+          <li>Tapis d’extérieur</li>
+          <li>Coussins pour mobilier extérieur (décoratifs uniquement)</li>
+          <li>Paillassons décoratifs</li>
+        </ul>
+      </li>
+      <li data-main="sculpturale">Décoration sculpturale & artistique
+        <ul class="sub-options">
+          <li>Statues de jardin</li>
+          <li>Nains de jardin</li>
+          <li>Fontaines décoratives</li>
+          <li>Boules décoratives de jardin</li>
+        </ul>
+      </li>
+      <li data-main="suspendues">Décorations suspendues & mobiles
+        <ul class="sub-options">
+          <li>Cloches à vent</li>
+          <li>Carillons</li>
+          <li>Attrape-rêves d’extérieur</li>
+        </ul>
+      </li>
+      <li data-main="murale">Décoration murale extérieure
+        <ul class="sub-options">
+          <li>Décorations murales en métal/bois pour façade</li>
+          <li>Enseignes décoratives (“Bienvenue”, noms…)</li>
+          <li>Filets décoratifs pour balcon</li>
+          <li>Paravents décoratifs d’extérieur</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</span>
+ <span>
+  <label for="city">Ville </label>
   <select id="citey">
-    <option value="">toutes les villes</option>
+    <option value="">Toutes les villes</option>
     <option value="Casablanca">Casablanca</option>
     <option value="Rabat">Rabat</option>
     <option value="Marrakech">Marrakech</option>
@@ -984,7 +1271,7 @@ nav a:hover::after {
     <option value="Tanger">Tanger</option>
   </select>
 
-  <label for="style">Style :</label>
+  <label for="style">Style </label>
   <select id="styles">
     <option value="">Tous les styles</option>
     <option value="Marocain traditionnel">Marocain traditionnel</option>
@@ -993,8 +1280,33 @@ nav a:hover::after {
     <option value="Rustique">Rustique</option>
   </select>
 
+  <label for="color">Couleur </label>
+  <select id="colors">
+    <option value="">Toutes les couleurs</option>
+    <option value="noir">Noir</option>
+<option value="orange">Orange</option>
+<option value="peche">Pêche</option>
+<option value="rose">Rose</option>
+<option value="rouge">Rouge</option>
+<option value="transparent">Transparent</option>
+<option value="turquoise">Turquoise</option>
+<option value="vert">Vert</option>
+<option value="violet">Violet</option>
+<option value="metallique">Métallique</option>
+<option value="miroir">Miroir</option>
+<option value="multicolore">Multicolore</option>
+<option value="creme">Crème</option>
+<option value="cuivre">Cuivre</option>
+<option value="dore">Doré</option>
+<option value="gris">Gris</option>
+<option value="gris_fonce">Gris foncé</option>
+<option value="gris_pale">Gris pâle</option>
+<option value="jaune">Jaune</option>
+<option value="lime">Lime</option>
+<option value="marron">Marron</option>
+  </select>
 
-  <label for="price">Prix Max :</label>
+  <label for="price">Prix Max </label>
   <select id="prices">
     <option value="">Tous les prix</option>
     <option value="500">Moins de 500 DH</option>
@@ -1002,6 +1314,8 @@ nav a:hover::after {
     <option value="3000">1000 DH - 3000 DH</option>
     <option value="5000">Plus de 3000 DH</option>
   </select>
+  
+ </span>
 </div>
 
 <div class="cards-container" id="cards-container">
@@ -1009,6 +1323,34 @@ nav a:hover::after {
   </div>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
   <script>
+     document.querySelectorAll('.filters select').forEach(select => {
+    select.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            
+            this.blur();
+            
+            window.scrollBy({
+                top: (event.key === 'ArrowDown' ? 50 : -50), 
+                behavior: 'smooth'
+            });
+            event.preventDefault();
+        }
+    });
+});
+    document.querySelectorAll('.filteres select').forEach(select => {
+    select.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            
+            this.blur();
+            
+            window.scrollBy({
+                top: (event.key === 'ArrowDown' ? 50 : -50), 
+                behavior: 'smooth'
+            });
+            event.preventDefault();
+        }
+    });
+});
     let products = [];
     const input = document.getElementById('search-input');
     const suggestions = document.getElementById('suggestions');
@@ -1079,6 +1421,29 @@ nav a:hover::after {
     input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); btnSearch.click(); } });
   </script>
   <script>
+    // Scroll effect for navbar
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    document.body.classList.add("scrolled");
+  } else {
+    document.body.classList.remove("scrolled");
+  }
+});
+
+  </script>
+  <script>
+      const toggleBtn = document.getElementById("toggleBtn");
+const message = document.getElementById("message");
+
+toggleBtn.addEventListener("click", () => {
+  if (message.style.display === "none") {
+    message.style.display = "block";
+    toggleBtn.textContent = "−"; // من + إلى −
+  } else {
+    message.style.display = "none";
+    toggleBtn.textContent = "+"; // من − إلى +
+  }
+});
         (function() {
             const openBtn = document.getElementById('openContact');
             const overlay = document.getElementById('contactOverlay');
@@ -1088,7 +1453,7 @@ nav a:hover::after {
             const copyPhone = document.getElementById('copyPhone');
 
             // الرابط الذي سيتم توليد QR له
-            const message = "Bonjour, je me permets de vous contacter pour vous poser une question si vous le permettez";
+            const message = "Bonjour, je souhaiterais vous parler d'un problème que j'ai rencontré ou vous apporter un retour d'expérience pour le développement de la plateforme.";
             const encodedMessage = encodeURIComponent(message);
             const QR_TARGET = `https://wa.me/212602156653?text=${encodedMessage}`;
 
@@ -1222,34 +1587,44 @@ nav a:hover::after {
 
         })();
     </script>
-  <script>
-    // Scroll effect for navbar
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 10) {
-    document.body.classList.add("scrolled");
-  } else {
-    document.body.classList.remove("scrolled");
-  }
-});
-
-  </script>
  <script>
-   const productes = [
-    {city: "Casablanca", price: "3000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Tanger", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Marrakech", price: "500", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Casablanca", price: "1000", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Tanger", price: "1300", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Marrakech", price: "600", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Casablanca", price: "700", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Fès", price: "4000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Casablanca", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Fès", price: "5000", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Rabat", price: "10000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Rabat", price: "18000", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/tous-ext.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Rabat", price: "1500", style: "Rustique", color: "Vert", category: "Tapis", imgSrc: "img/tous-ext.jpeg", name: "Tapis Rustique", vendeur: "Artisan Rabat"},
-    {city: "Fès", price: "1500", style: "Rustique", color: "Vert", category: "Tapis", imgSrc: "img/tous-ext.jpeg", name: "Tapis Rustique", vendeur: "Artisan Fès"},
-  ];
+  const productes = [
+  // Décoration lumineuse extérieure
+  {city: "Casablanca", price: "2000", style: "Moderne", color: "Blanc", category: "Guirlandes lumineuses solaires", imgSrc: "img/tous-ext.jpeg", name: "Guirlande Solaire", vendeur: "Maison Luxe"},
+  {city: "Rabat", price: "2500", style: "Rustique", color: "Jaune", category: "Lanternes de jardin", imgSrc: "img/tous-ext.jpeg", name: "Lanterne Jardin", vendeur: "Artisan Rabat"},
+  {city: "Marrakech", price: "3000", style: "Boho chic", color: "Rouge", category: "Lampes solaires décoratives", imgSrc: "img/tous-ext.jpeg", name: "Lampe Solaire Bohème", vendeur: "Artisan Marrakech"},
+  {city: "Tanger", price: "1500", style: "Moderne", color: "Blanc", category: "Torches de jardin", imgSrc: "img/tous-ext.jpeg", name: "Torche Jardin", vendeur: "Maison Luxe"},
+
+  // Décoration végétale extérieure
+  {city: "Casablanca", price: "500", style: "Moderne", color: "Vert", category: "Pots de fleurs d’extérieur", imgSrc: "img/tous-ext.jpeg", name: "Pot de Fleurs Extérieur", vendeur: "Maison Luxe"},
+  {city: "Fès", price: "800", style: "Rustique", color: "Vert", category: "Jardinières suspendues", imgSrc: "img/tous-ext.jpeg", name: "Jardinière Suspendue", vendeur: "Artisan Fès"},
+  {city: "Marrakech", price: "1200", style: "Boho chic", color: "Vert", category: "Treillis décoratifs pour plantes grimpantes", imgSrc:"img/tous-ext.jpeg", name: "Treillis Bohème", vendeur: "Artisan Marrakech"},
+  {city: "Tanger", price: "2000", style: "Moderne", color: "Vert", category: "Mini-serres décoratives", imgSrc: "img/tous-ext.jpeg", name: "Mini-serre Jardin", vendeur: "Maison Luxe"},
+
+  // Décorations de sol & textile extérieur
+  {city: "Casablanca", price: "700", style: "Moderne", color: "Beige", category: "Tapis d’extérieur", imgSrc: "img/tous-ext.jpeg", name: "Tapis Extérieur", vendeur: "Maison Luxe"},
+  {city: "Rabat", price: "400", style: "Rustique", color: "Rouge", category: "Coussins pour mobilier extérieur (décoratifs uniquement)", imgSrc: "img/tous-ext.jpeg", name: "Coussin Extérieur", vendeur: "Artisan Rabat"},
+  {city: "Fès", price: "350", style: "Boho chic", color: "Jaune", category: "Paillassons décoratifs", imgSrc: "img/tous-ext.jpeg", name: "Paillasson Bohème", vendeur: "Artisan Fès"},
+
+  // Décoration sculpturale & artistique
+  {city: "Marrakech", price: "5000", style: "Rustique", color: "Marron", category: "Statues de jardin", imgSrc: "img/tous-ext.jpeg", name: "Statue Jardin", vendeur: "Artisan Marrakech"},
+  {city: "Casablanca", price: "3000", style: "Moderne", color: "Blanc", category: "Nains de jardin", imgSrc: "img/tous-ext.jpeg", name: "Nain Jardin", vendeur: "Maison Luxe"},
+  {city: "Rabat", price: "4000", style: "Boho chic", color: "Beige", category: "Fontaines décoratives", imgSrc: "img/tous-ext.jpeg", name: "Fontaine Bohème", vendeur: "Artisan Rabat"},
+  {city: "Fès", price: "3500", style: "Rustique", color: "Gris", category: "Boules décoratives de jardin", imgSrc: "img/tous-ext.jpeg", name: "Boule Jardin", vendeur: "Artisan Fès"},
+
+  // Décorations suspendues & mobiles
+  {city: "Casablanca", price: "1200", style: "Moderne", color: "Blanc", category: "Cloches à vent", imgSrc: "img/tous-ext.jpeg", name: "Cloche à vent", vendeur: "Maison Luxe"},
+  {city: "Rabat", price: "900", style: "Rustique", color: "Beige", category: "Carillons", imgSrc: "img/tous-ext.jpeg", name: "Carillon Jardin", vendeur: "Artisan Rabat"},
+  {city: "Marrakech", price: "1000", style: "Boho chic", color: "Rouge", category: "Attrape-rêves d’extérieur", imgSrc: "img/tous-ext.jpeg", name: "Attrape-rêves Bohème", vendeur: "Artisan Marrakech"},
+
+  // Décoration murale extérieure
+  {city: "Tanger", price: "1500", style: "Moderne", color: "Marron", category: "Décorations murales en métal/bois pour façade", imgSrc: "img/tous-ext.jpeg", name: "Décoration Murale Façade", vendeur: "Maison Luxe"},
+  {city: "Casablanca", price: "2000", style: "Rustique", color: "Gris", category: "Enseignes décoratives (“Bienvenue”, noms…)", imgSrc: "img/tous-ext.jpeg", name: "Enseigne Jardin", vendeur: "Maison Luxe"},
+  {city: "Rabat", price: "1800", style: "Boho chic", color: "Beige", category: "Filets décoratifs pour balcon", imgSrc: "img/tous-ext.jpeg", name: "Filet Balcon", vendeur: "Artisan Rabat"},
+  {city: "Marrakech", price: "2200", style: "Moderne", color: "Vert", category: "Paravents décoratifs d’extérieur", imgSrc: "img/tous-ext.jpeg", name: "Paravent Jardin", vendeur: "Artisan Marrakech"}
+];
+
+
   function createCard(product) {
     return `
       <div onclick="openPage()" class="card" data-city="${product.city}" data-price="${product.price}" data-style="${product.style}" data-color="${product.color}" data-category="${product.category}">
@@ -1276,16 +1651,18 @@ window.addEventListener("scroll", () => {
    function openPage() {
     window.location.href = "index7.html";
   }
- function syncFilters(changedId) {
+function syncFilters(changedId) {
   const mapGroup1ToGroup2 = {
     city: "citey",
     style: "styles",
+    color: "colors",
     price: "prices"
   };
 
   const mapGroup2ToGroup1 = {
     citey: "city",
     styles: "style",
+    colors: "color",
     prices: "price"
   };
 
@@ -1298,9 +1675,21 @@ window.addEventListener("scroll", () => {
   }
 }
 
+let selectedCategory = "";
+
+document.querySelectorAll(".sub-options li").forEach(item => {
+  item.addEventListener("click", (e) => {
+    e.stopPropagation(); // باش مايسدش اللائحة
+    selectedCategory = e.target.textContent.trim();
+    document.querySelector(".select-box .selected").textContent = selectedCategory;
+    filterCards();
+  });
+});
+
 function filterCards() {
   const city = document.getElementById("city").value;
   const style = document.getElementById("style").value;
+  const color = document.getElementById("color").value;
   const price = document.getElementById("price").value;
 
   const cards = document.querySelectorAll(".card");
@@ -1308,23 +1697,23 @@ function filterCards() {
   cards.forEach(card => {
     const cardCity = card.dataset.city || "";
     const cardStyle = card.dataset.style || "";
+    const cardColor = card.dataset.color || "";
     const cardPrice = parseInt(card.dataset.price) || 0;
+    const cardCategory = card.dataset.category || "";
 
     const matchCity = city === "" || city === cardCity;
     const matchStyle = style === "" || style === cardStyle;
+    const matchColor = color === "" || color === cardColor;
 
     let matchPrice = true;
-    if (price === "500") {
-      matchPrice = cardPrice <= 500;
-    } else if (price === "1000") {
-      matchPrice = cardPrice > 500 && cardPrice <= 1000;
-    } else if (price === "3000") {
-      matchPrice = cardPrice > 1000 && cardPrice <= 3000;
-    } else if (price === "5000") {
-      matchPrice = cardPrice > 3000;
-    }
+    if (price === "500") matchPrice = cardPrice <= 500;
+    else if (price === "1000") matchPrice = cardPrice > 500 && cardPrice <= 1000;
+    else if (price === "3000") matchPrice = cardPrice > 1000 && cardPrice <= 3000;
+    else if (price === "5000") matchPrice = cardPrice > 3000;
 
-    if (matchCity && matchStyle  && matchPrice) {
+     const matchCategory = selectedCategory === "" || selectedCategory === "Tous les articles" || selectedCategory === cardCategory;
+
+    if (matchCity && matchStyle && matchColor && matchPrice && matchCategory) {
       card.classList.remove("hidden");
     } else {
       card.classList.add("hidden");
@@ -1332,10 +1721,12 @@ function filterCards() {
   });
 }
 
+
+
 function setupFilterEvents() {
   const allFilterIds = [
-    "city", "style", "price",
-    "citey", "styles", "prices"
+    "city", "style", "color", "price",
+    "citey", "styles", "colors", "prices"
   ];
 
   allFilterIds.forEach(id => {
@@ -1373,9 +1764,3 @@ let lastScrollTop = 200;
 </script>
 </body>
 </html>
-
-
-
-
-
-
