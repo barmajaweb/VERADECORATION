@@ -32,7 +32,7 @@
 }
 
  .category-select {
-  margin-top: 15px;
+  margin-top: 8px;
   font-family: Arial, sans-serif;
   position: relative;
   
@@ -44,14 +44,15 @@
 }
 
 .select-box {
-  background: #f5f5f5;
+  background: white;
   border: 3px solid #014537;
   border-radius: 10px;
   cursor: pointer;
   padding: 5px 7px;
   position: relative;
   width: 100%;
-  font-weight: bolder;
+  font-weight: bold;
+  color: #014537;
 }
 
 .select-box .options {
@@ -524,9 +525,7 @@
 body {
   border: 5px solid #C9A349; 
   padding: 20px;
-  background-image: url('img/grey.jpg'); 
-  background-size: cover;
-  background-position: center;
+  background-color: white;
   box-sizing: border-box;
   margin: 0;
 }
@@ -751,7 +750,7 @@ nav a:hover::after {
   gap: 20px; 
   align-items: center;
   justify-content: center;
- 
+ margin-left: -12%;
 }
 .filters span:nth-child(2) {
   display: inline-flex;
@@ -775,6 +774,7 @@ nav a:hover::after {
   border: 3px solid #014537;
   color: #014537;
   font-weight: bolder;
+  width: 25%;
 }
 
 .cards-container {
@@ -824,14 +824,13 @@ nav a:hover::after {
         
     }
    .imgg {
-      width: 95%;
+      width: 70%;
       height: 100%;
       object-fit: cover;
       border-radius: 5px;
     }
 
     .card-body {
-      padding: 15px;
       font-family: 'Poppins', sans-serif;
       display: flex;
       flex-direction: column;
@@ -839,27 +838,32 @@ nav a:hover::after {
       background-image: url('img/grey.jpg');
       background-size: cover;
       background-position: center;
+      padding-left:2% ;
+      padding-top:10% ;
+      width: 30%;
     }
 
     .card-body h3 {
       margin: 0;
       color: #014537;
-      font-size: 18px;
+      font-size: 95%;
+      font-weight: bolder;
     }
 
     .card-body .location {
       color: #014537;
-      font-size: 18px;
+      font-size: 15px;
       font-weight: bold;
       margin-top: 18px;
     }
 
     .card-body .vendeur {
       color: #014537;
-      font-size: 18px;
+      font-size: 15px;
       font-weight: bold;
       margin-top: 18px;
     }
+
 
     .card-body .price-btn-row {
       display: flex;
@@ -916,6 +920,7 @@ nav a:hover::after {
   gap: 20px; 
   align-items: center;
   justify-content: center;
+  padding-right: 30%;
 }
 
 .filteres span:nth-child(2) {
@@ -945,6 +950,7 @@ nav a:hover::after {
   border: 3px solid #014537;
   color: #014537;
   font-weight: bolder;
+  width: 25%;
 }
 
   </style>
@@ -1081,7 +1087,6 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
   </header>
  <div class="filters">
   <span class="category-select">
-  <label>Article </label>
   <div class="select-box">
     <div class="selected">Tous les articles</div>
     <ul class="options">
@@ -1148,9 +1153,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
   </div>
 </span>
  <span>
-  <label for="city">Ville </label>
+  
   <select id="city">
-    <option value="">Toutes les villes</option>
+    <option value="">ville</option>
     <option value="Casablanca">Casablanca</option>
     <option value="Rabat">Rabat</option>
     <option value="Marrakech">Marrakech</option>
@@ -1158,18 +1163,18 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     <option value="Tanger">Tanger</option>
   </select>
 
-  <label for="style">Style </label>
+  
   <select id="style">
-    <option value="">Tous les styles</option>
+    <option value="">style</option>
     <option value="Marocain traditionnel">Marocain traditionnel</option>
     <option value="Moderne">Moderne</option>
     <option value="Boho chic">Boho chic</option>
     <option value="Rustique">Rustique</option>
   </select>
 
-  <label for="color">Couleur </label>
+  
   <select id="color">
-    <option value="">Toutes les couleurs</option>
+    <option value="">couleur</option>
     <option value="noir">Noir</option>
 <option value="orange">Orange</option>
 <option value="peche">Pêche</option>
@@ -1193,9 +1198,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 <option value="marron">Marron</option>
   </select>
 
-  <label for="price">Prix Max </label>
+  
   <select id="price">
-    <option value="">Tous les prix</option>
+    <option value="">prix</option>
     <option value="500">Moins de 500 DH</option>
     <option value="1000">500 DH - 1000 DH</option>
     <option value="3000">1000 DH - 3000 DH</option>
@@ -1212,7 +1217,7 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 
 <div class="filteres">
   <span class="category-select">
-  <label>Article </label>
+  
   <div class="select-box">
     <div class="selected">Tous les articles</div>
     <ul class="options">
@@ -1279,9 +1284,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
   </div>
 </span>
  <span>
-  <label for="city">Ville </label>
+  
   <select id="citey">
-    <option value="">Toutes les villes</option>
+    <option value="">ville</option>
     <option value="Casablanca">Casablanca</option>
     <option value="Rabat">Rabat</option>
     <option value="Marrakech">Marrakech</option>
@@ -1289,18 +1294,18 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     <option value="Tanger">Tanger</option>
   </select>
 
-  <label for="style">Style </label>
+  
   <select id="styles">
-    <option value="">Tous les styles</option>
+    <option value="">style</option>
     <option value="Marocain traditionnel">Marocain traditionnel</option>
     <option value="Moderne">Moderne</option>
     <option value="Boho chic">Boho chic</option>
     <option value="Rustique">Rustique</option>
   </select>
 
-  <label for="color">Couleur </label>
+  
   <select id="colors">
-    <option value="">Toutes les couleurs</option>
+    <option value="">couleur</option>
     <option value="noir">Noir</option>
 <option value="orange">Orange</option>
 <option value="peche">Pêche</option>
@@ -1324,9 +1329,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 <option value="marron">Marron</option>
   </select>
 
-  <label for="price">Prix Max </label>
+  
   <select id="prices">
-    <option value="">Tous les prix</option>
+    <option value="">prix</option>
     <option value="500">Moins de 500 DH</option>
     <option value="1000">500 DH - 1000 DH</option>
     <option value="3000">1000 DH - 3000 DH</option>
@@ -1625,6 +1630,25 @@ toggleBtn.addEventListener("click", () => {
   {city: "Tanger", price: "500", style: "Boho chic", color: "Vert", category: "Plantes vertes d’intérieur", imgSrc: "img/tous-int.jpeg", name: "Plante Verte", vendeur: "Artisan Tanger"},
   
   // Ambiance & senteurs
+  {city: "Casablanca", price: "300", style: "Moderne", color: "Blanc", category: "Bougies décoratives", imgSrc: "img/tous-int.jpeg", name: "Bougie Parfumée", vendeur: "Maison Luxe"},
+  // Décoration murale
+  {city: "Casablanca", price: "3000", style: "Moderne", color: "Beige", category: "Tableaux & peintures", imgSrc: "img/tous-int.jpeg", name: "Tableau Moderne", vendeur: "Maison Luxe"},
+  {city: "Tanger", price: "1500", style: "Rustique", color: "Beige", category: "Miroirs décoratifs", imgSrc: "img/tous-int.jpeg", name: "Miroir Rustique", vendeur: "Maison Luxe"},
+  
+  // Décoration textile
+  {city: "Marrakech", price: "600", style: "Boho chic", color: "Vert", category: "Tapis d’intérieur", imgSrc: "img/tous-int.jpeg", name: "Tapis Bohème", vendeur: "Artisan Marrakech"},
+  {city: "Casablanca", price: "700", style: "Moderne", color: "Beige", category: "Coussins décoratifs", imgSrc: "img/tous-int.jpeg", name: "Coussin Élégant", vendeur: "Maison Luxe"},
+  
+  // Éclairage décoratif
+  {city: "Fès", price: "4000", style: "Moderne", color: "Blanc", category: "Lampes décoratives", imgSrc: "img/tous-int.jpeg", name: "Lampe Moderne", vendeur: "Maison Luxe"},
+  
+  // Objets décoratifs
+  {city: "Rabat", price: "1200", style: "Rustique", color: "Marron", category: "Figurines & statuettes", imgSrc: "img/tous-int.jpeg", name: "Figurine Artisanale", vendeur: "Artisan Rabat"},
+  
+  // Décoration florale & végétale
+  {city: "Tanger", price: "500", style: "Boho chic", color: "Vert", category: "Plantes vertes d’intérieur", imgSrc: "img/tous-int.jpeg", name: "Plante Verte", vendeur: "Artisan Tanger"},
+  
+  // Ambiance & senteurs
   {city: "Casablanca", price: "300", style: "Moderne", color: "Blanc", category: "Bougies décoratives", imgSrc: "img/tous-int.jpeg", name: "Bougie Parfumée", vendeur: "Maison Luxe"}
 ];
 
@@ -1682,20 +1706,90 @@ function syncFilters(changedId) {
 
 let selectedCategory = "";
 
+// ✅ خريطة الفئات الكبيرة → الفئات الصغيرة
+const categoryMap = {
+  "Tous les articles": [],
+  "Décoration murale": [
+    "Tableaux & peintures",
+    "Affiches & posters décoratifs",
+    "Miroirs décoratifs",
+    "Horloges murales",
+    "Stickers muraux",
+    "Papier peint décoratif",
+    "Tentures & tapisseries murales",
+    "Décorations murales en métal ou bois"
+  ],
+  "Décoration textile": [
+    "Tapis d’intérieur",
+    "Rideaux & voilages",
+    "Stores décoratifs",
+    "Coussins décoratifs",
+    "Plaids & couvertures décoratives"
+  ],
+  "Éclairage décoratif": [
+    "Guirlandes lumineuses intérieures",
+    "Lampes décoratives",
+    "Lanternes d’intérieur",
+    "Lampes à poser décoratives"
+  ],
+  "Objets décoratifs": [
+    "Figurines & statuettes",
+    "Objets en céramique ou verre",
+    "Boîtes décoratives",
+    "Cloches décoratives en verre",
+    "Cadres photo décoratifs",
+    "Diffuseurs de parfum décoratifs"
+  ],
+  "Décoration florale & végétale": [
+    "Vases décoratifs",
+    "Pots de fleurs d’intérieur",
+    "Fleurs artificielles",
+    "Compositions florales",
+    "Plantes vertes d’intérieur"
+  ],
+  "Ambiance & senteurs": [
+    "Bougies décoratives",
+    "Porte-bougies & photophores",
+    "Encensoirs décoratifs"
+  ]
+};
+
 document.querySelectorAll(".sub-options li").forEach(item => {
   item.addEventListener("click", (e) => {
-    e.stopPropagation(); // باش مايسدش اللائحة
+    e.stopPropagation();
     selectedCategory = e.target.textContent.trim();
-    document.querySelector(".select-box .selected").textContent = selectedCategory;
+
+  
+    document.querySelectorAll(".select-box .selected").forEach(sel => {
+      sel.textContent = selectedCategory;
+    });
+
     filterCards();
   });
 });
 
+
+
+document.querySelectorAll(".options > li").forEach(item => {
+  item.addEventListener("click", (e) => {
+    if (!e.target.closest(".sub-options")) { 
+      selectedCategory = item.firstChild.textContent.trim();
+
+     
+      document.querySelectorAll(".select-box .selected").forEach(sel => {
+        sel.textContent = selectedCategory;
+      });
+
+      filterCards();
+    }
+  });
+});
+
 function filterCards() {
-  const city = document.getElementById("city").value;
-  const style = document.getElementById("style").value;
-  const color = document.getElementById("color").value;
-  const price = document.getElementById("price").value;
+  const city = document.getElementById("city")?.value || "";
+  const style = document.getElementById("style")?.value || "";
+  const color = document.getElementById("color")?.value || "";
+  const price = document.getElementById("price")?.value || "";
 
   const cards = document.querySelectorAll(".card");
 
@@ -1716,7 +1810,13 @@ function filterCards() {
     else if (price === "3000") matchPrice = cardPrice > 1000 && cardPrice <= 3000;
     else if (price === "5000") matchPrice = cardPrice > 3000;
 
-     const matchCategory = selectedCategory === "" || selectedCategory === "Tous les articles" || selectedCategory === cardCategory;
+    // ✅ فلترة category
+    let matchCategory = true;
+    if (selectedCategory !== "" && selectedCategory !== "Tous les articles") {
+      const subCategories = categoryMap[selectedCategory] || [];
+      matchCategory =
+        cardCategory === selectedCategory || subCategories.includes(cardCategory);
+    }
 
     if (matchCity && matchStyle && matchColor && matchPrice && matchCategory) {
       card.classList.remove("hidden");
