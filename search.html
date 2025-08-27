@@ -76,6 +76,7 @@
   border: 3px solid #014537;
   color: #014537;
   font-weight: bolder;
+  width: 10%;
 }
 
     .filters {
@@ -108,6 +109,7 @@
   border: 3px solid #014537;
   color: #014537;
   font-weight: bolder;
+  width: 10%;
 }
     :root {
             --primary: #004d40;
@@ -632,7 +634,7 @@ nav a:hover::after {
   background-color: #a48858;
 }
 
-   .cards {
+.cards {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -670,14 +672,13 @@ nav a:hover::after {
         
     }
     .imggs {
-      width: 95%;
+       width: 70%;
       height: 100%;
       object-fit: cover;
       border-radius: 5px;
     }
 
     .card-bodys {
-      padding: 15px;
       font-family: 'Poppins', sans-serif;
       display: flex;
       flex-direction: column;
@@ -685,12 +686,15 @@ nav a:hover::after {
       background-image: url('img/grey.jpg');
       background-size: cover;
       background-position: center;
+      padding-left:2% ;
+      padding-top:10% ;
+      width: 30%;
     }
 
     .card-bodys h3 {
       margin: 0;
       color: #014537;
-      font-size: 18px;
+      font-size: 95%;
     }
 
     .card-bodys .locations {
@@ -752,12 +756,16 @@ nav a:hover::after {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: calc(33.33% - 20px);
   overflow: hidden;
- 
+ height: 350px;
   opacity: 1;
   transition: 0.5s;
   cursor: pointer;
 }
-
+.card-img{
+      width: 100%;
+      height: 85%;
+      
+    }
 .card.hidden {
   opacity: 0;
   
@@ -775,38 +783,40 @@ nav a:hover::after {
 
     .card img {
       width: 100%;
-      height: 200px;
+      height: 100%;
       object-fit: cover;
     }
 
     .card-body {
-      padding: 15px;
       font-family: 'Poppins', sans-serif;
       display: flex;
       flex-direction: row;
       gap: 8px;
-      display: flex;
       justify-content: space-between;
+      padding-left:5% ;
+      padding-right:5%;
+
     }
 
     .card-body h3 {
       margin: 0;
       color: #014537;
-      font-size: 20px;
+      font-size: 18px;
+      margin-top: -16%;
     }
 
     .card-body .location {
       color: #014537;
-      font-size: 20px;
+      font-size: 14px;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 5px;
     }
 
     .card-body .vendeur {
       color: #014537;
-      font-size: 20px;
+      font-size: 14px;
       font-weight: bold;
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
     .card-body .price-btn-row {
@@ -820,6 +830,7 @@ nav a:hover::after {
       color: #C9A349;
       font-weight: bold;
       font-size: 18px;
+      margin-top: -20%;
     }
 
     .card-body button {
@@ -851,6 +862,11 @@ nav a:hover::after {
       margin-top: 30px;
       text-align: center;
     }
+    #suggestions{position:absolute;margin-left: 70%;  left: 0; right:0;top:100%;background:#fff;border-top:none;max-height:320px;max-width:30%; overflow:auto;z-index:50;border-radius:6px 6px 6px 6px}
+.s-item{display:flex;gap:10px;padding:8px;align-items:center;cursor:pointer;border-bottom:1px solid #eee}
+    .s-item img{width:54px;height:40px;object-fit:cover;border-radius:4px}
+    .s-meta{flex:1;text-align:right}
+    .s-name{font-weight:bold}
   </style>
 </head>
 <body>
@@ -985,9 +1001,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     </div>
   </header>
   <div class="filters">
-  <label for="city">Ville :</label>
+  
   <select id="city">
-    <option value="">toutes les villes</option>
+    <option value="">ville</option>
     <option value="Casablanca">Casablanca</option>
     <option value="Rabat">Rabat</option>
     <option value="Marrakech">Marrakech</option>
@@ -995,17 +1011,17 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     <option value="Tanger">Tanger</option>
   </select>
 
-  <label for="style">Style :</label>
+  
   <select id="style">
-    <option value="">Tous les styles</option>
+    <option value="">style</option>
     <option value="Marocain traditionnel">Marocain traditionnel</option>
     <option value="Moderne">Moderne</option>
     <option value="Boho chic">Boho chic</option>
     <option value="Rustique">Rustique</option>
   </select>
-   <label for="category">Couleur :</label> 
+  
   <select id="color">
-    <option value="">Toutes les couleurs</option>
+    <option value="">couleur</option>
     <option value="noir">Noir</option>
 <option value="orange">Orange</option>
 <option value="peche">Pêche</option>
@@ -1029,9 +1045,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 <option value="marron">Marron</option>
   </select>
 
-  <label for="price">Prix Max :</label>
+  
   <select id="price">
-    <option value="">Tous les prix</option>
+    <option value="">prix</option>
     <option value="500">Moins de 500 DH</option>
     <option value="1000">500 DH - 1000 DH</option>
     <option value="3000">1000 DH - 3000 DH</option>
@@ -1040,9 +1056,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 </div>
 <div class="filteres">
   <h2>Filtrer</h2>
-  <label for="city">Ville :</label>
+ 
   <select id="citey">
-    <option value="">Tous les villes</option>
+    <option value="">ville</option>
     <option value="Casablanca">Casablanca</option>
     <option value="Rabat">Rabat</option>
     <option value="Marrakech">Marrakech</option>
@@ -1050,18 +1066,18 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     <option value="Tanger">Tanger</option>
   </select>
 
-  <label for="style">Style :</label>
+  
   <select id="styles">
-    <option value="">Tous les styles</option>
+    <option value="">style</option>
     <option value="Marocain traditionnel">Marocain traditionnel</option>
     <option value="Moderne">Moderne</option>
     <option value="Boho chic">Boho chic</option>
     <option value="Rustique">Rustique</option>
   </select>
 
-  <label for="category">Couleur :</label>
+       
   <select id="colors">
-    <option value="">Toutes les couleurs</option>
+    <option value="">couleur</option>
     <option value="noir">Noir</option>
 <option value="orange">Orange</option>
 <option value="peche">Pêche</option>
@@ -1085,9 +1101,8 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 <option value="marron">Marron</option>
   </select>
 
-  <label for="price">Prix Max :</label>
   <select id="prices">
-    <option value="">Tous les prix</option>
+    <option value="">prix</option>
     <option value="500">Moins de 500 DH</option>
     <option value="1000">500 DH - 1000 DH</option>
     <option value="3000">1000 DH - 3000 DH</option>
@@ -1477,7 +1492,7 @@ let lastScrollTop = 200;
            data-style="${style}" 
            data-color="${color}" 
            data-category="${category}">
-        <img src="${img}" alt="${name}">
+        <div class="card-img"> <img src="${img}" alt="${name}"></div>
         <div class="card-body">
           <div>
             <h3>${name}</h3>
@@ -1499,6 +1514,76 @@ let lastScrollTop = 200;
       if(!str && str!==0) return '';
       return String(str).replace(/[&<>"']/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]; });
     }
+  </script>
+  <script>
+    let products = [];
+    const input = document.getElementById('search-input');
+    const suggestions = document.getElementById('suggestions');
+    const btnSearch = document.getElementById('btn-search');
+
+    // جلب المنتجات من products.json
+    fetch('products.json')
+      .then(r => r.json())
+      .then(data => {
+        products = data;
+        // إعداد Fuse محليًا للاقتراحات
+        window.fuseIndex = new Fuse(products, {
+          keys: ['name','city','style','color','category','vendeur'],
+          threshold: 0.45,
+          includeScore: true
+        });
+      })
+      .catch(err => {
+        console.error('فشل تحميل products.json', err);
+      });
+
+    function renderSuggestions(results){
+      if(!results || results.length===0){
+        suggestions.innerHTML = '<div style="padding:10px;color:#666">لا توجد اقتراحات</div>';
+        return;
+      }
+      suggestions.innerHTML = results.slice(0,8).map(r => {
+        const item = r.item;
+        return `
+          <div class="s-item" data-q="${encodeURIComponent(item.name)}">
+            <img src="${item.imgSrc}" alt="${item.name}">
+            <div class="s-meta">
+              <div class="s-name">${item.name}</div>
+              <div style="font-size:13px;color:#666">${item.city} · ${item.type}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      // اضف event لكل اقتراح
+      document.querySelectorAll('.s-item').forEach(el=>{
+        el.addEventListener('click', ()=>{
+          const q = decodeURIComponent(el.dataset.q);
+          window.location.href = `search.html?query=${encodeURIComponent(q)}`;
+        });
+      });
+    }
+
+    input.addEventListener('input', ()=>{
+      const q = input.value.trim();
+      if(!q || !window.fuseIndex){ suggestions.innerHTML = ''; return; }
+      // اقتراحات باستخدام Fuse
+      const res = window.fuseIndex.search(q, {limit: 12});
+      renderSuggestions(res);
+    });
+
+    btnSearch.addEventListener('click', ()=>{
+      const q = input.value.trim();
+      if(!q){ alert('يرجى إدخال كلمة للبحث.'); input.focus(); return; }
+      window.location.href = `search.html?query=${encodeURIComponent(q)}`;
+    });
+
+    // إخفاء الاقتراحات عند النقر خارجها
+    document.addEventListener('click', (e)=>{
+      if(!e.target.closest('.nav-icons')) suggestions.innerHTML = '';
+    });
+
+    // دعم الضغط Enter
+    input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); btnSearch.click(); } });
   </script>
 </body>
 </html>
