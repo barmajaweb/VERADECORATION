@@ -433,9 +433,7 @@
 body {
   border: 5px solid #C9A349; 
   padding: 20px;
-  background-image: url('img/grey.jpg'); 
-  background-size: cover;
-  background-position: center;
+  background-color: white;
   box-sizing: border-box;
   margin: 0;
 }
@@ -678,6 +676,7 @@ nav a:hover::after {
   border: 3px solid #014537;
   color: #014537;
   font-weight: bolder;
+  width: 10%;
 }
 
 .cards-container {
@@ -695,18 +694,18 @@ nav a:hover::after {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: calc(33.33% - 20px);
   overflow: hidden;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  height: 350px;
   opacity: 1;
-  transform: scale(1);
+  transition: 0.5s;
   cursor: pointer;
 }
 
 .card.hidden {
   opacity: 0;
-  transform: scale(0.9);
+  
   pointer-events: none;
   position: absolute;
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  
 }
 
 
@@ -715,27 +714,33 @@ nav a:hover::after {
       transform: translateY(-5px);
     }
    
-
+    .card-img{
+      width: 100%;
+      height: 85%;
+      
+    }
     .card img {
       width: 100%;
-      height: 200px;
+      height: 100%;
       object-fit: cover;
     }
 
     .card-body {
-      padding: 15px;
       font-family: 'Poppins', sans-serif;
       display: flex;
       flex-direction: row;
       gap: 8px;
-      display: flex;
       justify-content: space-between;
+      padding-left:5% ;
+      padding-right:5%;
+
     }
 
     .card-body h3 {
       margin: 0;
       color: #014537;
       font-size: 18px;
+      margin-top: -16%;
     }
 
     .card-body .location {
@@ -763,6 +768,7 @@ nav a:hover::after {
       color: #C9A349;
       font-weight: bold;
       font-size: 18px;
+      margin-top: -20%;
     }
 
     .card-body button {
@@ -823,6 +829,7 @@ nav a:hover::after {
   border: 3px solid #014537;
   color: #014537;
   font-weight: bolder;
+  width: 10%;
 }
 .all {
   width: 100%;
@@ -1005,11 +1012,15 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
   <div class="filters">
   
   
+  <select id="Article">
+    <option value="">Articles</option>
+    <option value="Meuble vasque">Meuble vasque</option>
+  <option value="Colonne de salle de bain">Colonne de salle de bain</option>
+  <option value="Armoire de toilette">Armoire de toilette</option>
+  </select>
 
- 
-   <label for="category">Couleur :</label> 
   <select id="color">
-    <option value="">Toutes les couleurs</option>
+    <option value="">couleur</option>
     <option value="noir">Noir</option>
 <option value="orange">Orange</option>
 <option value="peche">Pêche</option>
@@ -1074,11 +1085,15 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 </div>
 <div class="filteres">
   <h2>Filtrer </h2>
+  <select id="Articles">
+    <option value="">Article</option>
+     <option value="Meuble vasque">Meuble vasque</option>
+  <option value="Colonne de salle de bain">Colonne de salle de bain</option>
+  <option value="Armoire de toilette">Armoire de toilette</option>
+  </select>
   
-  
-   <label for="category">Couleur :</label>
   <select id="colors">
-    <option value="">Toutes les couleurs</option>
+    <option value="">couleur</option>
     <option value="noir">Noir</option>
 <option value="orange">Orange</option>
 <option value="peche">Pêche</option>
@@ -1364,13 +1379,15 @@ toggleBtn.addEventListener("click", () => {
     toggleBtn.textContent = "+"; // من − إلى +
   }
 });
-    function syncFilters(changedId) {
+function syncFilters(changedId) {
   const mapGroup1ToGroup2 = {
     color: "colors",
+    Article: "Articles"
   };
 
   const mapGroup2ToGroup1 = {
     colors: "color",
+    Articles: "Article"
   };
 
   if (mapGroup1ToGroup2[changedId]) {
@@ -1385,20 +1402,23 @@ toggleBtn.addEventListener("click", () => {
 function filterCards() {
   const color = document.getElementById("color").value;
  
+  const Article = document.getElementById("Article").value;
 
   // ناخدو جميع البطاقات سواء .card أو .cards
   const cards = document.querySelectorAll(".card");
 
   cards.forEach(card => {
-    
     const cardColor = card.dataset.color || "";
- 
-    const matchColor = color === "" || color === "all" || color === cardColor;
-   
-
+    const cardArticle = card.dataset.category || "";
     
 
-    if (matchColor) {
+   
+    const matchColor = color === "" || color === "all" || color === cardColor;
+    const matchArticle = Article === "" || Article === "all" || Article === cardArticle;
+
+  
+
+    if (matchColor && matchArticle) {
       card.classList.remove("hidden");
     } else {
       card.classList.add("hidden");
@@ -1409,7 +1429,8 @@ function filterCards() {
 
 function setupFilterEvents() {
   const allFilterIds = [
- "color","colors"
+   "color", "Article", 
+    "colors", "Articles"
   ];
 
   allFilterIds.forEach(id => {
@@ -1444,21 +1465,19 @@ let lastScrollTop = 200;
     lastScrollTop = scrollTop;
   });
      const productes = [
-    {city: "Casablanca", price: "3000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Tanger", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Marrakech", price: "500", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Casablanca", price: "1000", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Tanger", price: "1300", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Marrakech", price: "600", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Casablanca", price: "700", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Fès", price: "4000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Casablanca", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Fès", price: "5000", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Rabat", price: "10000", style: "Moderne", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Rabat", price: "18000", style: "Boho chic", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-    {city: "Rabat", price: "1500", style: "Rustique", color: "Vert", category: "Tapis", imgSrc: "img/all-salon.jpeg", name: "Tapis Rustique", vendeur: "Artisan Rabat"},
-     {city: "Fès", price: "5000", style: "Rustique", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
-     {city: "Casablanca", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Salon Marocain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"}
+     {city: "Casablanca", price: "3000", style: "Moderne", color: "Beige", category: "Meuble vasque", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Tanger", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Colonne de salle de bain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Marrakech", price: "500", style: "Boho chic", color: "Beige", category: "Armoire de toilette", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Casablanca", price: "1000", style: "Rustique", color: "Beige", category: "Meuble vasque", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Tanger", price: "1300", style: "Moderne", color: "Beige", category: "Colonne de salle de bain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Marrakech", price: "600", style: "Rustique", color: "Beige", category: "Armoire de toilette", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Casablanca", price: "700", style: "Boho chic", color: "Beige", category: "Meuble vasque", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Fès", price: "4000", style: "Moderne", color: "Beige", category: "Colonne de salle de bain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Casablanca", price: "3000", style: "Marocain traditionnel", color: "Beige", category: "Armoire de toilette", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Fès", price: "5000", style: "Rustique", color: "Beige", category: "Meuble vasque", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Rabat", price: "10000", style: "Moderne", color: "Beige", category: "Colonne de salle de bain", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Rabat", price: "18000", style: "Boho chic", color: "Beige", category: "Armoire de toilette", imgSrc: "img/all-salon.jpeg", name: "Salon Élégant", vendeur: "Maison Luxe"},
+    {city: "Rabat", price: "1500", style: "Rustique", color: "Vert", category: "Meuble vasque", imgSrc: "img/all-salon.jpeg", name: "Tapis Rustique", vendeur: "Artisan Rabat"}
   ];
    function createCardHTML(product) {
     return `
@@ -1468,7 +1487,7 @@ let lastScrollTop = 200;
            data-style="${product.style}" 
            data-color="${product.color}" 
            data-category="${product.category}">
-        <img src="${product.imgSrc}" alt="${product.name}">
+        <div class="card-img"> <img src="${product.imgSrc}" alt="${product.name}"></div>
         <div class="card-body">
           <div>
             <h3>${product.name}</h3>
