@@ -32,10 +32,9 @@
 }
 
  .category-select {
-  margin-top: 15px;
+  margin-top: 8px;
   font-family: Arial, sans-serif;
   position: relative;
-  
   display: flex;
   align-items: center;
   margin-bottom: 23px;
@@ -44,14 +43,15 @@
 }
 
 .select-box {
-  background: #f5f5f5;
+  background: white;
   border: 3px solid #014537;
   border-radius: 10px;
   cursor: pointer;
   padding: 5px 7px;
   position: relative;
-  width: 100%;
-  font-weight: bolder;
+  font-weight: bold;
+  color: #014537;   
+  
 }
 
 .select-box .options {
@@ -524,9 +524,7 @@
 body {
   border: 5px solid #C9A349; 
   padding: 20px;
-  background-image: url('img/grey.jpg'); 
-  background-size: cover;
-  background-position: center;
+  background-color: white;
   box-sizing: border-box;
   margin: 0;
 }
@@ -751,6 +749,7 @@ nav a:hover::after {
   gap: 20px; 
   align-items: center;
   justify-content: center;
+  margin-left: -12%;
  
 }
 .filters span:nth-child(2) {
@@ -775,6 +774,7 @@ nav a:hover::after {
   border: 3px solid #014537;
   color: #014537;
   font-weight: bolder;
+  width: 25%;
 }
 
 .cards-container {
@@ -824,14 +824,13 @@ nav a:hover::after {
         
     }
    .imgg {
-      width: 95%;
+      width: 70%;
       height: 100%;
       object-fit: cover;
       border-radius: 5px;
     }
 
     .card-body {
-      padding: 15px;
       font-family: 'Poppins', sans-serif;
       display: flex;
       flex-direction: column;
@@ -839,27 +838,32 @@ nav a:hover::after {
       background-image: url('img/grey.jpg');
       background-size: cover;
       background-position: center;
+      padding-left:2% ;
+      padding-top:10% ;
+      width: 30%;
     }
 
     .card-body h3 {
       margin: 0;
       color: #014537;
-      font-size: 18px;
+      font-size: 95%;
+      font-weight: bolder;
     }
 
     .card-body .location {
       color: #014537;
-      font-size: 18px;
+      font-size: 15px;
       font-weight: bold;
       margin-top: 18px;
     }
 
     .card-body .vendeur {
       color: #014537;
-      font-size: 18px;
+      font-size: 15px;
       font-weight: bold;
       margin-top: 18px;
     }
+
 
     .card-body .price-btn-row {
       display: flex;
@@ -901,7 +905,6 @@ nav a:hover::after {
   border-right: 5px solid #C9A349;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   font-family: 'Poppins', sans-serif;
-  padding-left: 40px; /* استبدال 15vh بـ قيمة مناسبة */
   z-index: 1000;
   transform: translateY(-100%);
   transition: all 0.4s ease-in-out;
@@ -910,12 +913,12 @@ nav a:hover::after {
   left: 0;
   right: 0;
   top: 0;
-  margin-top: 10.9vh;
-  padding-left: 15vh;
+  margin-top: 10.8vh;
    display: flex;
   gap: 20px; 
   align-items: center;
   justify-content: center;
+  padding-right: 30%;
 }
 
 .filteres span:nth-child(2) {
@@ -945,6 +948,7 @@ nav a:hover::after {
   border: 3px solid #014537;
   color: #014537;
   font-weight: bolder;
+  width: 25%;
 }
 
   </style>
@@ -1081,7 +1085,6 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
   </header>
  <div class="filters">
   <span class="category-select">
-  <label>Article </label>
   <div class="select-box">
     <div class="selected">Tous les articles</div>
     <ul class="options">
@@ -1139,9 +1142,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
   </div>
 </span>
  <span>
-  <label for="city">Ville </label>
+  
   <select id="city">
-    <option value="">Toutes les villes</option>
+    <option value=""> ville</option>
     <option value="Casablanca">Casablanca</option>
     <option value="Rabat">Rabat</option>
     <option value="Marrakech">Marrakech</option>
@@ -1149,18 +1152,18 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     <option value="Tanger">Tanger</option>
   </select>
 
-  <label for="style">Style </label>
+  
   <select id="style">
-    <option value="">Tous les styles</option>
+    <option value="">style</option>
     <option value="Marocain traditionnel">Marocain traditionnel</option>
     <option value="Moderne">Moderne</option>
     <option value="Boho chic">Boho chic</option>
     <option value="Rustique">Rustique</option>
   </select>
 
-  <label for="color">Couleur </label>
+  
   <select id="color">
-    <option value="">Toutes les couleurs</option>
+    <option value=""> couleur</option>
     <option value="noir">Noir</option>
 <option value="orange">Orange</option>
 <option value="peche">Pêche</option>
@@ -1184,9 +1187,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 <option value="marron">Marron</option>
   </select>
 
-  <label for="price">Prix Max </label>
+  
   <select id="price">
-    <option value="">Tous les prix</option>
+    <option value=""> prix</option>
     <option value="500">Moins de 500 DH</option>
     <option value="1000">500 DH - 1000 DH</option>
     <option value="3000">1000 DH - 3000 DH</option>
@@ -1203,7 +1206,7 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 
 <div class="filteres">
   <span class="category-select">
-  <label>Article </label>
+  
   <div class="select-box">
     <div class="selected">Tous les articles</div>
     <ul class="options">
@@ -1261,9 +1264,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
   </div>
 </span>
  <span>
-  <label for="city">Ville </label>
+  
   <select id="citey">
-    <option value="">Toutes les villes</option>
+    <option value="">ville</option>
     <option value="Casablanca">Casablanca</option>
     <option value="Rabat">Rabat</option>
     <option value="Marrakech">Marrakech</option>
@@ -1271,18 +1274,18 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     <option value="Tanger">Tanger</option>
   </select>
 
-  <label for="style">Style </label>
+  
   <select id="styles">
-    <option value="">Tous les styles</option>
+    <option value="">style</option>
     <option value="Marocain traditionnel">Marocain traditionnel</option>
     <option value="Moderne">Moderne</option>
     <option value="Boho chic">Boho chic</option>
     <option value="Rustique">Rustique</option>
   </select>
 
-  <label for="color">Couleur </label>
+  
   <select id="colors">
-    <option value="">Toutes les couleurs</option>
+    <option value="">couleur</option>
     <option value="noir">Noir</option>
 <option value="orange">Orange</option>
 <option value="peche">Pêche</option>
@@ -1306,9 +1309,9 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 <option value="marron">Marron</option>
   </select>
 
-  <label for="price">Prix Max </label>
+  
   <select id="prices">
-    <option value="">Tous les prix</option>
+    <option value="">prix</option>
     <option value="500">Moins de 500 DH</option>
     <option value="1000">500 DH - 1000 DH</option>
     <option value="3000">1000 DH - 3000 DH</option>
@@ -1676,13 +1679,61 @@ function syncFilters(changedId) {
 }
 
 let selectedCategory = "";
+const categoryMap = {
+  "Tous les articles": [],
+  "Décoration lumineuse extérieure": [
+    "Guirlandes lumineuses solaires",
+    "Lanternes de jardin",
+    "Lampes solaires décoratives",
+    "Torches de jardin"
+  ],
+  "Décoration végétale extérieure": [
+    "Pots de fleurs d’extérieur",
+    "Jardinières suspendues",
+    "Treillis décoratifs pour plantes grimpantes",
+    "Mini-serres décoratives"
+  ],
+  "Décorations de sol & textile extérieur": [
+    "Tapis d’extérieur",
+    "Coussins pour mobilier extérieur (décoratifs uniquement)",
+    "Paillassons décoratifs"
+  ],
+  "Décoration sculpturale & artistique": [
+    "Statues de jardin",
+    "Nains de jardin",
+    "Fontaines décoratives",
+    "Boules décoratives de jardin"
+  ],
+  "Décorations suspendues & mobiles": [
+    "Cloches à vent",
+    "Carillons",
+    "Attrape-rêves d’extérieur"
+  ],
+  "Décoration murale extérieure": [
+    "Décorations murales en métal/bois pour façade",
+    "Enseignes décoratives (“Bienvenue”, noms…)",
+    "Filets décoratifs pour balcon",
+    "Paravents décoratifs d’extérieur"
+  ]
+};
+
 
 document.querySelectorAll(".sub-options li").forEach(item => {
   item.addEventListener("click", (e) => {
-    e.stopPropagation(); // باش مايسدش اللائحة
+    e.stopPropagation();
     selectedCategory = e.target.textContent.trim();
     document.querySelector(".select-box .selected").textContent = selectedCategory;
     filterCards();
+  });
+});
+
+document.querySelectorAll(".options > li").forEach(item => {
+  item.addEventListener("click", (e) => {
+    if (!e.target.closest(".sub-options")) { 
+      selectedCategory = item.firstChild.textContent.trim();
+      document.querySelector(".select-box .selected").textContent = selectedCategory;
+      filterCards();
+    }
   });
 });
 
@@ -1710,8 +1761,12 @@ function filterCards() {
     else if (price === "1000") matchPrice = cardPrice > 500 && cardPrice <= 1000;
     else if (price === "3000") matchPrice = cardPrice > 1000 && cardPrice <= 3000;
     else if (price === "5000") matchPrice = cardPrice > 3000;
-
-     const matchCategory = selectedCategory === "" || selectedCategory === "Tous les articles" || selectedCategory === cardCategory;
+    let matchCategory = true;
+    if (selectedCategory !== "" && selectedCategory !== "Tous les articles") {
+      const subCategories = categoryMap[selectedCategory] || [];
+      matchCategory =
+        cardCategory === selectedCategory || subCategories.includes(cardCategory);
+    }
 
     if (matchCity && matchStyle && matchColor && matchPrice && matchCategory) {
       card.classList.remove("hidden");
