@@ -173,7 +173,7 @@ nav a:hover::after {
   align-items: center;
   background: #f6f3f1;
   background-size: cover;
-  
+  position: relative;
   margin-top: 55px;
   left: 0;
   right: 0;
@@ -188,12 +188,13 @@ nav a:hover::after {
       position: absolute;
       margin-top: -140px;
       margin-left: -1%;
+      width: 100%;
     }
 
     .headline span {
       display: block;
       text-transform: uppercase;
-      font-size: 32px;
+      font-size: 130%;
       text-decoration: underline;
       text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
       opacity: 0;
@@ -201,24 +202,30 @@ nav a:hover::after {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
       font-weight: bold;
       font-family: 'Poppins', sans-serif;
+      position: absolute;
       
-
-
     }
 
     .headline span:nth-child(1) {
       animation-delay: 0.3s;
       transform: translateX(-10px);
-    }
+      margin-top: 5%;
+      margin-left: 12%;
 
-    .headline span:nth-child(2) {
-      animation-delay: 0.6s;
-      transform: translateX(0px);
     }
 
     .headline span:nth-child(3) {
-      animation-delay: 0.9s;
+      animation-delay: 0.8s;
+      transform: translateX(0px);
+      margin-top: 10%;
+      margin-left: 7%;
+    }
+
+    .headline span:nth-child(5) {
+      animation-delay: 1.5s;
       transform: translateX(10px);
+      margin-left: 60%;
+      margin-top:29.5%;
     }
 
     @keyframes fadeIn {
@@ -234,17 +241,17 @@ nav a:hover::after {
     .hero-text {
       margin-top: 90px;
       padding-left: 5%;
-      width: 30%;
+      width: 100%;
   }
 .hero-buttons button {
   padding: 0.7rem 1.2rem;
-  margin-left: 170%;
+  margin-left: 20%;
   border: 5px solid #C9A349;
   cursor: pointer;
   border-radius: 18px;
   width: 130px;
   font-weight: bolder;
-  margin-top: 90px;
+  margin-top: 120px;
   background-color:#C9A349;
   color:white ;
   font-size: 19px;
@@ -254,13 +261,12 @@ nav a:hover::after {
   transform: scale(1.05);
 }
 .hero-img {
-  position: relative;
-  width: 100%;     
-  height: 500px;    
+  position: absolute;
+  width: 45%;
+  height: 500px;
+
   
- 
-  margin-left: 40%;
-  
+  margin-left: 55%;
   margin-top: 8%;
 }
 
@@ -308,15 +314,15 @@ nav a:hover::after {
   left: 0;
   height: auto;
   width: 120px;
-  margin-top: 90px;
-  margin-left: 10px;
+  margin-top: 1%;
+  margin-left: 2%;
 }
 
 /* Products */
 .products {
   padding: 2rem;
   width: 100%;
-  margin-top: 5%;
+  margin-top: 10%;
   
 }
 .products h2 {
@@ -909,7 +915,7 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
       <h1 class="headline">
       <span>Avec Vira Decoration,</span><br>
       <span>un seul geste change tout…</span><br>
-      <span>Découvrez la beauté des détails</span>
+      <span>Découvrez la beauté <br> <br>  des détails</span>
       </h1>
       <div class="hero-buttons">
         <button onclick="openPages()" class="gold">More</button>
