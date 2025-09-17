@@ -6,6 +6,12 @@
   <title>Vira Decoration</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
        #toggleBtn {
   padding: 0.2rem 0.5rem;
@@ -186,7 +192,7 @@ nav a:hover::after {
       text-align: center;
       font-weight: bold;
       color: #004d40;
-      position: absolute;
+      position: relative;
       margin-top: -140px;
       
       width: 100%;
@@ -205,32 +211,30 @@ nav a:hover::after {
       position: absolute;
       
     }
-
-    .headline span:nth-child(1) {
+     
+     .headline span:nth-child(1) {
       animation-delay: 0.3s;
       transform: translateX(-10px);
-      margin-top: -4%;
-      margin-left: 30%;
-      font-size: 450%;
-        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-     font-weight: 550;                
- text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-  line-height: 0.95;              
-  letter-spacing: -0.02em;         
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "kern" 1; 
+      margin-top: -55px;
+      margin-left: 20%;
+      font-family: "Cinzel Decorative", serif;
+      font-weight: 400;           
+      font-size: 135px;           
+      letter-spacing: 2px;     
+      text-transform: none;      
+      line-height: 0.9;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-
     .headline span:nth-child(3) {
       animation-delay: 0.8s;
       transform: translateX(0px);
-      margin-top: 9%;
+      margin-top: 115px;
       margin-left: 10%;
-    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-weight: 300;                     
-  font-size: 230%;
+    font-family: "Fleur De Leah" , cursive ;
+  font-weight: 600;                     
+  font-size: 250%;
   line-height: 1.05;                     
   letter-spacing: 0.01em;                
   text-transform: none;
@@ -243,11 +247,11 @@ nav a:hover::after {
     .headline span:nth-child(5) {
       animation-delay: 1.5s;
       transform: translateX(0px);
-      margin-top: 13%;
-      margin-left: 2%;
-    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-weight: 300;                     
-  font-size: 300%;                    
+      margin-top: 175px;
+      margin-left: 5%;
+    font-family: "Fleur De Leah" , cursive ;
+  font-weight: 600;                     
+  font-size: 305%;                    
   
   line-height: 1.05;                     
   letter-spacing: 0.01em;                
@@ -260,11 +264,11 @@ nav a:hover::after {
     .headline span:nth-child(7) {
       animation-delay: 1.8s;
       transform: translateX(0px);
-      margin-top: 33%;
+      margin-top: 413px;
       margin-left: 60%;
-    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-weight: 300;                     
-  font-size: 180%;                    
+     font-family: "Fleur De Leah" , cursive ;
+  font-weight: 600;                     
+  font-size: 185%;                    
   
   line-height: 1.05;                     
   letter-spacing: 0.01em;                
@@ -273,7 +277,36 @@ nav a:hover::after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
     
+  }
+        @media (max-width: 1280px) {
+           .headline span:nth-child(1) {
+      animation-delay: 0.3s;
+      transform: translateX(-10px);
+      margin-top: -65px;
+      margin-left: 15%;
+      font-family: "Cinzel Decorative", serif;
+      font-weight: 400;           
+      font-size: 135px;           
+      letter-spacing: 2px;     
+      text-transform: none;      
+      line-height: 0.9;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+             }
+             @media (min-width: 1536px) {
+           .headline span:nth-child(1) {
+            margin-top: -40px;
+      
+           }
+           .headline span:nth-child(7) {
+            font-size: 145%; 
+            margin-top: 398px;
+      
+           }
+             }
+   
 
     @keyframes fadeIn {
       0% {
@@ -314,7 +347,7 @@ nav a:hover::after {
 
   
   margin-left: 55%;
-  margin-top:18%;
+  margin-top:300px;
 }
 
 
@@ -336,7 +369,7 @@ nav a:hover::after {
 
 /* الصورة الثانية - الزاوية العلوية اليمنى */
 .hero-img .img2 {
-  top: 50%;
+  top: 58%;
   right: 85%;
   z-index: 2;
   width: 35%;
@@ -345,7 +378,7 @@ nav a:hover::after {
 
 /* الصورة الثالثة - الزاوية السفلية اليسرى */
 .hero-img .img3 {
-  bottom: 62%;
+  bottom: 72%;
   left: 55%;
   z-index: 3;
   width: 33%;
@@ -360,16 +393,16 @@ nav a:hover::after {
   top: 0;
   left: 0;
   height: auto;
-  width: 32%;
-  margin-top: -2%;
-  margin-left: 3%;
+  width: 25%;
+  margin-top: -20px;
+  margin-left: -4%;
 }
 
 /* Products */
 .products {
   padding: 2rem;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 200px;
   
 }
 .products h2 {
@@ -1019,6 +1052,7 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
   <script>
+    console.log(window.innerWidth);
       const toggleBtn = document.getElementById("toggleBtn");
 const message = document.getElementById("message");
 
