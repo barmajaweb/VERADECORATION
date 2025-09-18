@@ -46,7 +46,7 @@
 }
 body {
   border: 5px solid #C9A349; 
-  padding: 20px;
+  
   background: #f6f3f1; 
   box-sizing: border-box;
   margin: 0;
@@ -175,51 +175,39 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f6f3f1;
-  background-size: cover;
-  position: relative;
-  margin-top: 55px;
-  left: 0;
-  right: 0;
-  height: 65vh;
+  background-color: #f6f3f1;
   width: 100%;
-  
+  height: 84vh;
+  margin-top: 15vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 }
-.headline {
-      text-align: center;
+ .hero-text {
+      width: 50vw;
+      height: 100%;
+  }
+  .headline {
       font-weight: bold;
       color: #004d40;
-      position: relative;
-      margin-top: -140px;
       
-      width: 100%;
     }
 
     .headline span {
       display: block;
-      
-      
-      
-      
       opacity: 0;
       animation: fadeIn 1s ease forwards;
-      
-      
       position: absolute;
       
     }
-     
-     .headline span:nth-child(1) {
+    .headline span:nth-child(1) {
       animation-delay: 0.3s;
-      transform: translateX(-10px);
-      margin-top: -55px;
-      margin-left: 20%;
-      font-family: "Cinzel Decorative", serif;
+      font-family: "Fleur De Leah" , cursive ;
+      margin-left: 28vw;
       font-weight: 400;           
-      font-size: 135px;           
+      font-size: 10vw;           
       letter-spacing: 2px;     
       text-transform: none;      
       line-height: 0.9;
@@ -229,12 +217,11 @@ nav a:hover::after {
     }
     .headline span:nth-child(3) {
       animation-delay: 0.8s;
-      transform: translateX(0px);
-      margin-top: 115px;
-      margin-left: 10%;
     font-family: "Fleur De Leah" , cursive ;
-  font-weight: 600;                     
-  font-size: 250%;
+    font-weight: 600;  
+    left: 15vw;  
+    top: 40%;                 
+     font-size: 4.9vw;
   line-height: 1.05;                     
   letter-spacing: 0.01em;                
   text-transform: none;
@@ -246,13 +233,12 @@ nav a:hover::after {
 
     .headline span:nth-child(5) {
       animation-delay: 1.5s;
-      transform: translateX(0px);
-      margin-top: 175px;
-      margin-left: 5%;
+      
     font-family: "Fleur De Leah" , cursive ;
-  font-weight: 600;                     
-  font-size: 305%;                    
-  
+    font-weight: 600;  
+    left: 10vw;  
+    top: 58%;                 
+     font-size: 5.9vw;
   line-height: 1.05;                     
   letter-spacing: 0.01em;                
   text-transform: none;
@@ -261,14 +247,14 @@ nav a:hover::after {
   -moz-osx-font-smoothing: grayscale; 
     
     }
-    .headline span:nth-child(7) {
+     .headline span:nth-child(7) {
       animation-delay: 1.8s;
-      transform: translateX(0px);
-      margin-top: 413px;
-      margin-left: 60%;
+      
      font-family: "Fleur De Leah" , cursive ;
+     left:68vw ;
+     top: 90%;
   font-weight: 600;                     
-  font-size: 185%;                    
+  font-size: 3vw;                    
   
   line-height: 1.05;                     
   letter-spacing: 0.01em;                
@@ -278,37 +264,7 @@ nav a:hover::after {
   -moz-osx-font-smoothing: grayscale; 
     
   }
-        @media (max-width: 1280px) {
-           .headline span:nth-child(1) {
-      animation-delay: 0.3s;
-      transform: translateX(-10px);
-      margin-top: -65px;
-      margin-left: 15%;
-      font-family: "Cinzel Decorative", serif;
-      font-weight: 400;           
-      font-size: 135px;           
-      letter-spacing: 2px;     
-      text-transform: none;      
-      line-height: 0.9;
-      font-style: normal;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-             }
-             @media (min-width: 1536px) {
-           .headline span:nth-child(1) {
-            margin-top: -40px;
-      
-           }
-           .headline span:nth-child(7) {
-            font-size: 145%; 
-            margin-top: 398px;
-      
-           }
-             }
-   
-
-    @keyframes fadeIn {
+  @keyframes fadeIn {
       0% {
         opacity: 0;
         transform: translateY(20px);
@@ -318,91 +274,65 @@ nav a:hover::after {
         transform: translateY(0);
       }
     }
-    .hero-text {
-      margin-top: 200px;
-      padding-left: 5%;
-      width: 100%;
-  }
-.hero-buttons button {
+  .hero-buttons button {
   padding: 0.7rem 1.2rem;
-  margin-left:20% ;
+  margin-left:20vw ;
   border: 5px solid #C9A349;
   cursor: pointer;
   border-radius: 18px;
-  width: 130px;
+  width: 8vw;
   font-weight: bolder;
-  margin-top: 250px;
+  margin-top: 390px;
   background-color:#C9A349;
   color:white ;
-  font-size: 19px;
+  font-size: 1.4rem;
   transition: 0.7s;
 }
 .hero-buttons button:hover {
   transform: scale(1.05);
 }
-.hero-img {
-  position: absolute;
-  width: 45%;
-  height: 500px;
-
-  
-  margin-left: 55%;
-  margin-top:300px;
+ .hero-img {
+  width: 50vw;
+  height: 100%;
 }
-
-
 .hero-img img {
-  position: absolute;
-  width: 50%;        
-
+  position: absolute;       
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-
-/* الصورة الأولى - الزاوية العلوية اليسرى */
 .hero-img .img1 {
-  top: 0;
-  left: 0;
+  top: 54%;
+  left: 75%;
+  transform: translate(-50%, -50%);
   z-index: 1;
-  width: 70%;
-  height: 85%;
+  width: 29vw;
+  height: 27vw;
 }
-
-/* الصورة الثانية - الزاوية العلوية اليمنى */
 .hero-img .img2 {
-  top: 58%;
-  right: 85%;
+  top: 82.5%;
+  right: 26%;
+   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 35%;
-  height: 45%;
+  width: 13vw;
+  height: 14vw;
 }
-
-/* الصورة الثالثة - الزاوية السفلية اليسرى */
 .hero-img .img3 {
-  bottom: 72%;
-  left: 55%;
+  bottom: 40%;
+  left: 90%;
+  transform: translate(-50%, -50%);
   z-index: 3;
-  width: 33%;
-  height: 45%;
+  width: 14vw;
+  height: 15vw;
 }
-
-
-
-
 .triangle {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: auto;
-  width: 25%;
-  margin-top: -20px;
-  margin-left: -4%;
+  top: -4%;
+  left: -2vw;
+  width: 25vw;
 }
-
-/* Products */
 .products {
   padding: 2rem;
   width: 100%;
-  margin-top: 200px;
+  margin-top: 50px;
   
 }
 .products h2 {
@@ -991,24 +921,23 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 
   <section class="hero">
     <img class="triangle" src="img/logo.png" alt="">
-    <div class="hero-text">
+   <div class="hero-text">
       <h1 class="headline">
       <span>Avec Vira</span><br>
       <span>Un simple geste</span><br>
       <span>Peut tout changer</span><br>
-      <span>Découvrez la beauté <br> des détails</span>
+      <span>Découvrez la beauté  des détails</span>
       </h1>
       <div class="hero-buttons">
         <button onclick="openPages()" class="gold">More</button>
       </div>
     </div>
     <div class="hero-img">
-  <img src="img/principale 1.jpeg" alt="Salon luxueux" class="img1">
-  <img src="img/principale 2.jpeg" alt="Salon luxueux" class="img2">
-  <img src="img/principale 4.jpeg" alt="Salon luxueux" class="img3">
+    <img src="img/principale 11.jpeg" alt="Salon luxueux" class="img1">
+    <img src="img/principale 2.jpeg" alt="Salon luxueux" class="img2">
+    <img src="img/principale 4.jpeg" alt="Salon luxueux" class="img3">
 
-</div>
-
+  </div>
   </section>
 
   <section class="products">
