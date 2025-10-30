@@ -455,31 +455,28 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width:100%;
   z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: #f6f3f1;
-  
+ padding: 2rem  1.2rem;
+   background: #f6f3f1;
+
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-top: 5px solid #C9A349; 
   border-right: 5px solid #C9A349;
-   border-left: 5px solid #C9A349; 
+  border-left: 5px solid #C9A349; 
    height: 80px;
 }
 .logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #1c2b6c;
   cursor: pointer;
   animation: logoEntrance 0.8s ease-out forwards;
   transition: transform 0.4s ease, color 0.3s ease;
-
+  
 }
 .logo img {
-  width: 150px;
+  width:12vw;
   height: auto;
   transition: transform 0.7s ease;
 }
@@ -493,7 +490,9 @@ body {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1vw;
+  
+  width: 40vw;
 }
 nav a {
   text-decoration: none;
@@ -502,7 +501,9 @@ nav a {
   transition: color 0.3s ease;
   font-weight: bolder;
   font-family: 'Poppins', sans-serif;
-  margin-left: 10px;
+  margin-left: 2vw;
+  background-color: #efeeeb;
+  font-size:1.1vw;
 }
 nav a::after {
   content: '';
@@ -522,22 +523,25 @@ nav a:hover::after {
 }
 .nav-icons {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.5vw;
   align-items: center;
 }
 .nav-icons input {
-  padding: 10px 25px;
+ 
   border: 3px solid #b99b6b;
   border-radius: 18px;
   transition: all 0.3s ease;
-  width: 42vh;
-  height: 40px;
+  width: 22vw;
+  height: 2.5vw;
+  padding: 0.7rem 1rem;
 
 }
 .nav-icons input::placeholder {
   color: #b99b6b;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
+  font-size: 1vw;
+
 }
 
 .nav-icons input:focus {
@@ -549,10 +553,11 @@ nav a:hover::after {
   background-color: #014537;
   color: #fff;
   border: none;
-  padding: 0.6rem 1.1rem;
+  padding: 0.6vw 1vw;
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 1vw;
 }
 .btn-connexion:hover {
   background-color: #a48858;
@@ -1500,3 +1505,4 @@ let lastScrollTop = 200;
 </script>
 </body>
 </html>
+
