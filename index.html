@@ -6,7 +6,10 @@
   <title>Vira Decoration</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+<style>
        #toggleBtn {
   padding: 0.2rem 0.5rem;
   margin-left: 5%;
@@ -48,7 +51,7 @@
 
 body {
   border: 5px solid #C9A349;
-  background: #f6f3f1; 
+  background: #f6f3f1 ; 
   box-sizing: border-box;
   min-height: 100vh;
 }
@@ -66,32 +69,42 @@ body {
 }
 
 /* Navbar */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
- padding: 2rem  1.2rem;
-   background: #f6f3f1;
-
+  padding: 1rem 2rem;
+ background: linear-gradient(
+    to bottom,
+    #0f5132 0%,
+    #0f5132 88%,
+    #f5f7f6 95%,
+    #f9fbfa 100%
+  );
+  
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-top: 5px solid #C9A349; 
   border-right: 5px solid #C9A349;
-  border-left: 5px solid #C9A349; 
+   border-left: 5px solid #C9A349; 
    height: 80px;
 }
 .logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c2b6c;
   cursor: pointer;
   animation: logoEntrance 0.8s ease-out forwards;
   transition: transform 0.4s ease, color 0.3s ease;
-  
+
 }
 .logo img {
-  width:12vw;
+  width: 150px;
   height: auto;
   transition: transform 0.7s ease;
 }
@@ -105,20 +118,16 @@ body {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1vw;
-  
-  width: 40vw;
+  gap: 1.5rem;
 }
 nav a {
   text-decoration: none;
-  color: #C9A349;
+  color: whitesmoke;
   position: relative;
   transition: color 0.3s ease;
   font-weight: bolder;
   font-family: 'Poppins', sans-serif;
-  margin-left: 2vw;
-  background-color: #efeeeb;
-  font-size:1.1vw;
+  margin-left: 10px;
 }
 nav a::after {
   content: '';
@@ -138,25 +147,24 @@ nav a:hover::after {
 }
 .nav-icons {
   display: flex;
-  gap: 0.5vw;
+  gap: 0.5rem;
   align-items: center;
+  position: relative; 
 }
+
 .nav-icons input {
- 
+  padding: 10px 40px 10px 15px; 
   border: 3px solid #b99b6b;
   border-radius: 18px;
   transition: all 0.3s ease;
-  width: 22vw;
-  height: 2.5vw;
-  padding: 0.7rem 1rem;
-
+  width: 42vh;
+  height: 40px;
 }
+
 .nav-icons input::placeholder {
   color: #b99b6b;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
-  font-size: 1vw;
-
 }
 
 .nav-icons input:focus {
@@ -164,54 +172,58 @@ nav a:hover::after {
   border-color: #b99b6b;
   box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
 }
-.btn-connexion {
-  background-color: #014537;
-  color: #fff;
-  border: none;
-  padding: 0.6vw 1vw;
-  border-radius: 15px;
+
+#btn-search {
+  position: absolute;
+  right: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 1vw;
-}
-.btn-connexion:hover {
-  background-color: #a48858;
+  color: #014537;
+  font-size: 18px;
 }
 /* Hero Section */
 .hero {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
   background: #f6f3f1;
   background-size: cover;
-  padding: 6rem 2rem 3rem;
-  margin-top: 5vh;
+  
+  margin-top: 55px;
   left: 0;
   right: 0;
   height: 65vh;
-  width: 99vw;
+  width: 100%;
+  
 }
-.headline {
+.hero-text {
+      margin-top: 90px;
+      padding-left: 5%;
+      width: 30%;
+  }
+  .headline {
       text-align: center;
       font-weight: bold;
-      color: #004d40;
+      color: #014537;
       position: absolute;
-      left: 5vw;
-      top: 22vh;
-      
+      margin-top: -140px;
+      margin-left: 5%;
     }
+ 
+
 
     .headline span {
       display: block;
-      text-transform: uppercase;
-      font-size: 2.2vw;
-     
-      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      
+      font-size: 32px;
+      text-decoration: none;
+      font-weight: bolder;
       opacity: 0;
       animation: fadeIn 1s ease forwards;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-      font-weight: bold;
-      font-family: 'Playfair Display', serif;
+       font-family: "Satisfy", cursive;
+      font-weight: 900;
+     font-style: normal;
+     
+      
       
 
 
@@ -220,16 +232,22 @@ nav a:hover::after {
     .headline span:nth-child(1) {
       animation-delay: 0.3s;
       transform: translateX(-10px);
+      
     }
 
     .headline span:nth-child(2) {
       animation-delay: 0.6s;
       transform: translateX(0px);
+      
     }
 
     .headline span:nth-child(3) {
       animation-delay: 0.9s;
       transform: translateX(10px);
+       font-family: "Satisfy", cursive;
+      font-weight: 900;
+     font-style: normal;
+     font-size: 70px;
     }
 
     @keyframes fadeIn {
@@ -243,18 +261,22 @@ nav a:hover::after {
       }
     }
     .hero-text {
+      display: flex;
+      flex-direction: column;
       margin-top: 90px;
+      padding-left: 5%;
+      width: 30%;
   }
 .hero-buttons button {
   padding: 0.7rem 1.2rem;
-  margin-left: 13rem;
-  border: 5px solid #C9A349;
+  margin-left: 60%;
+  border: 5px solid #014537;
   cursor: pointer;
   border-radius: 18px;
   width: 130px;
   font-weight: bolder;
-  margin-top: 90px;
-  background-color:#C9A349;
+  margin-top: 150px;
+  background-color:#014537;
   color:white ;
   font-size: 19px;
   transition: 0.7s;
@@ -262,20 +284,19 @@ nav a:hover::after {
 .hero-buttons button:hover {
   transform: scale(1.05);
 }
-.hero-img img {
-  width: 60vw;
-  height: 35vw;
-  margin-right: 2vw;
-  
+
+.hero-img {
+  width: 65%;     
+  height: 65vh;    
 }
-.triangle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: auto;
-  width: 120px;
-  margin-top: 90px;
-  margin-left: 10px;
+
+
+.hero-img img {
+  
+  width: 100%;        
+  height: 65vh;
+  
+  
 }
 
 /* Products */
@@ -292,7 +313,7 @@ nav a:hover::after {
   margin-bottom: 1rem;
   font-size: 2.5vw;
   margin-left: 43%;
-  color: #C9A349;
+  color: #0f5132 ;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
   cursor: pointer;
@@ -340,7 +361,16 @@ nav a:hover::after {
   padding: 1rem;
   margin-top: 2rem;
 }
-#suggestions{position:absolute;margin-left: 70%;  left: 0; right:0;top:100%;background:#fff;border-top:none;max-height:320px;max-width:30%; overflow:auto;z-index:50;border-radius:6px 6px 6px 6px}
+#suggestions{
+  position: absolute;
+  top: 45px;
+  width: 100%;
+  background: white;
+  
+  border-radius: 10px;
+  
+  z-index: 1000;
+}
 .s-item{display:flex;gap:10px;padding:8px;align-items:center;cursor:pointer;border-bottom:1px solid #eee}
     .s-item img{width:54px;height:40px;object-fit:cover;border-radius:4px}
     .s-meta{flex:1;text-align:right}
@@ -857,29 +887,33 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
         </div>
     </div>
   <header class="navbar">
-    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <div class="logo"><img src="img/logo3.png" alt=""></div>
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
+        <li><a href="nouveau.html">NOUVEAUTES</a></li>
         <li><a href="index2.html">MEUBLES</a></li>
         <li><a href="index3.html">DÉCORATION</a></li>
         <li><a href="index4.html">MAGASINS</a></li>
         <li id="openContact"><a href="#">CONTACT</a></li>
+        <li><a href="/login" class="btn btn-secondary">CONNEXION</a></li>
       </ul>
     </nav>
     <div class="nav-icons">
-      <input id="search-input" type="text" placeholder="Chercher..." />
-      <div id="suggestions"></div>
-      <button id="btn-search" class="btn-connexion">Connexion</button>
+     <input id="search-input" type="text" placeholder="Chercher..." />
+
+     <i id="btn-search" class="btn-connexion fa fa-search"></i>
+
+     <div id="suggestions"></div>
     </div>
   </header>
 
   <section class="hero">
     <div class="hero-text">
       <h1 class="headline">
-      <span>Avec Vira Decoration,</span><br>
-      <span>un seul geste change tout…</span><br>
-      <span>Découvrez la beauté des détails</span>
+      <span>WELCOME TO</span><br>
+      <span>VIRA Decoration</span><br>
+      <span>Where all décor stores come together</span>
       </h1>
       <div class="hero-buttons">
         <button onclick="openPages()" class="gold">More</button>
@@ -896,32 +930,32 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
       <div class="product-card">
         <img src="img/img1.jpeg" alt="Salon" />
         <h4>Nouveau ensemble chic</h4>
-        <p>GQ.1430</p>
+        
       </div>
       <div onclick="openPage()" class="product-card">
         <img src="img/img2.jpeg" alt="Buffet" />
         <h4>Meubles & armoires</h4>
-        <p>G$ 2030</p>
+        
       </div>
       <div onclick="openPage()" class="product-card">
         <img src="img/img3.jpeg" alt="Blanc design" />
         <h4>Blanc contemporain</h4>
-        <p>€74.500</p>
+        
       </div>
       <div onclick="openPage()" class="product-card">
         <img src="img/img4.jpeg" alt="Blanc design" />
         <h4>Blanc contemporain</h4>
-        <p>€74.500</p>
+        
       </div>
       <div onclick="openPage()" class="product-card">
         <img src="img/img5.jpeg" alt="Blanc design" />
         <h4>Blanc contemporain</h4>
-        <p>€74.500</p>
+        
       </div>
       <div onclick="openPage()" class="product-card">
         <img src="img/img6.jpeg" alt="Blanc design" />
         <h4>Blanc contemporain</h4>
-        <p>€74.500</p>
+        
       </div>
     </div>
   </section>
