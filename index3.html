@@ -455,28 +455,37 @@
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
- padding: 2rem  1.2rem;
-   background: #f6f3f1;
-
+  padding: 1rem 2rem;
+ background: linear-gradient(
+    to bottom,
+    #0f5132 0%,
+    #0f5132 88%,
+    #f5f7f6 95%,
+    #f9fbfa 100%
+  );
+  
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-top: 5px solid #C9A349; 
   border-right: 5px solid #C9A349;
-  border-left: 5px solid #C9A349; 
+   border-left: 5px solid #C9A349; 
    height: 80px;
 }
 .logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c2b6c;
   cursor: pointer;
   animation: logoEntrance 0.8s ease-out forwards;
   transition: transform 0.4s ease, color 0.3s ease;
-  
+
 }
 .logo img {
-  width:12vw;
+  width: 150px;
   height: auto;
   transition: transform 0.7s ease;
 }
@@ -490,20 +499,16 @@
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1vw;
-  
-  width: 40vw;
+  gap: 1.5rem;
 }
 nav a {
   text-decoration: none;
-  color: #C9A349;
+  color: whitesmoke;
   position: relative;
   transition: color 0.3s ease;
   font-weight: bolder;
   font-family: 'Poppins', sans-serif;
-  margin-left: 2vw;
-  background-color: #efeeeb;
-  font-size:1.1vw;
+  margin-left: 10px;
 }
 nav a::after {
   content: '';
@@ -523,25 +528,24 @@ nav a:hover::after {
 }
 .nav-icons {
   display: flex;
-  gap: 0.5vw;
+  gap: 0.5rem;
   align-items: center;
+  position: relative; 
 }
+
 .nav-icons input {
- 
+  padding: 10px 40px 10px 15px; 
   border: 3px solid #b99b6b;
   border-radius: 18px;
   transition: all 0.3s ease;
-  width: 22vw;
-  height: 2.5vw;
-  padding: 0.7rem 1rem;
-
+  width: 42vh;
+  height: 40px;
 }
+
 .nav-icons input::placeholder {
   color: #b99b6b;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
-  font-size: 1vw;
-
 }
 
 .nav-icons input:focus {
@@ -549,18 +553,13 @@ nav a:hover::after {
   border-color: #b99b6b;
   box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
 }
-.btn-connexion {
-  background-color: #014537;
-  color: #fff;
-  border: none;
-  padding: 0.6vw 1vw;
-  border-radius: 15px;
+
+#btn-search {
+  position: absolute;
+  right: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 1vw;
-}
-.btn-connexion:hover {
-  background-color: #a48858;
+  color: #014537;
+  font-size: 18px;
 }
 .top {
    margin-top: 15vh;
@@ -809,25 +808,28 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
         </div>
     </div>
  <header class="navbar">
-    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <div class="logo"><img src="img/logo3.png" alt=""></div>
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
+        <li><a href="nouveau.html">NOUVEAUTES</a></li>
         <li><a href="index2.html">MEUBLES</a></li>
         <li><a href="index3.html">DÉCORATION</a></li>
         <li><a href="index4.html">MAGASINS</a></li>
         <li id="openContact"><a href="#">CONTACT</a></li>
+        <li><a href="/login" class="btn btn-secondary">CONNEXION</a></li>
       </ul>
     </nav>
     <div class="nav-icons">
-      <input id="search-input" type="text" placeholder="Chercher..." />
-      <div id="suggestions"></div>
-      <button id="btn-search" class="btn-connexion">Connexion</button>
+     <input id="search-input" type="text" placeholder="Chercher..." />
+
+     <i id="btn-search" class="btn-connexion fa fa-search"></i>
+
+     <div id="suggestions"></div>
     </div>
   </header>
   <div class="top">
-     <img class="or-left" src="img/or.png" alt="">
-    <img class="or-right" src="img/or.png" alt="">
+  
     <h1 class="Espase">Espaces</h1>
 
   </div>
@@ -1141,5 +1143,3 @@ window.addEventListener("scroll", () => {
         })();
     </script>
 </html>
-
-
