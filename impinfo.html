@@ -68,7 +68,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #f6f3f1;
+ background: linear-gradient(
+    to bottom,
+    #0f5132 0%,
+    #0f5132 88%,
+    #f5f7f6 95%,
+    #f9fbfa 100%
+  );
   
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-top: 5px solid #C9A349; 
@@ -104,7 +110,7 @@ nav ul {
 }
 nav a {
   text-decoration: none;
-  color: #C9A349;
+  color: whitesmoke;
   position: relative;
   transition: color 0.3s ease;
   font-weight: bolder;
@@ -131,16 +137,18 @@ nav a:hover::after {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  position: relative; 
 }
+
 .nav-icons input {
-  padding: 10px 25px;
+  padding: 10px 40px 10px 15px; 
   border: 3px solid #b99b6b;
   border-radius: 18px;
   transition: all 0.3s ease;
   width: 42vh;
   height: 40px;
-
 }
+
 .nav-icons input::placeholder {
   color: #b99b6b;
   font-weight: bold;
@@ -152,17 +160,13 @@ nav a:hover::after {
   border-color: #b99b6b;
   box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
 }
-.btn-connexion {
-  background-color: #014537;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.1rem;
-  border-radius: 15px;
+
+#btn-search {
+  position: absolute;
+  right: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.btn-connexion:hover {
-  background-color: #a48858;
+  color: #014537;
+  font-size: 18px;
 }
 
 /* Hero Section */
@@ -855,20 +859,24 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
         </div>
     </div>
   <header class="navbar">
-    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <div class="logo"><img src="img/logo3.png" alt=""></div>
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
+        <li><a href="nouveau.html">NOUVEAUTES</a></li>
         <li><a href="index2.html">MEUBLES</a></li>
         <li><a href="index3.html">DÉCORATION</a></li>
         <li><a href="index4.html">MAGASINS</a></li>
         <li id="openContact"><a href="#">CONTACT</a></li>
+        <li><a href="/login" class="btn btn-secondary">CONNEXION</a></li>
       </ul>
     </nav>
     <div class="nav-icons">
-      <input id="search-input" type="text" placeholder="Chercher..." />
-      <div id="suggestions"></div>
-      <button id="btn-search" class="btn-connexion">Connexion</button>
+     <input id="search-input" type="text" placeholder="Chercher..." />
+
+     <i id="btn-search" class="btn-connexion fa fa-search"></i>
+
+     <div id="suggestions"></div>
     </div>
   </header>
     <div class="product-store-info">
