@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <style>
        #toggleBtn {
   padding: 0.2rem 0.5rem;
@@ -82,8 +82,8 @@ body {
   padding: 1rem 2rem;
  background: linear-gradient(
     to bottom,
-    #0f5132 0%,
-    #0f5132 88%,
+    #144D4D 0%,
+    #144D4D 88%,
     #f5f7f6 95%,
     #f9fbfa 100%
   );
@@ -162,7 +162,7 @@ nav a:hover::after {
 }
 
 .nav-icons input::placeholder {
-  color: #b99b6b;
+  color: #144D4D;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
 }
@@ -177,7 +177,7 @@ nav a:hover::after {
   position: absolute;
   right: 15px;
   cursor: pointer;
-  color: #014537;
+  color: #144D4D;
   font-size: 18px;
 }
 /* Hero Section */
@@ -203,10 +203,10 @@ nav a:hover::after {
   .headline {
       text-align: center;
       font-weight: bold;
-      color: #014537;
+      color: #144D4D;
       position: absolute;
       margin-top: -140px;
-      margin-left: 5%;
+      margin-left: 2%;
     }
  
 
@@ -219,9 +219,10 @@ nav a:hover::after {
       font-weight: bolder;
       opacity: 0;
       animation: fadeIn 1s ease forwards;
-       font-family: "Satisfy", cursive;
-      font-weight: 900;
-     font-style: normal;
+       font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  
+  font-style: normal;
      
       
       
@@ -270,13 +271,13 @@ nav a:hover::after {
 .hero-buttons button {
   padding: 0.7rem 1.2rem;
   margin-left: 60%;
-  border: 5px solid #014537;
+  border: 5px solid #144D4D;
   cursor: pointer;
-  border-radius: 18px;
+  border-radius: 5px;
   width: 130px;
   font-weight: bolder;
   margin-top: 150px;
-  background-color:#014537;
+  background-color:#144D4D;
   color:white ;
   font-size: 19px;
   transition: 0.7s;
@@ -313,7 +314,7 @@ nav a:hover::after {
   margin-bottom: 1rem;
   font-size: 2.5vw;
   margin-left: 43%;
-  color: #0f5132 ;
+  color: #144D4D ;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
   cursor: pointer;
@@ -345,7 +346,7 @@ nav a:hover::after {
   margin-top: 0.5rem;
   font-size: 1.3vw;
   margin-left: 1vw;
-  color: #004d40;
+  color: #144D4D;
 }
 .product-card p {
   color: #888;
@@ -355,7 +356,7 @@ nav a:hover::after {
 
 /* Footer */
 .footer {
-  background-color: #014537;
+  background-color: #144D4D;
   color: #fff;
   text-align: center;
   padding: 1rem;
@@ -853,7 +854,7 @@ nav a:hover::after {
                 </div>
                 <div class="plateforme">
                 <span>notre plateforme<button id="toggleBtn">+</button></span>
-                 <p id="message" style="display: none;color: #014537;">
+                 <p id="message" style="display: none;color: #144D4D;">
 Notre plateforme est un espace en ligne qui regroupe et présente les dernières tendances et décorations disponibles dans les magasins de différentes villes marocaines, afin de faciliter la recherche et l’achat aussi bien pour les clients que pour les architectes d’intérieur.
 Nous ne vendons pas les produits : nous affichons uniquement ce qui est disponible en magasin, avec des informations utiles telles que la possibilité de livraison, les coordonnées et la localisation du magasin.
 Toutes les ventes et livraisons sont gérées directement par les magasins. Pour toute question ou problème lié au service ou à la livraison, veuillez contacter directement le magasin concerné.
@@ -887,7 +888,7 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
         </div>
     </div>
   <header class="navbar">
-    <div class="logo"><img src="img/logo3.png" alt=""></div>
+    <div class="logo"><img src="img/logo.png" alt=""></div>
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
@@ -896,7 +897,7 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
         <li><a href="index3.html">DÉCORATION</a></li>
         <li><a href="index4.html">MAGASINS</a></li>
         <li id="openContact"><a href="#">CONTACT</a></li>
-        <li><a href="/login" class="btn btn-secondary">CONNEXION</a></li>
+        <li><a href="login.html" class="btn btn-secondary">CONNEXION</a></li>
       </ul>
     </nav>
     <div class="nav-icons">
@@ -926,8 +927,68 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
 
   <section class="products">
     <h2>Nouveaux Article</h2>
-    <div onclick="openPage()" class="product-list">
-      <div class="product-card">
+    <div  class="product-list">
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img1.jpeg" alt="Salon" />
+        <h4>Nouveau ensemble chic</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img2.jpeg" alt="Buffet" />
+        <h4>Meubles & armoires</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img3.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img4.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img5.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img6.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img1.jpeg" alt="Salon" />
+        <h4>Nouveau ensemble chic</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img2.jpeg" alt="Buffet" />
+        <h4>Meubles & armoires</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img3.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img4.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img5.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
+        <img src="img/img6.jpeg" alt="Blanc design" />
+        <h4>Blanc contemporain</h4>
+        
+      </div>
+      <div onclick="openPage()" class="product-card">
         <img src="img/img1.jpeg" alt="Salon" />
         <h4>Nouveau ensemble chic</h4>
         
