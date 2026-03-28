@@ -462,7 +462,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #f6f3f1;
+background: linear-gradient(
+    to bottom,
+    #144D4D 0%,
+    #144D4D 88%,
+    #f5f7f6 95%,
+    #f9fbfa 100%
+  );
   
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-top: 5px solid #C9A349; 
@@ -498,7 +504,7 @@ nav ul {
 }
 nav a {
   text-decoration: none;
-  color: #C9A349;
+  color: whitesmoke;
   position: relative;
   transition: color 0.3s ease;
   font-weight: bolder;
@@ -525,18 +531,20 @@ nav a:hover::after {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  position: relative; 
 }
+
 .nav-icons input {
-  padding: 10px 25px;
+  padding: 10px 40px 10px 15px; 
   border: 3px solid #b99b6b;
   border-radius: 18px;
   transition: all 0.3s ease;
   width: 42vh;
   height: 40px;
-
 }
+
 .nav-icons input::placeholder {
-  color: #b99b6b;
+  color: #144D4D;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
 }
@@ -546,17 +554,13 @@ nav a:hover::after {
   border-color: #b99b6b;
   box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
 }
-.btn-connexion {
-  background-color: #014537;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.1rem;
-  border-radius: 15px;
+
+#btn-search {
+  position: absolute;
+  right: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.btn-connexion:hover {
-  background-color: #a48858;
+  color: #144D4D;
+  font-size: 18px;
 }
 
    .container {
@@ -672,13 +676,13 @@ nav a:hover::after {
     }
     .nom-magasin span {
       font-size: 25px;
-      color: #014537;
+      color: #144D4D;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bolder;
     }
     .price {
       font-size: 25px;
-      color: #014537;
+      color: #144D4D;
       margin-bottom: 20px;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bolder;
@@ -689,7 +693,7 @@ nav a:hover::after {
       margin-bottom: 5px;
       font-family: 'Times New Roman', Times, serif;
       font-weight: bolder;
-      color: #014537;
+      color: #144D4D;
       font-size: 20px;
     }
     #selectedColorLabel, #selectedSizeLabel {
@@ -704,7 +708,7 @@ nav a:hover::after {
 
     .actions h1 {
       font-size: 24px;
-      color: #014537;
+      color: #144D4D;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bolder;
     }
@@ -829,7 +833,7 @@ nav a:hover::after {
                 </div>
                 <div class="plateforme">
                 <span>notre plateforme<button id="toggleBtn">+</button></span>
-                 <p id="message" style="display: none;color: #014537;">
+                 <p id="message" style="display: none;color: #144D4D;">
 Notre plateforme est un espace en ligne qui regroupe et présente les dernières tendances et décorations disponibles dans les magasins de différentes villes marocaines, afin de faciliter la recherche et l’achat aussi bien pour les clients que pour les architectes d’intérieur.
 Nous ne vendons pas les produits : nous affichons uniquement ce qui est disponible en magasin, avec des informations utiles telles que la possibilité de livraison, les coordonnées et la localisation du magasin.
 Toutes les ventes et livraisons sont gérées directement par les magasins. Pour toute question ou problème lié au service ou à la livraison, veuillez contacter directement le magasin concerné.
@@ -867,16 +871,20 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
+        <li><a href="nouveau.html">NOUVEAUTES</a></li>
         <li><a href="index2.html">MEUBLES</a></li>
         <li><a href="index3.html">DÉCORATION</a></li>
         <li><a href="index4.html">MAGASINS</a></li>
         <li id="openContact"><a href="#">CONTACT</a></li>
+        <li><a href="login.html" class="btn btn-secondary">CONNEXION</a></li>
       </ul>
     </nav>
     <div class="nav-icons">
-      <input id="search-input" type="text" placeholder="Chercher..." />
-      <div id="suggestions"></div>
-      <button id="btn-search" class="btn-connexion">Connexion</button>
+     <input id="search-input" type="text" placeholder="Chercher..." />
+
+     <i id="btn-search" class="btn-connexion fa fa-search"></i>
+
+     <div id="suggestions"></div>
     </div>
   </header>
   <div class="container">
