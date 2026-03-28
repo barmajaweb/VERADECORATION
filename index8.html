@@ -455,28 +455,37 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
- padding: 2rem  1.2rem;
-   background: #f6f3f1;
-
+  padding: 1rem 2rem;
+background: linear-gradient(
+    to bottom,
+    #144D4D 0%,
+    #144D4D 88%,
+    #f5f7f6 95%,
+    #f9fbfa 100%
+  );
+  
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-top: 5px solid #C9A349; 
   border-right: 5px solid #C9A349;
-  border-left: 5px solid #C9A349; 
+   border-left: 5px solid #C9A349; 
    height: 80px;
 }
 .logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c2b6c;
   cursor: pointer;
   animation: logoEntrance 0.8s ease-out forwards;
   transition: transform 0.4s ease, color 0.3s ease;
-  
+
 }
 .logo img {
-  width:12vw;
+  width: 150px;
   height: auto;
   transition: transform 0.7s ease;
 }
@@ -490,20 +499,16 @@ body {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1vw;
-  
-  width: 40vw;
+  gap: 1.5rem;
 }
 nav a {
   text-decoration: none;
-  color: #C9A349;
+  color: whitesmoke;
   position: relative;
   transition: color 0.3s ease;
   font-weight: bolder;
   font-family: 'Poppins', sans-serif;
-  margin-left: 2vw;
-  background-color: #efeeeb;
-  font-size:1.1vw;
+  margin-left: 10px;
 }
 nav a::after {
   content: '';
@@ -523,25 +528,24 @@ nav a:hover::after {
 }
 .nav-icons {
   display: flex;
-  gap: 0.5vw;
+  gap: 0.5rem;
   align-items: center;
+  position: relative; 
 }
+
 .nav-icons input {
- 
+  padding: 10px 40px 10px 15px; 
   border: 3px solid #b99b6b;
   border-radius: 18px;
   transition: all 0.3s ease;
-  width: 22vw;
-  height: 2.5vw;
-  padding: 0.7rem 1rem;
-
+  width: 42vh;
+  height: 40px;
 }
+
 .nav-icons input::placeholder {
-  color: #b99b6b;
+  color: #144D4D;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
-  font-size: 1vw;
-
 }
 
 .nav-icons input:focus {
@@ -549,18 +553,13 @@ nav a:hover::after {
   border-color: #b99b6b;
   box-shadow: 0 0 5px rgba(185, 155, 107, 0.5);
 }
-.btn-connexion {
-  background-color: #014537;
-  color: #fff;
-  border: none;
-  padding: 0.6vw 1vw;
-  border-radius: 15px;
+
+#btn-search {
+  position: absolute;
+  right: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 1vw;
-}
-.btn-connexion:hover {
-  background-color: #a48858;
+  color: #144D4D;
+  font-size: 18px;
 }
     .carousel {
       position: relative;
@@ -599,7 +598,7 @@ nav a:hover::after {
 }
 
 .arrow {
-  background-color: #014537;
+  background-color: #144D4D;
   opacity: 0.5;
   width: 8%;
   height: 10%;
@@ -614,7 +613,7 @@ nav a:hover::after {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  color:  #014537;
+  color:  #144D4D;
 }
 
 .arrow.left {
@@ -635,7 +634,7 @@ nav a:hover::after {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.85);
-  color: #014537;
+  color: #144D4D;
   padding: 12px 24px;
   border-radius: 25px;
   font-weight: bold;
@@ -664,13 +663,13 @@ nav a:hover::after {
   
 }
 .filters h2 {
-  color: #014537;
+  color: #144D4D;
   margin-bottom: 20px;
 }
 .filters label {
   font-weight: bolder;
   margin-right: 10px;
-  color: #014537;
+  color: #144D4D;
   font-size: 20px;
 }
 .filters select, .filters input[type="checkbox"] {
@@ -678,8 +677,8 @@ nav a:hover::after {
   margin-right: 20px;
   padding: 5px 10px;
   border-radius: 7px;
-  border: 3px solid #014537;
-  color: #014537;
+  border: 3px solid #144D4D;
+  color: #144D4D;
   font-weight: bolder;
   width: 10%;
 }
@@ -743,20 +742,20 @@ nav a:hover::after {
 
     .card-body h3 {
       margin: 0;
-      color: #014537;
+      color: #144D4D;
       font-size: 18px;
       margin-top: -16%;
     }
 
     .card-body .location {
-      color: #014537;
+      color: #144D4D;
       font-size: 14px;
       font-weight: bold;
       margin-top: 10px;
     }
 
     .card-body .vendeur {
-      color: #014537;
+      color: #144D4D;
       font-size: 14px;
       font-weight: bold;
       margin-top: 10px;
@@ -777,7 +776,7 @@ nav a:hover::after {
     }
 
     .card-body button {
-      background-color: #014537;
+      background-color: #144D4D;
       color: white;
       border: none;
       padding: 6px 12px;
@@ -817,13 +816,13 @@ nav a:hover::after {
   pointer-events: auto;
 }
 .filteres h2 {
-  color: #014537;
+  color: #144D4D;
   margin-bottom: 20px;
 }
 .filteres label {
   font-weight: bolder;
   margin-right: 10px;
-  color: #014537;
+  color: #144D4D;
   font-size: 20px;
 }
 .filteres select, .filteres input[type="checkbox"] {
@@ -831,8 +830,8 @@ nav a:hover::after {
   margin-right: 20px;
   padding: 5px 10px;
   border-radius: 7px;
-  border: 3px solid #014537;
-  color: #014537;
+  border: 3px solid #144D4D;
+  color: #144D4D;
   font-weight: bolder;
   width: 10%;
 }
@@ -964,7 +963,7 @@ nav a:hover::after {
                 </div>
                 <div class="plateforme">
                 <span>notre plateforme<button id="toggleBtn">+</button></span>
-                 <p id="message" style="display: none;color: #014537;">
+                 <p id="message" style="display: none;color: #144D4D;">
 Notre plateforme est un espace en ligne qui regroupe et présente les dernières tendances et décorations disponibles dans les magasins de différentes villes marocaines, afin de faciliter la recherche et l’achat aussi bien pour les clients que pour les architectes d’intérieur.
 Nous ne vendons pas les produits : nous affichons uniquement ce qui est disponible en magasin, avec des informations utiles telles que la possibilité de livraison, les coordonnées et la localisation du magasin.
 Toutes les ventes et livraisons sont gérées directement par les magasins. Pour toute question ou problème lié au service ou à la livraison, veuillez contacter directement le magasin concerné.
@@ -1002,16 +1001,20 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
+        <li><a href="nouveau.html">NOUVEAUTES</a></li>
         <li><a href="index2.html">MEUBLES</a></li>
         <li><a href="index3.html">DÉCORATION</a></li>
         <li><a href="index4.html">MAGASINS</a></li>
         <li id="openContact"><a href="#">CONTACT</a></li>
+        <li><a href="login.html" class="btn btn-secondary">CONNEXION</a></li>
       </ul>
     </nav>
     <div class="nav-icons">
-      <input id="search-input" type="text" placeholder="Chercher..." />
-      <div id="suggestions"></div>
-      <button id="btn-search" class="btn-connexion">Connexion</button>
+     <input id="search-input" type="text" placeholder="Chercher..." />
+
+     <i id="btn-search" class="btn-connexion fa fa-search"></i>
+
+     <div id="suggestions"></div>
     </div>
   </header>
   <div class="filters">
@@ -1066,12 +1069,12 @@ Si vous vous rendez dans un magasin et ne trouvez pas l’article recherché ou 
     </div>
   </div>
   <button class="arrow left" onclick="prevSlide()">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#014537" class="size-6" style="transform: rotate(180deg);">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#144D4D" class="size-6" style="transform: rotate(180deg);">
       <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
     </svg>
   </button>
   <button class="arrow right" onclick="nextSlide()">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#014537" class="size-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#144D4D" class="size-6">
       <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
     </svg>
   </button>
